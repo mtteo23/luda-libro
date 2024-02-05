@@ -12,15 +12,15 @@ using namespace std;
 ///p=numero di pagina, c=cambia colore, l=link
 sf::Font font;
 float lCar[256];
-int indPag=1;
+int indPagina=0;
 
-void specSeqColore(char tipo, char arg, sf::Text* testoPagina, sf::RenderWindow* window)
+void specSeqColore(char tipo, int arg, sf::Text* testoPagina, sf::RenderWindow* window)
 {
     const sf::Color colore[5]={sf::Color::Red, sf::Color::Green, sf::Color::Blue, sf::Color::Yellow, sf::Color::Black};
     switch(tipo)
     {
         case 'c':
-            testoPagina->setFillColor(colore[arg-'a']);
+            testoPagina->setFillColor(colore[arg]);
         break;
 
         case 'p':
@@ -36,7 +36,9 @@ void specSeqColore(char tipo, char arg, sf::Text* testoPagina, sf::RenderWindow*
                 {
                     testoPagina->setFillColor(colore[1]);
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-                        indPag=2;
+                    {
+                        indPagina=arg;
+                    }
                 }
             }
 
@@ -47,7 +49,8 @@ void specSeqColore(char tipo, char arg, sf::Text* testoPagina, sf::RenderWindow*
 void visualizza(sf::RenderWindow* window, string testo)
 {
     bool specSeq=0;
-    char tipo=0, arg=0;
+    char tipo=0;
+    int arg=0;
     float c=0;//colonna
     int r=0;//riga
     float margA=100;
@@ -59,6 +62,57 @@ void visualizza(sf::RenderWindow* window, string testo)
 
     for(int i=0; i<testo.size(); i++)
     {
+        if(specSeq)
+        {
+            if(testo[i]=='/')
+            {
+                specSeq=0;
+                arg=-1;
+                tipo=0;
+                testoPagina.setFillColor(sf::Color(255, 255, 255));
+            }
+        }
+        else
+        {
+            if(testo[i]=='/')
+            {
+                specSeq=1;
+                tipo=testo[i+1];
+
+                int k=testo.substr(i).find(" ");
+                arg=stoi(testo.substr(i+2, k-2));
+                i+=k+1;
+            }
+
+            if(testo[i]=='#')
+            {
+                specSeq=1;
+                tipo='p';
+                arg=0;
+            }
+
+            if(testo[i]=='\n' || c>20)
+            {
+                r++;
+                c=0;
+            }
+        }
+        if(testo[i]!='\n' && testo[i]!='/' && testo[i]!='#')
+        {
+            testoPagina.setPosition(margS+(c*16), margA+(r*32));
+            c+=lCar[testo[i]];
+            if(i>testo.size()-1) break;
+            testoPagina.setString(testo.substr(i, 1));
+            specSeqColore(tipo, arg, &testoPagina, window);
+            window->draw(testoPagina);
+        }
+    }
+}
+
+
+/*
+
+
         if(specSeq)
         {
             if(testo[i]=='/')
@@ -119,12 +173,13 @@ void visualizza(sf::RenderWindow* window, string testo)
                 window->draw(testoPagina);
             }
         }
-    }
 
+    }
 }
-string caricaPag(int indPagina)
+*/
+string caricaLibro(string titolo)
 {
-    ifstream fin("pag"+to_string(indPagina)+".txt");
+    ifstream fin(titolo+".txt");
     string ret="";
     while(!fin.eof())
     {
@@ -132,6 +187,7 @@ string caricaPag(int indPagina)
         getline(fin, buff);
         ret+=buff+"\n";
     }
+    fin.close();
     return ret;
 }
 
@@ -140,6 +196,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(LarghezzaSchermo, AltezzaSchermo), "Display");
     window.setPosition(sf::Vector2i(-10, 0));
     string testo="#0/";
+    string pagina[10000];
+    int nPagine=0;
 
     for(int i=0; i<256; i++) lCar[i]=1;
     {
@@ -165,6 +223,19 @@ int main()
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...
 
+    testo=caricaLibro("Libro0");
+    int inizio=0, fine=0, lunghezza=0;
+    for(int i=0; fine!=testo.size()-1; i++)
+    {
+        inizio=testo.find("#"+to_string(i)+"/");
+        fine=testo.find("#"+to_string(i+1)+"/");
+        if(fine==string::npos)  fine=testo.size()-1;
+        lunghezza=fine-inizio;
+        pagina[i]=testo.substr(inizio, lunghezza);
+        nPagine=i+1;
+    }
+
+
     sf::Event event;
     while (window.isOpen())
     {
@@ -174,11 +245,7 @@ int main()
                 window.close();
         }
         window.clear();
-        if(indPag!=stoi(testo.substr(1, 1)))
-        {
-            testo=caricaPag(indPag);
-        }
-        visualizza(&window, testo);
+        visualizza(&window, pagina[indPagina]);
         window.display();
     }
 

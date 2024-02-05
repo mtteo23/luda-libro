@@ -29,6 +29,7 @@ void specSeqColore(char tipo, int arg, sf::Text* testoPagina, sf::RenderWindow* 
 
         case 'l':
             testoPagina->setFillColor(colore[0]);
+            testoPagina->setStyle(sf::Text::Underlined);
             {
                 sf::Vector2f posMouse=sf::Vector2f(sf::Mouse::getPosition(*window));
                 sf::FloatRect box=testoPagina->getGlobalBounds();
@@ -70,6 +71,7 @@ void visualizza(sf::RenderWindow* window, string testo)
                 arg=-1;
                 tipo=0;
                 testoPagina.setFillColor(sf::Color(255, 255, 255));
+                testoPagina.setStyle(sf::Text::Regular);
             }
         }
         else

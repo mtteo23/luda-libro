@@ -13,6 +13,11 @@ using namespace std;
 sf::Font font;
 float lCar[256];
 int indPagina=0;
+int AltezzaCarattere=20;
+float MargA=100;
+float MargS=300;
+float LarghezzaPagina=LarghezzaSchermo-2*MargS;
+
 
 void specSeqColore(char tipo, int arg, sf::Text* testoPagina, sf::RenderWindow* window)
 {
@@ -54,14 +59,12 @@ void visualizza(sf::RenderWindow* window, string testo)
     int arg=0;
     float c=0;//colonna
     int r=0;//riga
-    float margA=100;
-    float margS=300;
     sf::Text testoPagina;
     testoPagina.setFont(font);
-    testoPagina.setCharacterSize(32);
+    testoPagina.setCharacterSize(AltezzaCarattere);
     testoPagina.setFillColor(sf::Color(255, 255, 255));
 
-    for(int i=0; i<testo.size(); i++)
+    for(unsigned int i=0; i<testo.size(); i++)
     {
         if(specSeq)
         {
@@ -80,7 +83,6 @@ void visualizza(sf::RenderWindow* window, string testo)
             {
                 specSeq=1;
                 tipo=testo[i+1];
-
                 int k=testo.substr(i).find(" ");
                 arg=stoi(testo.substr(i+2, k-2));
                 i+=k+1;
@@ -93,15 +95,15 @@ void visualizza(sf::RenderWindow* window, string testo)
                 arg=0;
             }
 
-            if(testo[i]=='\n' || c>20)
+            if(testo[i]=='\n' || c*AltezzaCarattere/2+150*(testo[i]==' ')>LarghezzaPagina)
             {
                 r++;
                 c=0;
             }
         }
-        if(testo[i]!='\n' && testo[i]!='/' && testo[i]!='#')
+        if(testo[i]!='\n' && testo[i]!='/' && testo[i]!='#' && !(testo[i]==' ' && c==0))
         {
-            testoPagina.setPosition(margS+(c*16), margA+(r*32));
+            testoPagina.setPosition(MargS+(c*AltezzaCarattere/2), MargA+(r*AltezzaCarattere));
             c+=lCar[testo[i]];
             if(i>testo.size()-1) break;
             testoPagina.setString(testo.substr(i, 1));
@@ -205,38 +207,56 @@ int main()
     {
         lCar['\t']=2;
         lCar['\n']=0;
+        lCar[',']=0.3;
+        lCar['.']=0.4;
 
-        lCar['a']=1;
+        lCar['a']=1.1;
         lCar['e']=1.1;
-        lCar['i']=0.6;
+        lCar['i']=0.4;
         lCar['o']=1.1;
-        lCar['u']=0.6;
+        lCar['u']=1.2;
+        lCar['j']=0.4;
 
+        lCar['f']=0.7;
+        lCar['g']=1.2;
         lCar['l']=0.5;
-        lCar['t']=0.8;
+        lCar['t']=0.7;
         lCar['r']=0.8;
         lCar['w']=1.8;
         lCar['m']=1.8;
+        lCar['n']=1.2;
 
-        lCar['C']=1.2;
+        lCar['A']=1.3;
+        lCar['E']=1.3;
+        lCar['I']=0.5;
+        lCar['O']=1.3;
+        lCar['U']=1.3;
+
+        lCar['B']=1.3;
+        lCar['C']=1.4;
+        lCar['D']=1.4;
+        lCar['F']=1.4;
+        lCar['G']=1.5;
+        lCar['H']=1.4;
+        lCar['V']=1.5;
+        lCar['R']=1.6;
+
     }
-
 
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...
 
     testo=caricaLibro("Libro0");
-    int inizio=0, fine=0, lunghezza=0;
+    unsigned int inizio=0, fine=0, lunghezza=0;
     for(int i=0; fine!=testo.size()-1; i++)
     {
-        inizio=testo.find("#"+to_string(i)+"/");
-        fine=testo.find("#"+to_string(i+1)+"/");
+        inizio=testo.find("#"+to_string(i)+" ");
+        fine=testo.find("#"+to_string(i+1)+" ");
         if(fine==string::npos)  fine=testo.size()-1;
         lunghezza=fine-inizio;
         pagina[i]=testo.substr(inizio, lunghezza);
         nPagine=i+1;
     }
-
 
     sf::Event event;
     while (window.isOpen())

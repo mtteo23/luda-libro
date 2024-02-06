@@ -1,7 +1,8 @@
-#0/
-Test /c0 testo/ scritto
-a capo
-/l1 Vai alla pag 1/
-#1/
-/c2 Complimenti/ sei arrivato alla pagina /c0 1/
-#2/
+#0 Antaux parolo/
+En cxi tiu libro vi vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektro por lumi la nokton aux vaporo por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble gxi estas kiel ekstere  nur mensogoj aux fantazioj.
+Vi vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli cxi tiu komerca lingvon: la lingvon de cxiu kaj neniu.
+Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega tempeston trovi vin en plena maro, nun vi devas batali por viaj vivoj en cxi tion akvan dezerton.
+/l1 Komencu via adventuro/
+#1 Komenco/
+La nuban kaj malhelan cxielon eklumigas fulmo. Vento kaj pluvo frapas vian vizajxon dim vi finas ligi la lastan snuron de la granda velo.
+#2 / 

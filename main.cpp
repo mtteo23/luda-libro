@@ -12,34 +12,87 @@ using namespace std;
 ///p=numero di pagina, c=cambia colore, l=link
 //Paragrafo A(normale) Link Colore Nota Oggetto
 sf::Font font;
-int AltezzaCarattere=20;
+int AltezzaCarattere=28;
 float MargA=100;
 float MargS=300;
 float LarghezzaPagina=LarghezzaSchermo-2*MargS;
+float prop=AltezzaSchermo/700;
+
+int cronoPagine[10000]={0};
+int indCP=0, nCP=0;
 
 struct Sezione
 {
     string testo="";//principale, a capo
-    int lung=0;
+    float lung=0;
     sf::Vector2f posizione;
     sf::Color colore=sf::Color::White;
     int arg=0;
     char tipo='a';
 };
 
-void visualizza(sf::RenderWindow* window, Sezione sezione[], int nSez)
+void visualizza(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagina)
 {
+    float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     sf::Text testoPagina;
     testoPagina.setFont(font);
     testoPagina.setCharacterSize(AltezzaCarattere);
 
     for(int i=0; i<nSez; i++)
     {
-        testoPagina.setString(sezione[i].testo);
+        float c=0;
         testoPagina.setFillColor(sezione[i].colore);
-        testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(MargS, MargA));
-        window->draw(testoPagina);
+        for(int j=0; j<sezione[i].testo.size(); j++)
+        {
+            testoPagina.setString(sezione[i].testo.substr(j, 1));
+            testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(MargS, MargA)+sf::Vector2f(c*AltezzaCarattere/2, 0));
+            window->draw(testoPagina);
+            c+=lC[sezione[i].testo[j]];
+        }
     }
+
+    sf::RectangleShape barraS(sf::Vector2f(MargS*9/10.f, AltezzaSchermo));
+    barraS.setPosition(0, 0);
+    barraS.setFillColor(sf::Color::White);
+    window->draw(barraS);
+
+    sf::RectangleShape barraD(sf::Vector2f(MargS*9/10.f, AltezzaSchermo));
+    barraD.setPosition(LarghezzaSchermo-MargS*9/10, 0);
+    barraD.setFillColor(sf::Color::White);
+    window->draw(barraD);
+
+    sf::RectangleShape barraA(sf::Vector2f(LarghezzaSchermo, MargA*9/10));
+    barraA.setPosition(0, 0);
+    barraA.setFillColor(sf::Color::White);
+    window->draw(barraA);
+
+    sf::RectangleShape barraB(sf::Vector2f(LarghezzaSchermo, MargA*9/10));
+    barraB.setPosition(0, AltezzaSchermo-MargA*9/10);
+    barraB.setFillColor(sf::Color::White);
+    window->draw(barraB);
+
+    static bool PulsanteParagrafoPrecedentePremuto=0;
+    sf::RectangleShape PulsanteParagrafoPrecedente(sf::Vector2f(50.f, 50.f)*prop);
+    PulsanteParagrafoPrecedente.setPosition((MargS*9/10-50*prop)/2, AltezzaSchermo-(MargA*9/10+50.f*prop)/2);
+    PulsanteParagrafoPrecedente.setFillColor(sf::Color::Red);
+    if(PulsanteParagrafoPrecedente.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+    {
+        PulsanteParagrafoPrecedente.setFillColor(sf::Color::Green);
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteParagrafoPrecedentePremuto=1;
+        else
+        {
+            if(PulsanteParagrafoPrecedentePremuto)
+            {
+                cout<<"\nPulsante premuto "<<indCP;
+                PulsanteParagrafoPrecedentePremuto=0;
+                indCP--;
+                indPagina=cronoPagine[indCP];
+                indCP--;
+            }
+        }
+    }
+    window->draw(PulsanteParagrafoPrecedente);
 }
 
 int disseziona(string testo, Sezione sezione[])
@@ -106,9 +159,9 @@ int disseziona(string testo, Sezione sezione[])
                 if(sezione[indSez].tipo=='a' || 1)
                 {
                     indSez++;
-                    sezione[indSez].tipo='a';
-                    sezione[indSez].arg=0;
-                    sezione[indSez].colore=sf::Color::White;
+                    sezione[indSez].tipo=sezione[indSez-1].tipo;
+                    sezione[indSez].arg=sezione[indSez-1].arg;
+                    sezione[indSez].colore=sezione[indSez-1].colore;
                     sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
                 }
                 else
@@ -127,9 +180,8 @@ int disseziona(string testo, Sezione sezione[])
     return indSez+1;
 }
 
-bool azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPagina)
+void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPagina)
 {
-    bool cPag=0;
     for(int i=0; i<nSez; i++)
     {
         if(sezione[i].tipo=='l')
@@ -140,7 +192,21 @@ bool azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                 {
                     indPagina=sezione[i].arg;
-                    cPag=1;
+                }
+            }
+            else
+            {
+                sezione[i].colore=sf::Color::Red;
+            }
+        }
+        if(sezione[i].tipo=='n')
+        {
+            if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y, sezione[i].lung*AltezzaCarattere/2, AltezzaCarattere).contains(mouse))
+            {
+                sezione[i].colore=sf::Color::Green;
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+                {
+                    indPagina=sezione[i].arg;
                 }
             }
             else
@@ -149,7 +215,6 @@ bool azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
             }
         }
     }
-    return cPag;
 }
 
 string caricaLibro(string titolo)
@@ -174,8 +239,6 @@ int main()
     string pagina[10000];
     int nPagine=0;
     int indPagina=0;
-    int cronoPagine[100000];
-    int indCP=0, nCP=0;
 
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...
@@ -203,13 +266,31 @@ int main()
                 window.close();
         }
         window.clear();
-        if(azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina))
+        if(indCP<0)
         {
-            visualizza(&window, sezione, nSez);
+            indCP=0;
+            nCP=1;
+            cronoPagine[indCP]=0;
             nSez=disseziona(pagina[indPagina], sezione);
         }
-        else
-            visualizza(&window, sezione, nSez);
+        if(cronoPagine[indCP]!=indPagina)
+        {
+            indCP++;
+            nCP=indCP+1;
+            cronoPagine[indCP]=indPagina;
+            nSez=disseziona(pagina[indPagina], sezione);
+            /*
+            for(int i=0; i<nSez; i++)
+            {
+                cout<<"\n\nSezione "<<i<<"testo: "<<sezione[i].testo;
+                cout<<"\nlunghezza "<<sezione[i].lung;
+                cout<<"\nX "<<sezione[i].posizione.x;
+                cout<<"\nY"<<sezione[i].posizione.y;
+            }
+            */
+        }
+        azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina);
+        visualizza(&window, sezione, nSez, indPagina);
         window.display();
     }
 

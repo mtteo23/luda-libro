@@ -1,19 +1,26 @@
 #0 Antaux parolo/
-En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektro por lumi la nokton aux vaporo por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
+
+En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektron por lumi la nokton aux vaporon por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
 Ci vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli la komerca lingvon: cxies kaj nenies lingvon.
 Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
 Komencu via adventuro cxe /l1 1/
 #1 La komenco/
+
 La nuban kaj malhelan cxielon eklumigas fulmo. Vento kaj pluvo frapas vian vizajxon dum vi rapide portas la lastajn ajxojn en la ventro de la sxipo. La sxtormo nun tumultegas kaj klinas la Glenkoro tien kaj reen, estos tre dangxera resti plie sur la ferdeko. Vi preskaux fermis la pordon kiam vi ekvidas ke snuro de la granda velo ne estas ligita kaj la vento jam komencis etendi la teksajxon. Se gxi restus malfermita dum la stormo, la velo riskas sxirigxi sin kaj vi restos blokita en plena maro, for de teron.
-Se ci volas provi reiri sur la ferdeko kaj riski kadi maren por ligi la snuron iru cxe /l2 2/, se vi volas fermi la pordon kaj esperi ke la velo ne rompigxas iru cxe /l3 3/ 
+Se ci volas provi reiri sur la ferdeko kaj riski kadi maren por ligi la snuron iru cxe /l2 2/, se vi volas fermi la pordon kaj esperi ke la velo ne rompigxas iru cxe /l3 3/
 #2 Malligita snuro/
+
 Ci malantaux rigardas, viaj gefratoj estas lacegataj de la sxtormo, ci devos solvi la aferon sen ilia helpo. Antaux la sxtormo ec malbonigxas vi kuras al la velo kaj religas la snuron.
 Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis krampi al la sxipon aux ne? Jetu moneron, se gxi falas sur la numeron iru cxe /l4 4/, alie iru /l5 5/.
 #3 La  sxtormvocxo/
+
 Ekstere la sxtormo tumultegas la maron kaj fortegaj sonoj alvenas en la sxipventro. Vi auxdas terure la sxirigxon de granda teksajxon: la velo rompigxis, /c1 kreu noto/ /n10 rompita velo/, vi devos repari gxin por torni teren, kompreneble se vi travivos la sxtormego. Iru cxe /l6 6/
 #4 Submare/
+
 #5 Sana reeno/
+
 #6 Sxipruino/
+
 #7 /
 #8 /
 #9 /

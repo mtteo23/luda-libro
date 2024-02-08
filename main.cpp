@@ -10,192 +10,148 @@
 
 using namespace std;
 ///p=numero di pagina, c=cambia colore, l=link
+//Paragrafo A(normale) Link Colore Nota Oggetto
 sf::Font font;
-float lCar[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-int indPagina=0;
 int AltezzaCarattere=20;
 float MargA=100;
 float MargS=300;
 float LarghezzaPagina=LarghezzaSchermo-2*MargS;
 
-
-void specSeqColore(char tipo, int arg, sf::Text* testoPagina, sf::RenderWindow* window)
+struct Sezione
 {
-    const sf::Color colore[5]={sf::Color::Red, sf::Color::Green, sf::Color::Blue, sf::Color::Yellow, sf::Color::Black};
-    switch(tipo)
-    {
-        case 'c':
-            testoPagina->setFillColor(colore[arg]);
-        break;
-
-        case 'p':
-            testoPagina->setFillColor(colore[0]);
-        break;
-
-        case 'l':
-            testoPagina->setFillColor(colore[0]);
-            testoPagina->setStyle(sf::Text::Underlined);
-            {
-                sf::Vector2f posMouse=sf::Vector2f(sf::Mouse::getPosition(*window));
-                sf::FloatRect box=testoPagina->getGlobalBounds();
-                if(box.contains(posMouse))
-                {
-                    testoPagina->setFillColor(colore[1]);
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-                    {
-                        indPagina=arg;
-                    }
-                }
-            }
-        case 'n':
-            testoPagina->setFillColor(colore[0]);
-            testoPagina->setStyle(sf::Text::Underlined);
-            {
-                sf::Vector2f posMouse=sf::Vector2f(sf::Mouse::getPosition(*window));
-                sf::FloatRect box=testoPagina->getGlobalBounds();
-                if(box.contains(posMouse))
-                {
-                    testoPagina->setFillColor(colore[1]);
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-                    {
-                        indPagina=arg;
-                    }
-                }
-            }
-
-        break;
-    }
-}
-
-void visualizza(sf::RenderWindow* window, string testo)
-{
-    bool specSeq=0;
-    char tipo=0;
+    string testo="";//principale, a capo
+    int lung=0;
+    sf::Vector2f posizione;
+    sf::Color colore=sf::Color::White;
     int arg=0;
-    float c=0;//colonna
-    int r=0;//riga
+    char tipo='a';
+};
+
+void visualizza(sf::RenderWindow* window, Sezione sezione[], int nSez)
+{
     sf::Text testoPagina;
     testoPagina.setFont(font);
     testoPagina.setCharacterSize(AltezzaCarattere);
-    testoPagina.setFillColor(sf::Color(255, 255, 255));
 
+    for(int i=0; i<nSez; i++)
+    {
+        testoPagina.setString(sezione[i].testo);
+        testoPagina.setFillColor(sezione[i].colore);
+        testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(MargS, MargA));
+        window->draw(testoPagina);
+    }
+}
+
+int disseziona(string testo, Sezione sezione[])
+{
+    float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    float c=0;
+    int r=0;
+    int indSez=0;
+    for(int i=0; i<100; i++)
+    {
+        sezione[i].testo="";
+        sezione[i].arg=0;
+        sezione[i].tipo='a';
+        sezione[i].colore=sf::Color::White;
+        sezione[i].posizione=sf::Vector2f(0.f, 0.f);
+        sezione[i].lung=0;
+    }
     for(unsigned int i=0; i<testo.size(); i++)
     {
-        if(specSeq)
+        if(testo[i]=='/' || testo[i]=='#')
         {
+            if(sezione[indSez].lung>0 || sezione[indSez].tipo!='a')
+                indSez++;
             if(testo[i]=='/')
             {
-                specSeq=0;
-                arg=-1;
-                tipo=0;
-                testoPagina.setFillColor(sf::Color(255, 255, 255));
-                testoPagina.setStyle(sf::Text::Regular);
+                i++;
+                if(testo[i]==' ' || testo[i]=='\n' || testo[i]==',' || testo[i]=='.' || testo[i]==':' || testo[i]==';')
+                {
+                    sezione[indSez].tipo='a';
+                    sezione[indSez].arg=0;
+                    sezione[indSez].colore=sf::Color::White;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
+                    i--;
+                }
+                else//speciale
+                {
+                    sezione[indSez].tipo=testo[i];
+                    i++;
+                    int k=testo.substr(i).find(" ");
+                    sezione[indSez].arg=stoi(testo.substr(i, k));
+                    i+=k;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
+                    sezione[indSez].colore=sf::Color::Red;
+                }
+            }
+            else//#
+            {
+                i++;
+                sezione[indSez].tipo='p';
+                int k=testo.substr(i).find(" ");
+                sezione[indSez].arg=stoi(testo.substr(i, k));
+                i+=k;
+                sezione[indSez].colore=sf::Color::Red;
+                sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
             }
         }
         else
         {
-            if(testo[i]=='/')
+            int lungProsParola=testo.substr(i+1).find(" ");
+            if(testo[i]=='\n' || (c+lungProsParola)*AltezzaCarattere/2>LarghezzaPagina)
             {
-                specSeq=1;
-                tipo=testo[i+1];
-                int k=testo.substr(i).find(" ");
-                arg=stoi(testo.substr(i+2, k-2));
-                i+=k+1;
-            }
-
-            if(testo[i]=='#')
-            {
-                specSeq=1;
-                tipo='p';
-                arg=0;
-            }
-
-            if(testo[i]=='\n' || c*AltezzaCarattere/2+150*(testo[i]==' ')>LarghezzaPagina)
-            {
-                r++;
                 c=0;
-            }
-        }
-        if(testo[i]!='\n' && testo[i]!='/' && testo[i]!='#' && !(testo[i]==' ' && c==0))
-        {
-            testoPagina.setPosition(MargS+(c*AltezzaCarattere/2), MargA+(r*AltezzaCarattere));
-            c+=lCar[testo[i]];
-            if(i>testo.size()-1) break;
-            testoPagina.setString(testo.substr(i, 1));
-            specSeqColore(tipo, arg, &testoPagina, window);
-            window->draw(testoPagina);
-        }
-    }
-}
-
-
-/*
-
-
-        if(specSeq)
-        {
-            if(testo[i]=='/')
-            {
-                specSeq=0;
-                arg=0;
-                tipo=0;
-                testoPagina.setFillColor(sf::Color(255, 255, 255));
-            }
-            else
-            {
-                if(arg!=0 && tipo!=0)
+                r++;
+                if(sezione[indSez].tipo=='a' || 1)
                 {
-                    testoPagina.setPosition(margS+(c*16), margA+(r*32));
-                    specSeqColore(tipo, arg, &testoPagina, window);
-                    c+=lCar[testo[i]];
-                    testoPagina.setString(testo.substr(i, 1));
-                    window->draw(testoPagina);
+                    indSez++;
+                    sezione[indSez].tipo='a';
+                    sezione[indSez].arg=0;
+                    sezione[indSez].colore=sf::Color::White;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
                 }
                 else
                 {
-                    if(tipo!=0)
-                    {
-                        arg=testo[i];
-                        specSeqColore(tipo, arg, &testoPagina, window);
-                    }
-                    else
-                    {
-                        tipo=testo[i];
-                    }
+                    //Work in progress
                 }
             }
-        }
-        else
-        {
-            if(testo[i]=='/')
+            else
             {
-                specSeq=1;
-            }
-            if(testo[i]=='#')
-            {
-                specSeq=1;
-                tipo='p';
-                arg='z';
-            }
-
-            if(testo[i]=='\n' || c>20)
-            {
-                r++;
-                c=0;
-            }
-
-            if(testo[i]!='\n' && !specSeq)
-            {
-                testoPagina.setPosition(margS+(c*16), margA+(r*32));
-                c+=lCar[testo[i]];
-                testoPagina.setString(testo.substr(i, 1));
-                window->draw(testoPagina);
+                sezione[indSez].testo+=testo.substr(i, 1);
+                sezione[indSez].lung+=lC[testo[i]];
+                c+=lC[testo[i]];
             }
         }
-
     }
+    return indSez+1;
 }
-*/
+
+bool azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPagina)
+{
+    bool cPag=0;
+    for(int i=0; i<nSez; i++)
+    {
+        if(sezione[i].tipo=='l')
+        {
+            if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y, sezione[i].lung*AltezzaCarattere/2, AltezzaCarattere).contains(mouse))
+            {
+                sezione[i].colore=sf::Color::Green;
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+                {
+                    indPagina=sezione[i].arg;
+                    cPag=1;
+                }
+            }
+            else
+            {
+                sezione[i].colore=sf::Color::Red;
+            }
+        }
+    }
+    return cPag;
+}
+
 string caricaLibro(string titolo)
 {
     ifstream fin(titolo+".txt");
@@ -217,6 +173,7 @@ int main()
     string testo="#0/";
     string pagina[10000];
     int nPagine=0;
+    int indPagina=0;
     int cronoPagine[100000];
     int indCP=0, nCP=0;
 
@@ -234,6 +191,8 @@ int main()
         pagina[i]=testo.substr(inizio, lunghezza);
         nPagine=i+1;
     }
+    Sezione sezione[100];
+    int nSez=disseziona(pagina[indPagina], sezione);
 
     sf::Event event;
     while (window.isOpen())
@@ -244,7 +203,13 @@ int main()
                 window.close();
         }
         window.clear();
-        visualizza(&window, pagina[indPagina]);
+        if(azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina))
+        {
+            visualizza(&window, sezione, nSez);
+            nSez=disseziona(pagina[indPagina], sezione);
+        }
+        else
+            visualizza(&window, sezione, nSez);
         window.display();
     }
 

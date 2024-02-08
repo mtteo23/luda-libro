@@ -11,7 +11,7 @@
 using namespace std;
 ///p=numero di pagina, c=cambia colore, l=link
 sf::Font font;
-float lCar[256];
+float lCar[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 int indPagina=0;
 int AltezzaCarattere=20;
 float MargA=100;
@@ -33,6 +33,21 @@ void specSeqColore(char tipo, int arg, sf::Text* testoPagina, sf::RenderWindow* 
         break;
 
         case 'l':
+            testoPagina->setFillColor(colore[0]);
+            testoPagina->setStyle(sf::Text::Underlined);
+            {
+                sf::Vector2f posMouse=sf::Vector2f(sf::Mouse::getPosition(*window));
+                sf::FloatRect box=testoPagina->getGlobalBounds();
+                if(box.contains(posMouse))
+                {
+                    testoPagina->setFillColor(colore[1]);
+                    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+                    {
+                        indPagina=arg;
+                    }
+                }
+            }
+        case 'n':
             testoPagina->setFillColor(colore[0]);
             testoPagina->setStyle(sf::Text::Underlined);
             {
@@ -202,46 +217,8 @@ int main()
     string testo="#0/";
     string pagina[10000];
     int nPagine=0;
-
-    for(int i=0; i<256; i++) lCar[i]=1;
-    {
-        lCar['\t']=2;
-        lCar['\n']=0;
-        lCar[',']=0.3;
-        lCar['.']=0.4;
-
-        lCar['a']=1.1;
-        lCar['e']=1.1;
-        lCar['i']=0.4;
-        lCar['o']=1.1;
-        lCar['u']=1.2;
-        lCar['j']=0.4;
-
-        lCar['f']=0.7;
-        lCar['g']=1.2;
-        lCar['l']=0.5;
-        lCar['t']=0.7;
-        lCar['r']=0.8;
-        lCar['w']=1.8;
-        lCar['m']=1.8;
-        lCar['n']=1.2;
-
-        lCar['A']=1.3;
-        lCar['E']=1.3;
-        lCar['I']=0.5;
-        lCar['O']=1.3;
-        lCar['U']=1.3;
-
-        lCar['B']=1.3;
-        lCar['C']=1.4;
-        lCar['D']=1.4;
-        lCar['F']=1.4;
-        lCar['G']=1.5;
-        lCar['H']=1.4;
-        lCar['V']=1.5;
-        lCar['R']=1.6;
-
-    }
+    int cronoPagine[100000];
+    int indCP=0, nCP=0;
 
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...

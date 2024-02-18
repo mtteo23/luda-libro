@@ -199,11 +199,11 @@ bool risolvi(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8])
     return 1;
 }
 
-sf::Texture disegnaIntreccio(float fR, float fC)
+sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
 {
     #define LargTile 8
-    int r=fR/LargTile;
-    int c=fC/LargTile;
+    int r=dimIntrSchermata.y/LargTile;
+    int c=dimIntrSchermata.x/LargTile;
     unsigned char poss[100][100];
     bool adatto[8][4][8];//tileA, dir, tileB
     int tile[100][100];
@@ -464,7 +464,18 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
 
 int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 {
-    {///Home
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(LarghezzaSchermo, 0);
+    window->draw(barraD);
+
+    {///Gioca
         sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2);
         sf::Vector2f diff(3.f, 3.f);
 
@@ -660,18 +671,18 @@ string caricaLibro(string titolo)
     return ret;
 }
 
-int main()
+void caricamento(sf::RenderWindow* window, string pagina[10000], Sezione sezione[100], int &nPagine, int &indPagina, int &nSez, string &testo)
 {
-    sf::RenderWindow window(sf::VideoMode(LarghezzaSchermo, AltezzaSchermo), "Display");
-    window.setPosition(sf::Vector2i(-10, 0));
-    string testo="#0/";
-    string pagina[10000];
-    int nPagine=0;
-    int indPagina=0;
-    int schermata=gioca;
-
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...
+
+    window->clear();
+    sf::Text testoCaricamento;
+    testoCaricamento.setFont(font);
+    testoCaricamento.setString("Caricamento in corso\nAttendere prego");
+    testoCaricamento.setPosition((LarghezzaSchermo-testoCaricamento.getGlobalBounds().width)/2, (AltezzaSchermo-testoCaricamento.getGlobalBounds().height)/2);
+    window->draw(testoCaricamento);
+    window->display();
 
     testo=caricaLibro("Libro0");
     unsigned int inizio=0, fine=0, lunghezza=0;
@@ -684,11 +695,32 @@ int main()
         pagina[i]=testo.substr(inizio, lunghezza);
         nPagine=i+1;
     }
-    Sezione sezione[100];
-    int nSez=disseziona(pagina[indPagina], sezione);
+    nSez=disseziona(pagina[indPagina], sezione);
+}
 
-    sf::Texture intreccio=disegnaIntreccio(AltezzaSchermo, MargS*9/10);
-    sf::Texture intreccioR=disegnaIntreccio(AltezzaSchermo, MargS*9/10);
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(LarghezzaSchermo, AltezzaSchermo), "Display");
+    window.setPosition(sf::Vector2i(-10, 0));
+
+    string testo="#0/";
+    Sezione sezione[100];
+    int nSez=0;
+    string pagina[10000];
+    int nPagine=0;
+    int indPagina=0;
+
+    caricamento(&window, pagina, sezione, nPagine, indPagina, nSez, testo);
+
+    sf::Vector2f dimIntrSchermata[5];
+    dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
+    dimIntrSchermata[gioca]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+
+    sf::Texture intreccio=disegnaIntreccio(dimIntrSchermata[home]);
+    sf::Texture intreccioR[2]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca])};
+
+
+    int schermata=home, schermataS=home;
 
     sf::Event event;
     while (window.isOpen())
@@ -706,18 +738,24 @@ int main()
             cronoPagine[indCP]=0;
             nSez=disseziona(pagina[indPagina], sezione);
         }
+        bool cambioPagina=0;
         if(cronoPagine[indCP]!=indPagina)
         {
+            cambioPagina=1;
             indCP++;
             nCP=indCP+1;
             cronoPagine[indCP]=indPagina;
             nSez=disseziona(pagina[indPagina], sezione);
-            intreccio=intreccioR;
+        }
 
+        if(cambioPagina || schermata!=schermataS)
+        {
+            schermataS=schermata;
+            intreccio=intreccioR[schermata];
             azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina);
             visualizza(&window, schermata, sezione, nSez, indPagina, intreccio);
             window.display();
-            intreccioR=disegnaIntreccio(AltezzaSchermo, MargS*9/10);
+            intreccioR[schermata]=disegnaIntreccio(dimIntrSchermata[schermata]);
         }
         else
         {

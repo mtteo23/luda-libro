@@ -1,5 +1,10 @@
 #0 Antaux parolo/
 
+/n10 rompita velo/
+/n11 rompita velo/
+/n12 rompita velo/
+/n13 rompita velo/
+
 En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektron por lumi la nokton aux vaporon por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
 Ci vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli la komerca lingvon: cxies kaj nenies lingvon.
 Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
@@ -17,7 +22,7 @@ Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis kramp
 
 #3 Sxtormvocxo/
 
-Ekstere la sxtormo tumultegas la maron kaj fortegaj sonoj alvenas en la sxipventro. Vi auxdas terure la sxirigxon de granda teksajxon: la velo rompigxis, /c1 kreu noto/ /n10 rompita velo/, vi devos repari gxin por torni teren. Poste du horoj ci ne plu povas batali la lacego kaj ekdormas. Iru cxe /l6 6/
+Ekstere la sxtormo tumultegas la maron kaj fortegaj sonoj alvenas en la sxipventro. Vi auxdas terure la sxirigxon de granda teksajxon: la velo rompigxis, /c1 kreu noto/ /n10 rompita velo/, vi devos repari gxin por torni teren. Poste du horoj ci ne plu povas batali la lacego kaj ekdormas. Iru cxe /l6 6/ 
 
 #4 Submare/
 
@@ -41,7 +46,7 @@ Se ci volas uzi viajn vestajxojn iru cxe /l8 8/, alie, se ci volas provi supreni
 
 #8 Vestajxvelo/
 
-#9 Sangoplena Sxipo/
+#9 Sangoplena sxipo/
 
 #10 rompita velo/
 

@@ -347,7 +347,7 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
 }
 ///./////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagina, sf::Texture intreccio)
+int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagina, sf::Texture intreccio, string nomePagina[10000], int nota[100], int &nNote)
 {
     float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
@@ -374,11 +374,65 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
     barraS.setPosition(0, 0);
     window->draw(barraS);
 
+    sf::Text testoNote;
+    testoNote.setFont(font);
+    testoNote.setCharacterSize(AltezzaCarattere);
+    testoNote.setStyle(sf::Text::Regular);
+    static int notaAperta=nNote;
+    for(int i=0; i<nNote; i++)
+    {
+        testoNote.setFillColor(sf::Color(200, 200, 200));
+        testoNote.setString(nomePagina[nota[i]]+" ["+to_string(nota[i])+"]");
+        testoNote.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA+(i+(notaAperta<i))*AltezzaCarattere));
+        if(testoNote.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            testoNote.setFillColor(sf::Color::White);
+            notaAperta=i;
+        }
+        if(notaAperta==i)
+        {
+            sf::Vector2f pos(testoNote.getGlobalBounds().left, testoNote.getGlobalBounds().top), siz(testoNote.getGlobalBounds().width, testoNote.getGlobalBounds().height*2);
+            if(sf::FloatRect(pos, siz).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+            {
+                testoNote.setFillColor(sf::Color::White);
+                {//opzioni nota
+
+                    sf::Text testoOpzioni;
+                    testoOpzioni.setFont(font);
+                    testoOpzioni.setCharacterSize(AltezzaCarattere*4/5);
+                    testoOpzioni.setStyle(sf::Text::Regular);
+
+                    //vidu
+                    testoOpzioni.setString("vidu");
+                    testoOpzioni.setFillColor(sf::Color(200, 200, 200));
+                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA+(i+1)*AltezzaCarattere));
+                    window->draw(testoOpzioni);
+                    //uzu
+                    testoOpzioni.setString("uzu");
+                    testoOpzioni.setFillColor(sf::Color(200, 200, 200));
+                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+2*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+                    window->draw(testoOpzioni);
+                    //visxu
+                    testoOpzioni.setString("visxu");
+                    testoOpzioni.setFillColor(sf::Color(200, 200, 200));
+                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+4*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+                    window->draw(testoOpzioni);
+                }
+            }
+            else
+            {
+                notaAperta=nNote;
+            }
+        }
+        window->draw(testoNote);
+    }
+
     sf::Sprite barraD;
     barraD.setTexture(intreccio);
     barraD.scale(-1.f, 1.f);
     barraD.setPosition(LarghezzaSchermo, 0);
-    window->draw(barraD);
+    if(!barraD.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        window->draw(barraD);
 
 
     {///Paragrafo precedente
@@ -515,7 +569,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
     return home;
 }
 
-void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int nSez, int &indPagina, sf::Texture intreccio)
+void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int nSez, int &indPagina, sf::Texture intreccio, string nomePagina[10000], int nota[100], int &nNote)
 {
     float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
@@ -526,7 +580,7 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int
         break;
 
         case gioca:
-            schermata=visGioca(window, sezione, nSez, indPagina, intreccio);
+            schermata=visGioca(window, sezione, nSez, indPagina, intreccio, nomePagina, nota, nNote);
         break;
 
         case impostazioni:
@@ -620,7 +674,7 @@ int disseziona(string testo, Sezione sezione[])
     return indSez+1;
 }
 
-void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPagina)
+void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPagina, int nota[100], int &nNote)
 {
     for(int i=0; i<nSez; i++)
     {
@@ -646,7 +700,14 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
                 sezione[i].colore=sf::Color::Green;
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                 {
-                    indPagina=sezione[i].arg;
+                    bool presente=0;
+                    for(int j=0; j<nNote; j++)
+                        presente=presente || (nota[j]==sezione[i].arg);
+                    if(!presente)
+                    {
+                        nota[nNote]=sezione[i].arg;
+                        nNote++;
+                    }
                 }
             }
             else
@@ -671,7 +732,7 @@ string caricaLibro(string titolo)
     return ret;
 }
 
-void caricamento(sf::RenderWindow* window, string pagina[10000], Sezione sezione[100], int &nPagine, int &indPagina, int &nSez, string &testo)
+void caricamento(sf::RenderWindow* window, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &indPagina, int &nSez, string &testo)
 {
     if (!font.loadFromFile("arial.ttf"))
         cout<<"Errore";// error...
@@ -692,6 +753,7 @@ void caricamento(sf::RenderWindow* window, string pagina[10000], Sezione sezione
         fine=testo.find("#"+to_string(i+1)+" ");
         if(fine==string::npos)  fine=testo.size()-1;
         lunghezza=fine-inizio;
+        nomePagina[i]=testo.substr(inizio).substr(testo.find(" ")+2, testo.substr(inizio).find("/")-4);
         pagina[i]=testo.substr(inizio, lunghezza);
         nPagine=i+1;
     }
@@ -704,13 +766,19 @@ int main()
     window.setPosition(sf::Vector2i(-10, 0));
 
     string testo="#0/";
+
     Sezione sezione[100];
     int nSez=0;
+
+    string nomePagina[10000];
     string pagina[10000];
     int nPagine=0;
     int indPagina=0;
 
-    caricamento(&window, pagina, sezione, nPagine, indPagina, nSez, testo);
+    int nota[100];
+    int nNote=0;
+
+    caricamento(&window, pagina, nomePagina, sezione, nPagine, indPagina, nSez, testo);
 
     sf::Vector2f dimIntrSchermata[5];
     dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
@@ -752,17 +820,23 @@ int main()
         {
             schermataS=schermata;
             intreccio=intreccioR[schermata];
-            azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina);
-            visualizza(&window, schermata, sezione, nSez, indPagina, intreccio);
+            azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina, nota, nNote);
+            visualizza(&window, schermata, sezione, nSez, indPagina, intreccio, nomePagina, nota, nNote);
             window.display();
             intreccioR[schermata]=disegnaIntreccio(dimIntrSchermata[schermata]);
         }
         else
         {
-            azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina);
-            visualizza(&window, schermata, sezione, nSez, indPagina, intreccio);
+            azionaIpertesto(sezione, nSez, sf::Vector2f(sf::Mouse::getPosition(window))-sf::Vector2f(MargS, MargA), indPagina, nota, nNote);
+            visualizza(&window, schermata, sezione, nSez, indPagina, intreccio, nomePagina, nota, nNote);
             window.display();
         }
+        /*
+        cout<<"\n\n\nNote:"<<nNote;
+        for(int i=0; i<nNote; i++)
+        {
+            cout<<"\n"<<nomePagina[nota[i]]<<" ["<<nota[i]<<"]";
+        }*/
     }
 
     return 0;

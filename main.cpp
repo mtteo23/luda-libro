@@ -29,6 +29,7 @@ struct Sezione
     float lung=0;
     sf::Vector2f posizione;
     sf::Color colore=sf::Color::White;
+    sf::Text::Style stile=sf::Text::Regular;
     int arg=0;
     char tipo='a';
 };
@@ -360,6 +361,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
     {
         float c=0;
         testoPagina.setFillColor(sezione[i].colore);
+        testoPagina.setStyle(sezione[i].stile);
         for(int j=0; j<sezione[i].testo.size(); j++)
         {
             testoPagina.setString(sezione[i].testo.substr(j, 1));
@@ -377,6 +379,12 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
     sf::Text testoNote;
     testoNote.setFont(font);
     testoNote.setCharacterSize(AltezzaCarattere);
+    testoNote.setStyle(sf::Text::Bold);
+
+    testoNote.setString("------Notoj-----");
+    testoNote.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA/2));
+    window->draw(testoNote);
+
     testoNote.setStyle(sf::Text::Regular);
     static int notaAperta=nNote;
     for(int i=0; i<nNote; i++)
@@ -391,7 +399,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
         }
         if(notaAperta==i)
         {
-            sf::Vector2f pos(testoNote.getGlobalBounds().left, testoNote.getGlobalBounds().top), siz(testoNote.getGlobalBounds().width, testoNote.getGlobalBounds().height*2);
+            sf::Vector2f pos(testoNote.getGlobalBounds().left, testoNote.getGlobalBounds().top), siz(MargS*8/10, testoNote.getGlobalBounds().height*2);
             if(sf::FloatRect(pos, siz).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
             {
                 testoNote.setFillColor(sf::Color::White);
@@ -406,16 +414,67 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
                     testoOpzioni.setString("vidu");
                     testoOpzioni.setFillColor(sf::Color(200, 200, 200));
                     testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA+(i+1)*AltezzaCarattere));
+
+                    static bool viduPremuto=0;
+                    if(testoOpzioni.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+                    {
+                        testoOpzioni.setStyle(sf::Text::Bold);
+                        testoOpzioni.setFillColor(sf::Color::White);
+                        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) viduPremuto=1;
+                        else{
+                            if(viduPremuto)
+                            {
+                                viduPremuto=0;
+                                indPagina=nota[i];
+                            }
+                        }
+                    }
+
                     window->draw(testoOpzioni);
                     //uzu
                     testoOpzioni.setString("uzu");
+                    testoOpzioni.setStyle(sf::Text::Regular);
                     testoOpzioni.setFillColor(sf::Color(200, 200, 200));
                     testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+2*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+
+                    static bool uzuPremuto=0;
+                    if(testoOpzioni.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+                    {
+                        testoOpzioni.setStyle(sf::Text::Bold);
+                        testoOpzioni.setFillColor(sf::Color::White);
+                        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) uzuPremuto=1;
+                        else{
+                            if(uzuPremuto)
+                            {
+                                uzuPremuto=0;
+                                indPagina+=nota[i];
+                            }
+                        }
+                    }
+
                     window->draw(testoOpzioni);
                     //visxu
                     testoOpzioni.setString("visxu");
+                    testoOpzioni.setStyle(sf::Text::Regular);
                     testoOpzioni.setFillColor(sf::Color(200, 200, 200));
                     testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+4*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+
+                    static bool visxuPremuto=0;
+                    if(testoOpzioni.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+                    {
+                        testoOpzioni.setStyle(sf::Text::Bold);
+                        testoOpzioni.setFillColor(sf::Color::White);
+                        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) visxuPremuto=1;
+                        else{
+                            if(visxuPremuto)
+                            {
+                                visxuPremuto=0;
+                                nNote--;
+                                for(int j=i; j<nNote; j++)  nota[j]=nota[j+1];
+                            }
+                        }
+                    }
+
                     window->draw(testoOpzioni);
                 }
             }
@@ -433,6 +492,11 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
     barraD.setPosition(LarghezzaSchermo, 0);
     if(!barraD.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         window->draw(barraD);
+
+    sf::RectangleShape barraB(sf::Vector2f(LarghezzaSchermo-2*MargS, MargA));
+    barraB.setFillColor(sf::Color::Black);
+    barraB.setPosition(MargS, AltezzaSchermo-MargA);
+    window->draw(barraB);
 
 
     {///Paragrafo precedente
@@ -467,6 +531,55 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, int &indPagi
                     indCP--;
                     indPagina=cronoPagine[indCP];
                     indCP--;
+                }
+            }
+        }
+        window->draw(PulsantePP1);
+        window->draw(PulsantePP2);
+        window->draw(PulsantePP3);
+    }
+
+    {///Paragrafo scelto
+        sf::Vector2f pos(MargS+70*prop, AltezzaSchermo-(MargA*9/10+60.f*prop)/2);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsantePP1(sf::Vector2f(120.f, 60.f)*prop);
+        PulsantePP1.setPosition(pos*prop);
+        PulsantePP1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsantePP2(sf::Vector2f(114.f, 54.f)*prop);
+        PulsantePP2.setPosition((pos+diff)*prop);
+        PulsantePP2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsantePP3(sf::Vector2f(108.f, 48.f)*prop);
+        PulsantePP3.setPosition((pos+2.f*diff)*prop);
+        PulsantePP3.setFillColor(sf::Color::Black);
+
+        static bool PulsanteParagrafoPrecedentePremuto=0;
+        static bool staDigitando=0;
+        static int prossimoParagrafo=0;
+        if(staDigitando)
+        {
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+            {
+                staDigitando=0;
+                indPagina=prossimoParagrafo;
+                prossimoParagrafo=0;
+            }
+        }
+        if(PulsantePP1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsantePP1.setFillColor(sf::Color::White);
+            PulsantePP2.setFillColor(sf::Color::Black);
+            PulsantePP3.setFillColor(sf::Color::White);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteParagrafoPrecedentePremuto=1;
+            else
+            {
+                if(PulsanteParagrafoPrecedentePremuto)
+                {
+                    PulsanteParagrafoPrecedentePremuto=0;
+                    staDigitando=1;
                 }
             }
         }
@@ -615,6 +728,7 @@ int disseziona(string testo, Sezione sezione[])
                 i++;
                 if(testo[i]==' ' || testo[i]=='\n' || testo[i]==',' || testo[i]=='.' || testo[i]==':' || testo[i]==';')
                 {
+                    sezione[indSez].stile=sf::Text::Regular;
                     sezione[indSez].tipo='a';
                     sezione[indSez].arg=0;
                     sezione[indSez].colore=sf::Color::White;
@@ -623,23 +737,26 @@ int disseziona(string testo, Sezione sezione[])
                 }
                 else//speciale
                 {
+                    sezione[indSez].stile=sf::Text::Regular;
                     sezione[indSez].tipo=testo[i];
                     i++;
                     int k=testo.substr(i).find(" ");
                     sezione[indSez].arg=stoi(testo.substr(i, k));
                     i+=k;
                     sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
-                    sezione[indSez].colore=sf::Color::Red;
+                    sezione[indSez].colore=sf::Color(200, 200, 200);
                 }
             }
             else//#
             {
                 i++;
+                sezione[indSez].stile=sf::Text::Bold;
                 sezione[indSez].tipo='p';
                 int k=testo.substr(i).find(" ");
                 sezione[indSez].arg=stoi(testo.substr(i, k));
+                sezione[indSez].testo+=to_string(sezione[indSez].arg)+" - ";
                 i+=k;
-                sezione[indSez].colore=sf::Color::Red;
+                sezione[indSez].colore=sf::Color::White;
                 sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2, r*AltezzaCarattere);
             }
         }
@@ -653,6 +770,7 @@ int disseziona(string testo, Sezione sezione[])
                 if(sezione[indSez].tipo=='a' || 1)
                 {
                     indSez++;
+                    sezione[indSez].stile=sezione[indSez-1].stile;
                     sezione[indSez].tipo=sezione[indSez-1].tipo;
                     sezione[indSez].arg=sezione[indSez-1].arg;
                     sezione[indSez].colore=sezione[indSez-1].colore;
@@ -682,7 +800,8 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
         {
             if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y, sezione[i].lung*AltezzaCarattere/2, AltezzaCarattere).contains(mouse))
             {
-                sezione[i].colore=sf::Color::Green;
+                sezione[i].colore=sf::Color::White;
+                sezione[i].stile=sf::Text::Bold;
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                 {
                     indPagina=sezione[i].arg;
@@ -690,14 +809,16 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
             }
             else
             {
-                sezione[i].colore=sf::Color::Red;
+                sezione[i].stile=sf::Text::Regular;
+                sezione[i].colore=sf::Color(100, 100, 100);
             }
         }
         if(sezione[i].tipo=='n')
         {
             if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y, sezione[i].lung*AltezzaCarattere/2, AltezzaCarattere).contains(mouse))
             {
-                sezione[i].colore=sf::Color::Green;
+                sezione[i].colore=sf::Color::White;
+                sezione[i].stile=sf::Text::Bold;
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                 {
                     bool presente=0;
@@ -712,7 +833,8 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::Vector2f mouse, int &indPa
             }
             else
             {
-                sezione[i].colore=sf::Color::Red;
+                sezione[i].stile=sf::Text::Regular;
+                sezione[i].colore=sf::Color(100, 100, 100);
             }
         }
     }

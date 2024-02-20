@@ -1,10 +1,5 @@
 #0 Antaux parolo/
 
-/n10 rompita velo/
-/n11 rompita velo/
-/n12 rompita velo/
-/n13 rompita velo/
-
 En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektron por lumi la nokton aux vaporon por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
 Ci vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli la komerca lingvon: cxies kaj nenies lingvon.
 Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
@@ -18,7 +13,7 @@ Se ci volas provi reiri sur la ferdeko kaj riski kadi maren por ligi la snuron i
 #2 Neligita snuro/
 
 Ci malantaux rigardas, viaj gefratoj estas lacegataj de la sxtormo, ci devos solvi la aferon sen ilia helpo. Antaux la sxtormo ec malbonigxas vi kuras al la velo kaj religas la snuron.
-Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis krampi al la sxipon aux ne? Jetu moneron, se gxi falas sur la numeron iru cxe /l4 4/, alie iru /l5  5/.
+Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis krampi al la sxipon aux ne? Jetu moneron, se gxi falas sur la numeron iru cxe /l23 23/, alie iru /l5  5/.
 
 #3 Sxtormvocxo/
 
@@ -26,7 +21,9 @@ Ekstere la sxtormo tumultegas la maron kaj fortegaj sonoj alvenas en la sxipvent
 
 #4 Submare/
 
-Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: "Ci estas for de hejmo etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al min obeadon mi salvos cin kaj ciajn gefratojn. Mi ne bezonas cin gxis cian morton, poste la plenumo de unu, eta misio mi cin liberos de la jxuron". La vocxo timigas cin. En cxi tiuj momentoj ci memoras kiel maljunuloj rakontis pri grandaj submaraj monstroj. Monstroj kiu dronigas sxipojn kaj sxipistojn, kiu povas movi kaj kalmi la maron kaj detruj grandaj urbojn. Ili cxiam estas malbonajn, kaj kiu faras nerompeblajn paktojn kun homoj por atingi iliaj nekompreneblajn celojn. Ci ne povos rompi cxi tion pakton poste, sed se ci ne faros gxin ci preskaux certe mortos. Ci havas malmultan tempon, se ci provas diri "Jes" iru cxe /l20  20/, alie iru cxe /l21 21/.
+Ci perdas /s1 unu sorton/.
+
+Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: "Ci estas for de hejmo etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al min obeadon mi salvos cin kaj ciajn gefratojn. Mi ne bezonas cin gxis cian morton, poste la plenumo de unu, eta misio mi cin liberos de la jxuron". La vocxo timigas cin. En cxi tiuj momentoj ci memoras kiel maljunuloj rakontis pri grandaj submaraj monstroj. Monstroj kiu dronigas sxipojn kaj sxipistojn, kiu povas movi kaj kalmi la maron kaj detruj grandaj urbojn. Ili cxiam estas malbonajn, kaj kiu faras nerompeblajn paktojn kun homoj por atingi iliaj nekompreneblajn celojn. Ci ne povos rompi cxi tion pakton poste, sed se ci ne faros gxin ci preskaux certe mortos. Ci havas malmultan tempon, se ci provas diri "Jes" iru cxe /l20  20/, alie iru cxe /l24 24/.
 
 #5 Sana reeno/
 
@@ -34,42 +31,100 @@ Ci forte krampas al la Glenkora ligno dum la sxipo ondegas kiel la maro cxirkaux
 
 #6 Sxipruino/
 
-Cia fratino Pino vekigxa cin kaj la aliajn fratojn. "Vi devas veni vidi: estas ion strangan ekstere" sxi diras kaj subite rekuras eksteren. Ci lace malfermas la okulojn. La sxtormo cxesis kaj la sxipo malmulte movas, krom [nome] ciaj fratoj ankoraux dormas sur la planko. Ili ne sxajnas malsanitaj do vi sekvas cia fratino ekstere.
+Cia fratino Pino vekigxa cin kaj la aliajn fratojn. "Vi devas veni vidi: estas ion strangan ekstere" sxi diras kaj subite rekuras eksteren. Ci lace malfermas la okulojn. La sxtormo cxesis kaj la sxipo malmulte movas, krom Pino ciaj fratoj ankoraux dormas sur la planko. Ili ne sxajnas malsanitaj do vi sekvas cia fratino ekstere.
 Antaux vin vi vidas grandega sxipo, longa preskaux dudek metroj, gxi estas klinita antauxe kaj sxajnas havi multajn da trouj sube. Sed la plej stranga kaj terura afero estas ke gxi estas tute kovrita de sango.
-Se ci havas la noton /c2 Rompita velo/ iru cxe /l7 7/ alie se ci volas veki la aliulojn kaj 
+Se ci havas la noton /c1 Rompita velo/ iru cxe /l7 7/ alie se ci volas veki la aliulojn kaj 
 
 #7 Grava bezono/
 
 Dum ci rigardas la sxipego cia fratino krias, sxi nur nun ekvidis la grandegan sxirmon de la velo. Preskaux duono de la vela teksajxo mankas kaj la alia duono estas trancxata en multaj ejoj: vi ne povos reparti sen ripari gxin.
-"Ni ne havas sufucxen da teksajo por povi reuzi la velon, kion ni faros?" diras cia fratino, ci povus uzi la teksagxon de viaj vestoj, sed vi riskas malsani kaj vi plie lacigos, vi poste devos reacxeti ilin kiam vi alvenos Rokon. Aux vi povus uzi la vela teksajxon de la sxipego antaux vin, sed gxi sxajnas teruran kaj dangxeran: ne estas normale kiel gxi estas tiom sangoplenan.
+"Ni ne havas sufucxen da teksajo por povi reuzi la velon, kion ni faros?" diras cia fratino, vi povus uzi la teksagxon de viaj vestoj, sed vi riskas malsani kaj vi plie lacigos, vi poste devos acxeti aliajn vestajxojn kiam vi alvenos Rokon. Aux vi povus uzi la vela teksajxon de la sxipego antaux vin, sed gxi sxajnas teruran kaj dangxeran: ne estas normale kiel gxi estas tiom sangoplenan.
 Se ci volas uzi viajn vestajxojn iru cxe /l8 8/, alie, se ci volas provi supreniri al la granda sxipo, iru cxe /l9 9/
 
 #8 Vestajxvelo/
+
+Ci ne riskos la vivojn de ciaj gefratetoj sennecese. Ci vekigxas cxius kaj vi komencas repari la grandan velon per viaj vestajxoj.
+/c1 Visxu la noton/ /c1 rompita velo/ kaj /c1 kreu la noton/ /n11 nuda sxipistaro/.
+
+Por daurxrigi iru cxe /l25 25/.
 
 #9 Sangoplena sxipo/
 
 #10 rompita velo/
 
+Via cxefa velo rompigxis kaj vi ankoraux ne reparis gxin. Reparu gxin tuj!
+
 #11 nuda sxipistaro/
+
+Vi reparis vian cxefan velon per viajn proprajn vestajxojn. Vi estas ankoraux nudaj: nepre trovu aux acxetu aliajn vestajxojn!
 
 #12 submara pakto/
 
-#13 /
-#14 /
-#15 /
-#16 /
-#17 /
-#18 /
-#19 /
-#20 Jxurinta/
+Ci faris pakton kun terura submara monstro. Nepre plenumi gxin tuj. Kaj kompreneble ne parolu libere pri gxin, ci estus ekzekutota.
 
+#13 /
+
+#14 /
+
+#15 /
+
+#16 /
+
+#17 /
+
+#18 /
+
+#19 /
+
+#20 Jxuranta/
+
+Ci provas jxuri kiel la monstro petas, sed la akvon plenas cian busxon sen lasi eliranti ciajn parolojn. Ci fermas la okulojn kaj svenas.
+/c1 Kreu noton/ /n12 submara pakto/
+Dauru cxe /l26 26/.
 
 #21 Senaere/
 
-Ci provas krii ke ci neniam servos homdronantajn monstrojn kaj pli gravajn insultojn, sed la akvon plenas cian busxon sen lasi eliranti ciajn parolojn. Ci fermas la okulojn kaj svenas.
+Ci perdas /s1 unu sorton/.
+
 Ci certis ke ci mortis sed ci sentas preskaux kiel aereo eniras en cia busxo. Ci malfermas la okuloj kaj vidas strangan junulinan vizagxon jxus preter cian nazon. Sxajnas ke ci ne mortos hodiaux.
 
-Sal', cxi tion parto ne dauxros en cxi tio libro, mi ankoraux ne skribis gxin kaj ne estos skribita skribita dum multe da tempo. Dankon por legi kaj alveni cxi tie, se vi volas vi povas reludi por alveni al plia interesa parto de la libron. Gxis! 
+Sal', cxi tion parto ne dauxros en cxi tio libro, mi ankoraux ne skribis gxin kaj ne skribos gxin dum multe da tempo. Dankon por legi kaj alveni cxi tie! se vi volas vi povas reludi por alveni al plia interesa parto de la libron. Gxis!
 -la skribiston
 
-#22 /
+#22 sortsalvo/
+
+Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin.
+
+Cxu ci havas almenaux unu /c1 sorton/? Cxu jes iru cxe /l4 4/ alie iru cxe /l23 23/.
+
+#23 dronita/
+Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis gxin ankaux haltas.
+
+Cia adventuro finas cxi tie.
+
+/l0 Rekomencu cxe 0/
+
+#24 sortsalvo/
+
+Ci provas krii ke ci neniam servos homdronantajn monstrojn kaj pli gravajn insultojn, sed la akvon plenas cian busxon sen lasi eliranti ciajn parolojn. Ci fermas la okulojn kaj svenas.
+
+Cxu ci havas almenaux unu /c1 sorton/? Cxu jes iru cxe /l21 21/ alie iru cxe /l23 23/.
+
+#25 al Roko/
+
+Vi rekomencas vian vojagxon al Roko. Espereble vi ne havos plie da okazajxacxojn.
+
+
+#26 nelogxita insulo/
+
+Ci vekigxas sur plagxo, la suno kalde brilas en la cxielo. Ci levigxas cin por kompreni kie ci estis forsendita.
+Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Alieflanke la plagxo tuj finas antaux pina arbaro, oni videblas birdojn kaj porkojn. Ci tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj. Iru cxe /l27 27/ 
+
+#27 senesperata rekunigxo/
+#28 /
+#29 /
+
+
+
+
+

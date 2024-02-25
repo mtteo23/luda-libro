@@ -13,7 +13,7 @@ Se ci volas provi reiri sur la ferdeko kaj riski kadi maren por ligi la snuron i
 #2 Neligita snuro/
 
 Ci malantaux rigardas, viaj gefratoj estas lacegataj de la sxtormo, ci devos solvi la aferon sen ilia helpo. Antaux la sxtormo ec malbonigxas vi kuras al la velo kaj religas la snuron.
-Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis krampi al la sxipon aux ne? Jetu moneron, se gxi falas sur la numeron iru cxe /l23 23/, alie iru /l5  5/.
+Grandega ondo frapas la Glenkoro kiu kvazaux renversigxas, cxu ci sulcesis krampi al la sxipon aux ne? Jetu moneron, se gxi falas sur la numeron iru cxe /l22 22/, alie iru /l5  5/.
 
 #3 Sxtormvocxo/
 
@@ -21,7 +21,7 @@ Ekstere la sxtormo tumultegas la maron kaj fortegaj sonoj alvenas en la sxipvent
 
 #4 Submare/
 
-Ci perdas /s1 unu sorton/.
+Ci perdas /s-1 unu sorton/.
 
 Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: "Ci estas for de hejmo etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al min obeadon mi salvos cin kaj ciajn gefratojn. Mi ne bezonas cin gxis cian morton, poste la plenumo de unu, eta misio mi cin liberos de la jxuron". La vocxo timigas cin. En cxi tiuj momentoj ci memoras kiel maljunuloj rakontis pri grandaj submaraj monstroj. Monstroj kiu dronigas sxipojn kaj sxipistojn, kiu povas movi kaj kalmi la maron kaj detruj grandaj urbojn. Ili cxiam estas malbonajn, kaj kiu faras nerompeblajn paktojn kun homoj por atingi iliaj nekompreneblajn celojn. Ci ne povos rompi cxi tion pakton poste, sed se ci ne faros gxin ci preskaux certe mortos. Ci havas malmultan tempon, se ci provas diri "Jes" iru cxe /l20  20/, alie iru cxe /l24 24/.
 
@@ -33,7 +33,7 @@ Ci forte krampas al la Glenkora ligno dum la sxipo ondegas kiel la maro cxirkaux
 
 Cia fratino Pino vekigxa cin kaj la aliajn fratojn. "Vi devas veni vidi: estas ion strangan ekstere" sxi diras kaj subite rekuras eksteren. Ci lace malfermas la okulojn. La sxtormo cxesis kaj la sxipo malmulte movas, krom Pino ciaj fratoj ankoraux dormas sur la planko. Ili ne sxajnas malsanitaj do vi sekvas cia fratino ekstere.
 Antaux vin vi vidas grandega sxipo, longa preskaux dudek metroj, gxi estas klinita antauxe kaj sxajnas havi multajn da trouj sube. Sed la plej stranga kaj terura afero estas ke gxi estas tute kovrita de sango.
-Se ci havas la noton /c1 Rompita velo/ iru cxe /l7 7/ alie se ci volas veki la aliulojn kaj 
+Se ci havas la noton /c1 Rompita velo/ iru cxe /l7 7/ alie se ci volas veki la aliulojn kaj esplori la stranga sanga sxipo iru cxe /l9 9/, se ci nur volas reparti sendangxere veku ciajn gefratojn kaj dauxru cxe /l25 25/.
 
 #7 Grava bezono/
 
@@ -84,7 +84,7 @@ Dauru cxe /l26 26/.
 
 #21 Senaere/
 
-Ci perdas /s1 unu sorton/.
+Ci perdas /s-1 unu sorton/.
 
 Ci certis ke ci mortis sed ci sentas preskaux kiel aereo eniras en cia busxo. Ci malfermas la okuloj kaj vidas strangan junulinan vizagxon jxus preter cian nazon. Sxajnas ke ci ne mortos hodiaux.
 
@@ -123,8 +123,4 @@ Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Al
 #27 senesperata rekunigxo/
 #28 /
 #29 /
-
-
-
-
 

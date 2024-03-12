@@ -384,6 +384,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
 
     ///---------------Sorto-----------------------
+    {
 
     sf::Text testoSorte;
     testoSorte.setFillColor(sf::Color::White);
@@ -430,7 +431,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 premutoM=0;
-                partita.sorte--;
+                partita.sorte=max(0, partita.sorte-1);
             }
         }
         else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoM=1;
@@ -443,7 +444,82 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     testoSorte.setString("-");
     window->draw(testoSorte);
 
+    }
 
+    ///-----------------strekoj------------------
+    {
+
+    sf::Text testoSbarre;
+    testoSbarre.setFillColor(sf::Color::White);
+    testoSbarre.setFont(font);
+    testoSbarre.setCharacterSize(AltezzaCarattere);
+    testoSbarre.setStyle(sf::Text::Bold);
+
+    testoSbarre.setPosition(sf::Vector2f(MargS*10/50, MargA/2+AltezzaCarattere*1.5f));
+    string txtSbarre="";
+    for(int i=0; i<partita.barre; i++)
+    {
+        if(i%10==0 && i) txtSbarre+="\n";
+        else
+        if(i%5==0 && i) txtSbarre+=" ";
+        txtSbarre+="/";
+
+    }
+    testoSbarre.setString(txtSbarre);
+    window->draw(testoSbarre);
+
+
+    static bool premutoP=0;
+
+    testoSbarre.setString("+");
+    testoSbarre.setPosition(sf::Vector2f(MargS*30/50, MargA/2+AltezzaCarattere*1.5f));
+    if(testoSbarre.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+    {
+        testoSbarre.setFillColor(sf::Color::White);
+        if(premutoP)
+        {
+            if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                premutoP=0;
+                partita.barre++;
+            }
+        }
+        else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoP=1;
+    }
+    else
+    {
+        testoSbarre.setFillColor(sf::Color(200, 200, 200));
+        premutoP=0;
+    }
+    window->draw(testoSbarre);
+
+
+    testoSbarre.setPosition(sf::Vector2f(MargS*35/50, MargA/2+AltezzaCarattere*1.5f));
+    static bool premutoM=0;
+    if(testoSbarre.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+    {
+        testoSbarre.setFillColor(sf::Color::White);
+        if(premutoM)
+        {
+            if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                premutoM=0;
+                partita.barre=max(0, partita.barre-1);
+            }
+        }
+        else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoM=1;
+    }
+    else
+    {
+        testoSbarre.setFillColor(sf::Color(200, 200, 200));
+        premutoM=0;
+    }
+    testoSbarre.setString("-");
+    window->draw(testoSbarre);
+
+    }
+
+    ///------------intreccio Sinistro
     sf::Sprite barraS;
     barraS.setTexture(intreccio);
     barraS.setPosition(0, 0);
@@ -594,12 +670,20 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         PulsantePP3.setPosition((pos+2.f*diff)*prop);
         PulsantePP3.setFillColor(sf::Color::Black);
 
+         sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("<<");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
         static bool PulsanteParagrafoPrecedentePremuto=0;
         if(PulsantePP1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window)))&& partita.indPagina!=0)
         {
             PulsantePP1.setFillColor(sf::Color::White);
             PulsantePP2.setFillColor(sf::Color::Black);
             PulsantePP3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
 
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteParagrafoPrecedentePremuto=1;
             else
@@ -616,6 +700,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         window->draw(PulsantePP1);
         window->draw(PulsantePP2);
         window->draw(PulsantePP3);
+        window->draw(etichetta);
     }
 
     {///Paragrafo scelto
@@ -634,11 +719,35 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         PulsantePP3.setPosition((pos+2.f*diff)*prop);
         PulsantePP3.setFillColor(sf::Color::Black);
 
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("  _ _ _ ");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+3.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
         static bool PulsanteParagrafoPrecedentePremuto=0;
         static bool staDigitando=0;
         static int prossimoParagrafo=0;
+        static bool numeroPremuto[10];
         if(staDigitando)
         {
+            etichetta.setString(to_string(prossimoParagrafo));
+            etichetta.setPosition((pos+3.f*diff)*prop);
+
+            sf::Keyboard::Key numKey[10]={sf::Keyboard::Num0, sf::Keyboard::Num1, sf::Keyboard::Num2, sf::Keyboard::Num3, sf::Keyboard::Num4, sf::Keyboard::Num5, sf::Keyboard::Num6, sf::Keyboard::Num7, sf::Keyboard::Num8, sf::Keyboard::Num9};
+            for(int i=0; i<10; i++)
+            {
+                if(sf::Keyboard::isKeyPressed(numKey[i]))   numeroPremuto[i]=1;
+                else
+                {
+                    if(numeroPremuto[i])
+                    {
+                        numeroPremuto[i]=0;
+                        prossimoParagrafo=(prossimoParagrafo*10+i)%1000;
+                    }
+                }
+            }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
             {
                 staDigitando=0;
@@ -651,6 +760,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             PulsantePP1.setFillColor(sf::Color::White);
             PulsantePP2.setFillColor(sf::Color::Black);
             PulsantePP3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
 
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteParagrafoPrecedentePremuto=1;
             else
@@ -665,6 +775,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         window->draw(PulsantePP1);
         window->draw(PulsantePP2);
         window->draw(PulsantePP3);
+        window->draw(etichetta);
     }
 
 
@@ -690,12 +801,20 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         PulsanteH3.setPosition((pos+diff*2.f)*prop);
         PulsanteH3.setFillColor(sf::Color::Black);
 
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(" H ");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+3.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
         static bool PulsanteHomePremuto=0;
         if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         {
             PulsanteH1.setFillColor(sf::Color::White);
             PulsanteH2.setFillColor(sf::Color::Black);
             PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
 
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
             else
@@ -710,6 +829,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         window->draw(PulsanteH1);
         window->draw(PulsanteH2);
         window->draw(PulsanteH3);
+        window->draw(etichetta);
     }
 
     return gioca;

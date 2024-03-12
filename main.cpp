@@ -20,7 +20,7 @@ float prop=AltezzaSchermo/700;
 
 int indCP=0, nCP=0;
 
-enum {home, gioca, impostazioni};
+enum {home, gioca, impostazioni, elencoLibri, elencoGiochi};
 
 struct Sezione
 {
@@ -529,6 +529,8 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
     ///-----------------Notoj-----------------
 
+    {
+
     sf::Text testoNote;
     testoNote.setFont(font);
     testoNote.setCharacterSize(AltezzaCarattere);
@@ -639,6 +641,9 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         window->draw(testoNote);
     }
 
+    }
+
+    ///-----------------Intreccio Destro
     sf::Sprite barraD;
     barraD.setTexture(intreccio);
     barraD.scale(-1.f, 1.f);
@@ -805,7 +810,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         etichetta.setFont(font);
         etichetta.setString(" H ");
         etichetta.setFillColor(sf::Color::White);
-        etichetta.setPosition((pos+3.f*diff)*prop);
+        etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
 
         static bool PulsanteHomePremuto=0;
@@ -848,7 +853,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
 
-    {///Gioca
+    {///Continua
         sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2);
         sf::Vector2f diff(3.f, 3.f);
 
@@ -864,12 +869,20 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         PulsanteH3.setPosition((pos+diff*2.f)*prop);
         PulsanteH3.setFillColor(sf::Color::Black);
 
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("Dauxru");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
         static bool PulsanteHomePremuto=0;
         if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         {
             PulsanteH1.setFillColor(sf::Color::White);
             PulsanteH2.setFillColor(sf::Color::Black);
             PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
 
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
             else
@@ -884,8 +897,201 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         window->draw(PulsanteH1);
         window->draw(PulsanteH2);
         window->draw(PulsanteH3);
+        window->draw(etichetta);
     }
+
+    {///Impostazioni
+        sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2+60);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(120.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(114.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(108.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("Impost");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return gioca;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
+    {///Elenco Libri
+        sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2+120);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(120.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(114.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(108.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("Enhavo");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return gioca;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
+
+    {///Elenco giochi
+        sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2+180);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(120.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(114.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(108.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("Ludaro");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return gioca;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
+
     return home;
+}
+
+int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
+{
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(LarghezzaSchermo, 0);
+    window->draw(barraD);
+
+    return impostazioni;
+}
+
+int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio)
+{
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(LarghezzaSchermo, 0);
+    window->draw(barraD);
+
+    return elencoLibri;
+}
+
+int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
+{
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(LarghezzaSchermo, 0);
+    window->draw(barraD);
+
+    return elencoGiochi;
 }
 
 void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int nSez, sf::Texture intreccio, string nomePagina[10000], int scroll)
@@ -901,7 +1107,15 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int
         break;
 
         case impostazioni:
+            schermata=visImpostazioni(window, intreccio);
+        break;
 
+        case elencoLibri:
+            schermata=visElencoLibri(window, intreccio);
+        break;
+
+        case elencoGiochi:
+            schermata=visElencoGiochi(window, intreccio);
         break;
     }
 }
@@ -1190,9 +1404,11 @@ int main()
     sf::Vector2f dimIntrSchermata[5];
     dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
     dimIntrSchermata[gioca]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+    dimIntrSchermata[impostazioni]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+    dimIntrSchermata[elencoLibri]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
 
     sf::Texture intreccio=disegnaIntreccio(dimIntrSchermata[home]);
-    sf::Texture intreccioR[2]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca])};
+    sf::Texture intreccioR[4]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca]), disegnaIntreccio(dimIntrSchermata[impostazioni]), disegnaIntreccio(dimIntrSchermata[elencoLibri])};
 
 
     int schermata=home, schermataS=home;

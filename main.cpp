@@ -214,8 +214,8 @@ bool risolvi(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8])
 sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
 {
     #define LargTile 8
-    int r=dimIntrSchermata.y/LargTile;
-    int c=dimIntrSchermata.x/LargTile;
+    int r=dimIntrSchermata.y/LargTile/2+4;
+    int c=dimIntrSchermata.x/LargTile+2;
     unsigned char poss[100][100];
     bool adatto[8][4][8];//tileA, dir, tileB
     int tile[100][100];
@@ -226,15 +226,15 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
     for(int i=0; i<r; i++)  for(int j=0; j<c; j++)  tile[i][j]=collassa(poss[i][j]);
 
     sf::RenderTexture tavola;
-    tavola.create((unsigned int) c*LargTile, (unsigned int) r*LargTile);
+    tavola.create((unsigned int) c*LargTile, (unsigned int) (r-2)*2*LargTile);
     tavola.clear();
 
     sf::RectangleShape quad(sf::Vector2f(LargTile/4.f, LargTile/4.f));
     quad.setFillColor(sf::Color::White);
 
-    for(int i=0; i<r; i++)
+    for(int i=1; i<r-1; i++)
     {
-        for(int j=0; j<c; j++)
+        for(int j=1; j<c-1; j++)
         {
             switch(tile[i][j])
             {
@@ -355,9 +355,129 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
         }
     }
 
+
+
+
+
+    sf::Sprite barraD;
+    barraD.setTexture(tavola.getTexture());
+    barraD.setTextureRect(sf::IntRect(0, r*LargTile, c*LargTile, r*LargTile));
+
+    barraD.setPosition(0, 0+r*LargTile);
+    tavola.draw(barraD);
+
+    barraD.scale(1.f, -1.f);
+    barraD.setPosition(0, 0+r*LargTile);
+    tavola.draw(barraD);
+
     return tavola.getTexture();
 }
 ///./////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+int disseziona(string testo, Sezione sezione[])
+{
+    float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    float c=0;
+    int r=0;
+    int indSez=0;
+    for(int i=0; i<100; i++)
+    {
+        sezione[i].testo="";
+        sezione[i].arg=0;
+        sezione[i].tipo='x';
+        sezione[i].colore=sf::Color::White;
+        sezione[i].posizione=sf::Vector2f(0.f, 0.f);
+        sezione[i].lung=0;
+    }
+    for(unsigned int i=0; i<testo.size(); i++)
+    {
+        if(testo[i]=='/' || testo[i]=='#')
+        {
+            if(sezione[indSez].lung>0 || sezione[indSez].tipo!='x')
+                indSez++;
+            if(testo[i]=='/')
+            {
+                i++;
+                if(testo[i]==' ' || testo[i]=='\n' || testo[i]==',' || testo[i]=='.' || testo[i]==':' || testo[i]==';'|| testo[i]=='!'|| testo[i]=='?')
+                {
+                    sezione[indSez].stile=sf::Text::Regular;
+                    sezione[indSez].tipo='x';
+                    sezione[indSez].arg=0;
+                    sezione[indSez].colore=sf::Color::White;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
+                    i--;
+                }
+                else//speciale
+                {
+                    sezione[indSez].stile=sf::Text::Regular;
+                    sezione[indSez].tipo=testo[i];
+                    i++;
+                    int k=testo.substr(i).find(" ");
+                    sezione[indSez].arg=stoi(testo.substr(i, k));
+                    i+=k;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
+                    sezione[indSez].colore=sf::Color(200, 200, 200);
+                }
+            }
+            else//#
+            {
+                i++;
+                sezione[indSez].stile=sf::Text::Bold;
+                sezione[indSez].tipo='p';
+                int k=testo.substr(i).find(" ");
+                sezione[indSez].arg=stoi(testo.substr(i, k));
+                sezione[indSez].testo+=to_string(sezione[indSez].arg)+" - ";
+                i+=k;
+                sezione[indSez].colore=sf::Color::White;
+                sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
+            }
+        }
+        else
+        {
+            int lungProsParola=testo.substr(i+1).find(" ");
+            if(testo[i]=='\n' || (c+lungProsParola)*AltezzaCarattere/2>LarghezzaPagina)
+            {
+                c=0;
+                r++;
+                if(sezione[indSez].tipo=='x' || 1)
+                {
+                    indSez++;
+                    sezione[indSez].stile=sezione[indSez-1].stile;
+                    sezione[indSez].tipo=sezione[indSez-1].tipo;
+                    sezione[indSez].arg=sezione[indSez-1].arg;
+                    sezione[indSez].colore=sezione[indSez-1].colore;
+                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
+                }
+                else
+                {
+                    //Work in progress
+                }
+            }
+            else
+            {
+                sezione[indSez].testo+=testo.substr(i, 1);
+                sezione[indSez].lung+=lC[(int) testo[i]];
+                c+=lC[(int) testo[i]];
+            }
+        }
+    }
+    return indSez+1;
+}
+
+string caricaLibro(string titolo)
+{
+    ifstream fin("libroj/"+titolo+".txt");
+    string ret="";
+    while(!fin.eof())
+    {
+        string buff;
+        getline(fin, buff);
+        ret+=buff+"\n";
+    }
+    fin.close();
+    return ret;
+}
 
 int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture intreccio, string nomePagina[10000], int scroll)
 {
@@ -871,7 +991,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Dauxru");
+        etichetta.setString("Ludu");
         etichetta.setFillColor(sf::Color::White);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -937,7 +1057,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
                 if(PulsanteHomePremuto)
                 {
                     PulsanteHomePremuto=0;
-                    return gioca;
+                    return impostazioni;
                 }
             }
         }
@@ -984,7 +1104,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
                 if(PulsanteHomePremuto)
                 {
                     PulsanteHomePremuto=0;
-                    return gioca;
+                    return elencoLibri;
                 }
             }
         }
@@ -1032,7 +1152,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
                 if(PulsanteHomePremuto)
                 {
                     PulsanteHomePremuto=0;
-                    return gioca;
+                    return elencoGiochi;
                 }
             }
         }
@@ -1059,10 +1179,57 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
 
+    {///Home
+        sf::Vector2f pos(MargS, (MargA-60.f)/2);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(60.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(54.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(48.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(" H ");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return home;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
     return impostazioni;
 }
 
-int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio)
+int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
 {
     sf::Sprite barraS;
     barraS.setTexture(intreccio);
@@ -1074,7 +1241,128 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.scale(-1.f, 1.f);
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
+    {///Home
+        sf::Vector2f pos(MargS, (MargA-60.f)/2);
+        sf::Vector2f diff(3.f, 3.f);
 
+        sf::RectangleShape PulsanteH1(sf::Vector2f(60.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(54.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(48.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(" H ");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return home;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
+    ///carica elenco libri
+    ifstream fin;
+    fin.open("libroj/Enhavo.txt");
+    string titolo[100];
+    int i=0;
+    while(!fin.eof() && i<100)
+    {
+        fin>>titolo[i];
+        i++;
+    }
+    ///visualizza
+    for(int j=0; j<i; j++)
+    {
+        {///Continua
+            sf::Vector2f pos((LarghezzaSchermo-120)/2, (2*MargA+60*j));
+            sf::Vector2f diff(3.f, 3.f);
+
+            sf::RectangleShape PulsanteH1(sf::Vector2f(120.f, 60.f)*prop);
+            PulsanteH1.setPosition(pos*prop);
+            PulsanteH1.setFillColor(sf::Color::Black);
+
+            sf::RectangleShape PulsanteH2(sf::Vector2f(114.f, 54.f)*prop);
+            PulsanteH2.setPosition((pos+diff)*prop);
+            PulsanteH2.setFillColor(sf::Color::White);
+
+            sf::RectangleShape PulsanteH3(sf::Vector2f(108.f, 48.f)*prop);
+            PulsanteH3.setPosition((pos+diff*2.f)*prop);
+            PulsanteH3.setFillColor(sf::Color::Black);
+
+            sf::Text etichetta;
+            etichetta.setFont(font);
+            etichetta.setString(titolo[j]);
+            etichetta.setFillColor(sf::Color::White);
+            etichetta.setPosition((pos+4.f*diff)*prop);
+            etichetta.setCharacterSize(AltezzaCarattere+5);
+
+            static bool PulsanteHomePremuto=0;
+            if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+            {
+                PulsanteH1.setFillColor(sf::Color::White);
+                PulsanteH2.setFillColor(sf::Color::Black);
+                PulsanteH3.setFillColor(sf::Color::White);
+                etichetta.setFillColor(sf::Color::Black);
+
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+                else
+                {
+                    if(PulsanteHomePremuto)
+                    {
+                        PulsanteHomePremuto=0;
+
+                        testo=caricaLibro(titolo[j]);
+                        unsigned int inizio=0, fine=0, lunghezza=0;
+                        for(int i=0; fine!=testo.size()-1; i++)
+                        {
+                            inizio=testo.find("#"+to_string(i)+" ");
+                            fine=testo.find("#"+to_string(i+1)+" ");
+                            if(fine==string::npos)  fine=testo.size()-1;
+                            lunghezza=fine-inizio;
+                            nomePagina[i]=testo.substr(inizio).substr(testo.find(" ")+2, testo.substr(inizio).find("/")-4);
+                            pagina[i]=testo.substr(inizio, lunghezza);
+                            nPagine=i+1;
+                        }
+                        nSez=disseziona(pagina[partita.indPagina], sezione);
+
+                        return gioca;
+                    }
+                }
+            }
+            window->draw(PulsanteH1);
+            window->draw(PulsanteH2);
+            window->draw(PulsanteH3);
+            window->draw(etichetta);
+        }
+    }
     return elencoLibri;
 }
 
@@ -1091,10 +1379,57 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
 
+    {///Home
+        sf::Vector2f pos(MargS, (MargA-60.f)/2);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(60.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(54.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(48.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(" H ");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    return home;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
+
     return elencoGiochi;
 }
 
-void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int nSez, sf::Texture intreccio, string nomePagina[10000], int scroll)
+void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf::Texture intreccio, string pagina[10000], string nomePagina[10000], int &nPagine, int &nSez, string &testo, int scroll)
 {
     switch(schermata)
     {
@@ -1111,103 +1446,13 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], int
         break;
 
         case elencoLibri:
-            schermata=visElencoLibri(window, intreccio);
+            schermata=visElencoLibri(window, intreccio, pagina, nomePagina, sezione, nPagine, nSez, testo);
         break;
 
         case elencoGiochi:
             schermata=visElencoGiochi(window, intreccio);
         break;
     }
-}
-
-int disseziona(string testo, Sezione sezione[])
-{
-    float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    float c=0;
-    int r=0;
-    int indSez=0;
-    for(int i=0; i<100; i++)
-    {
-        sezione[i].testo="";
-        sezione[i].arg=0;
-        sezione[i].tipo='x';
-        sezione[i].colore=sf::Color::White;
-        sezione[i].posizione=sf::Vector2f(0.f, 0.f);
-        sezione[i].lung=0;
-    }
-    for(unsigned int i=0; i<testo.size(); i++)
-    {
-        if(testo[i]=='/' || testo[i]=='#')
-        {
-            if(sezione[indSez].lung>0 || sezione[indSez].tipo!='x')
-                indSez++;
-            if(testo[i]=='/')
-            {
-                i++;
-                if(testo[i]==' ' || testo[i]=='\n' || testo[i]==',' || testo[i]=='.' || testo[i]==':' || testo[i]==';'|| testo[i]=='!'|| testo[i]=='?')
-                {
-                    sezione[indSez].stile=sf::Text::Regular;
-                    sezione[indSez].tipo='x';
-                    sezione[indSez].arg=0;
-                    sezione[indSez].colore=sf::Color::White;
-                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
-                    i--;
-                }
-                else//speciale
-                {
-                    sezione[indSez].stile=sf::Text::Regular;
-                    sezione[indSez].tipo=testo[i];
-                    i++;
-                    int k=testo.substr(i).find(" ");
-                    sezione[indSez].arg=stoi(testo.substr(i, k));
-                    i+=k;
-                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
-                    sezione[indSez].colore=sf::Color(200, 200, 200);
-                }
-            }
-            else//#
-            {
-                i++;
-                sezione[indSez].stile=sf::Text::Bold;
-                sezione[indSez].tipo='p';
-                int k=testo.substr(i).find(" ");
-                sezione[indSez].arg=stoi(testo.substr(i, k));
-                sezione[indSez].testo+=to_string(sezione[indSez].arg)+" - ";
-                i+=k;
-                sezione[indSez].colore=sf::Color::White;
-                sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
-            }
-        }
-        else
-        {
-            int lungProsParola=testo.substr(i+1).find(" ");
-            if(testo[i]=='\n' || (c+lungProsParola)*AltezzaCarattere/2>LarghezzaPagina)
-            {
-                c=0;
-                r++;
-                if(sezione[indSez].tipo=='x' || 1)
-                {
-                    indSez++;
-                    sezione[indSez].stile=sezione[indSez-1].stile;
-                    sezione[indSez].tipo=sezione[indSez-1].tipo;
-                    sezione[indSez].arg=sezione[indSez-1].arg;
-                    sezione[indSez].colore=sezione[indSez-1].colore;
-                    sezione[indSez].posizione=sf::Vector2f(c*AltezzaCarattere/2+MargS, r*AltezzaCarattere+MargA);
-                }
-                else
-                {
-                    //Work in progress
-                }
-            }
-            else
-            {
-                sezione[indSez].testo+=testo.substr(i, 1);
-                sezione[indSez].lung+=lC[(int) testo[i]];
-                c+=lC[(int) testo[i]];
-            }
-        }
-    }
-    return indSez+1;
 }
 
 void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int scroll)
@@ -1341,20 +1586,6 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
     }
 }
 
-string caricaLibro(string titolo)
-{
-    ifstream fin(titolo+".txt");
-    string ret="";
-    while(!fin.eof())
-    {
-        string buff;
-        getline(fin, buff);
-        ret+=buff+"\n";
-    }
-    fin.close();
-    return ret;
-}
-
 void caricamento(sf::RenderWindow* window, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
 {
     if (!font.loadFromFile("arial.ttf"))
@@ -1405,10 +1636,11 @@ int main()
     dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
     dimIntrSchermata[gioca]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
     dimIntrSchermata[impostazioni]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
-    dimIntrSchermata[elencoLibri]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
+    dimIntrSchermata[elencoLibri]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+    dimIntrSchermata[elencoGiochi]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
 
     sf::Texture intreccio=disegnaIntreccio(dimIntrSchermata[home]);
-    sf::Texture intreccioR[4]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca]), disegnaIntreccio(dimIntrSchermata[impostazioni]), disegnaIntreccio(dimIntrSchermata[elencoLibri])};
+    sf::Texture intreccioR[5]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca]), disegnaIntreccio(dimIntrSchermata[impostazioni]), disegnaIntreccio(dimIntrSchermata[elencoLibri]), disegnaIntreccio(dimIntrSchermata[elencoGiochi])};
 
 
     int schermata=home, schermataS=home;
@@ -1448,14 +1680,14 @@ int main()
             schermataS=schermata;
             intreccio=intreccioR[schermata];
             azionaIpertesto(sezione, nSez, &window, scroll);
-            visualizza(&window, schermata, sezione, nSez, intreccio, nomePagina, scroll);
+            visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
             intreccioR[schermata]=disegnaIntreccio(dimIntrSchermata[schermata]);
         }
         else
         {
             azionaIpertesto(sezione, nSez, &window, scroll);
-            visualizza(&window, schermata, sezione, nSez, intreccio, nomePagina, scroll);
+            visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
         }
     }

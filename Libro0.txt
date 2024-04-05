@@ -1,8 +1,8 @@
-#0 Antaux parolo/
+#0 0 Antaux parolo/
 
 En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektron por lumi la nokton aux vaporon por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
 Ci vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli la komerca lingvon: cxies kaj nenies lingvon.
-Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
+Vi irantis al Roko, suda komercurbo, por vendi kaj acxeti kiel cxiam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
 Komencu via adventuro cxe /l1 1/.
 
 #1 Komenco/

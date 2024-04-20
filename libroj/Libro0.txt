@@ -2,7 +2,7 @@
 
 En cxi tiu libro ci vojagxos en mondo kiu estas tre malsimila al nian. Cxi tie ne ekstistas interreto kaj plasto, homoj ne kapablas uzi elektron por lumi la nokton aux vaporon por movi trajnojn. La vivo estas multe pli malfacila kaj dangxera sed, versxajne, ankaux pli interesa: ne cxion kiu ekstistas ekstere ekstistas ene sed ankaux la malo estas vera. Cxi tie eble ekstistas dioj kaj monstroj kaj magio, aux eble ili estas kiel ekstere  nur fantazioj.
 Ci vojagxas tra la maro kun viaj kvar gefratoj sur vian sipo "Glenkoro" kaj en la tutan multlingvan mondon vi povas paroli la komerca lingvon: cxies kaj nenies lingvon.
-Vi irantis al Roko, komercurbo en suda [Italio] por vendi kaj acxeti kiel ciam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
+Vi irantis al Roko, suda komercurbo, por vendi kaj acxeti kiel cxiam, kiam grandega sxtormon trovis vin en plena maro, nun vi devas batali por viaj vivoj en cxi tio akva dezerto.
 Komencu via adventuro cxe /l1 1/.
 
 #1 Komenco/
@@ -49,6 +49,13 @@ Ci ne riskos la vivojn de ciaj gefratetoj sennecese. Ci vekigxas cxius kaj vi ko
 Por daurxrigi iru cxe /l25 25/.
 
 #9 Sangoplena sxipo/
+Ci estat sur la ferdeko de la sxipego, gxi sxajnas submariganti, versxajne estas truoj sube, sed vi havas ankoraux tempon antaux gxi komplete estos submare.
+/b1 Aldonu unu streketon/.
+Se vi nun havas kvin aux pli iru cxe /l14 14/.
+Se vi nun havas dek aux pli vi devas tuj reveni al la Glenkoro, iru cxe 30
+Dum ci estas sur la sanga sxipo ci povas esplori la ejo en kiu vi estas per aldoni 20 al la numero de la pagxo. (Ekz. se ci volas esplori la ferdeko ci devas iri cxe la 29-a pagxo)
+El cxi tie vi povas iri cxe la velo /l28 28/, cxe cia sxipo la Glenkoro /l14 14/, aux subiri enen la sxipego /l32 32/ por vidi kion estas tie, eble preninda kaj vendinda varo.
+
 
 #10 rompita velo/
 
@@ -60,11 +67,11 @@ Vi reparis vian cxefan velon per viajn proprajn vestajxojn. Vi estas ankoraux nu
 
 #12 submara pakto/
 
-Ci faris pakton kun terura submara monstro. Nepre plenumi gxin tuj. Kaj kompreneble ne parolu libere pri gxin, ci estus ekzekutota.
+Ci faris pakton kun terura submara monstro. Nepre plenumi gxin tuj. Kaj kompreneble ne parolu libere pri gxin, ci estus mortota.
 
-#13 /
+#13 maljuna supervivinto/
 
-#14 /
+#14 Mi ankoraux ne kreiis cxi tiun pagxon/
 
 #15 /
 
@@ -114,13 +121,68 @@ Cxu ci havas almenaux unu /c1 sorton/? Cxu jes iru cxe /l21 21/ alie iru cxe /l2
 
 Vi rekomencas vian vojagxon al Roko. Espereble vi ne havos plie da okazajxacxojn.
 
+Fino de la unua parto
 
 #26 nelogxita insulo/
 
 Ci vekigxas sur plagxo, la suno kalde brilas en la cxielo. Ci levigxas cin por kompreni kie ci estis forsendita.
-Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Alieflanke la plagxo tuj finas antaux pina arbaro, oni videblas birdojn kaj porkojn. Ci tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj. Iru cxe /l27 27/ 
+Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Alieflanke la plagxo tuj finas antaux pina arbaro, oni videblas birdojn kaj porkojn. Ci tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj. Iru cxe /l14 14/.
 
 #27 senesperata rekunigxo/
-#28 /
-#29 /
+
+#28 aliula velo/
+Se ci jam prenis la velon aux ci ne havas la noton "rompita velo" ci havas neniu por fari cxi tie, iru cxe /l9 9/.
+
+Alie ci estas antauxe la granda velo de la sxipego, ankaux gxin estas sxmirita, same kiel la vian, sed ci povas uzi la teksajxon por ripari vian velon kaj reparti.
+Se ci volas preni la teksajxon de la velo iru cxe /l35 35/.
+Se ci volas reiri sur la ferdeko iru cxe /l9 9/
+#29 ci trovas nenio utila cxi tie/
+Reiru cxe /l9 9/
+#30 reveno al sxipego/
+Ci revenas sur cia sxipo, la glenkoro, apenaux ci turnas por revidi la sxipego el kiu ci jxus venis gxin komplete submarigas, /a0  visxu cxiujn streketojn/.
+Cxu vi ankoraux havas la noton Rompita Velo?
+Cxu jes iru cxe /l14 14/, alie vi fine povas reparti al Roko, iru cxe /l25 25/.
+
+#31 malunua eblo/
+Vi devar reveni al Roko sed via velo estas ankoraux rompita! Vi havas nur unu eblo, ecx se gxi estas malkomforta kaj honta vi uzas viajn vestajxojn por ripari la velon.
+Viŝu la noton rompita velo kaj kreu la noton nuda sxipistaro.
+Fine vi havas nerompita velo kaj vi povas reparti, dauxru cxe /l25 25/.
+
+#32 malorda varejo/
+Ci estas en la unua cxambro de la sxipo, cxi tie estas multajn rompitaj vazoj en kiu estis vinon kaj mielon kaj aliaj varojn. La plej parto de la ajxoj estas rompita kaj senutila sed eble oni estas ion portinda sub la rubajxo.
+Ci povas eliri cxe /l9 9/ por iri sur la ferdeko, aux ci povas eniri la dua cxambro de la sxipo cxe /l33 33/.
+
+#33 malbonodora dormejo/
+Ci estas en la mezo de la sxipo, deko da sxiplitoj kovras la murojn, kaj kompreneble la ekstera odoro estas multe pli bona ol cxi tien. 
+
+/b1 Aldonu unu streketon/.
+Se vi nun havas kvin aux pli vi devas tuj eliri el cxi tiun cxambron: iru cxe 32
+
+Cxu ci havas la noton "maljuna supervivinto"? Cxu ne dauxru cxe /l34 34/, alie vi povas iri al la varejo cxe /l32 32/ aux al la magazeno cxe /l37 37/. 
+
+#34 dormanta sxipisto/
+
+#35 teksajxo por ripari/
+Ci rapide trancxas la plejparton de la granda velo kaj ci foldas gxin. Ci jetas gxin al ciajn gefratoj sur la Glenkoro kiu prenas gxin kaj komencas repari vian velon.
+Sxirmu la noton "rompita velo" kaj reiru cxe /l9 9/.
+
+#36 /
+
+#37 malplena magazeno/
+
+#38 /
+#39 /
+#40 /
+#41 /
+#42 /
+#43 /
+#44 /
+#45 /
+#46 /
+#47 /
+#48 ci trovas nenio utila cxi tie/
+Reiru cxe /l28 28/
+
+
+
 

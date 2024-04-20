@@ -9,7 +9,6 @@
 #define LarghezzaSchermo 1370
 
 using namespace std;
-///p=numero di pagina, c=cambia colore, l=link
 //Paragrafo: Azzera_barre Barra X(normale) Link Colore Nota Oggetto Sorte
 sf::Font font;
 int AltezzaCarattere=24;
@@ -1179,6 +1178,14 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
 
+    sf::Text WIP;
+    WIP.setFont(font);
+    WIP.setString("WORK IN PROGRESS");
+    WIP.setFillColor(sf::Color::White);
+    WIP.setCharacterSize(AltezzaCarattere+5);
+    WIP.setPosition((LarghezzaSchermo-WIP.getGlobalBounds().width)/2.f, AltezzaSchermo/3.f);
+    window->draw(WIP);
+
     {///Home
         sf::Vector2f pos(MargS, (MargA-60.f)/2);
         sf::Vector2f diff(3.f, 3.f);
@@ -1378,6 +1385,14 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.scale(-1.f, 1.f);
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
+
+    sf::Text WIP;
+    WIP.setFont(font);
+    WIP.setString("WORK IN PROGRESS");
+    WIP.setFillColor(sf::Color::White);
+    WIP.setCharacterSize(AltezzaCarattere+5);
+    WIP.setPosition((LarghezzaSchermo-WIP.getGlobalBounds().width)/2.f, AltezzaSchermo/3.f);
+    window->draw(WIP);
 
     {///Home
         sf::Vector2f pos(MargS, (MargA-60.f)/2);

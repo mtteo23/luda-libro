@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <time.h>
+#include <pthread.h>
 
 #define AltezzaSchermo 700
 #define LarghezzaSchermo 1370
@@ -1601,64 +1602,101 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
     }
 }
 
-void caricamento(sf::RenderWindow* window, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
-{
-    if (!font.loadFromFile("arial.ttf"))
-        cout<<"Errore";// error...
-
-    window->clear();
-    sf::Text testoCaricamento;
-    testoCaricamento.setFont(font);
-    testoCaricamento.setString("Caricamento in corso\nAttendere prego");
-    testoCaricamento.setPosition((LarghezzaSchermo-testoCaricamento.getGlobalBounds().width)/2, (AltezzaSchermo-testoCaricamento.getGlobalBounds().height)/2);
-    window->draw(testoCaricamento);
-    window->display();
-
-    testo=caricaLibro("Sxipen");
-    unsigned int inizio=0, fine=0, lunghezza=0;
-    for(int i=0; fine!=testo.size()-1; i++)
-    {
-        inizio=testo.find("#"+to_string(i)+" ");
-        fine=testo.find("#"+to_string(i+1)+" ");
-        if(fine==string::npos)  fine=testo.size()-1;
-        lunghezza=fine-inizio;
-        nomePagina[i]=testo.substr(inizio).substr(testo.find(" ")+2, testo.substr(inizio).find("/")-4);
-        pagina[i]=testo.substr(inizio, lunghezza);
-        nPagine=i+1;
-    }
-    nSez=disseziona(pagina[partita.indPagina], sezione);
-}
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(LarghezzaSchermo, AltezzaSchermo), "Display");
-    window.setPosition(sf::Vector2i(-10, 0));
-
     string testo="#0/";
 
     Sezione sezione[100];
     int nSez=0;
 
     string nomePagina[1000];
-    string pagina[10000];
+    string pagina[1000];
     int nPagine=0;
 
     int scroll=0;
 
-    caricamento(&window, pagina, nomePagina, sezione, nPagine, nSez, testo);
-
-    sf::Vector2f dimIntrSchermata[5];
-    dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
-    dimIntrSchermata[gioca]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
-    dimIntrSchermata[impostazioni]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
-    dimIntrSchermata[elencoLibri]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
-    dimIntrSchermata[elencoGiochi]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
-
-    sf::Texture intreccio=disegnaIntreccio(dimIntrSchermata[home]);
-    sf::Texture intreccioR[5]={disegnaIntreccio(dimIntrSchermata[home]), disegnaIntreccio(dimIntrSchermata[gioca]), disegnaIntreccio(dimIntrSchermata[impostazioni]), disegnaIntreccio(dimIntrSchermata[elencoLibri]), disegnaIntreccio(dimIntrSchermata[elencoGiochi])};
-
-
     int schermata=home, schermataS=home;
+    sf::Vector2f dimIntrSchermata[5];
+    sf::Texture intreccioR[5];
+    sf::Texture intreccio;
+
+    {
+        window.setPosition(sf::Vector2i(-10, 0));
+
+        if (!font.loadFromFile("arial.ttf"))
+            cout<<"Errore";// error...
+
+        window.clear();
+        sf::Text testoCaricamento;
+        testoCaricamento.setFont(font);
+        testoCaricamento.setString("Caricamento in corso\nAttendere prego");
+        testoCaricamento.setPosition((LarghezzaSchermo-testoCaricamento.getGlobalBounds().width)/2, (AltezzaSchermo-testoCaricamento.getGlobalBounds().height)/2);
+        window.draw(testoCaricamento);
+
+
+        sf::RectangleShape barraA(sf::Vector2f(LarghezzaSchermo/3.f, AltezzaSchermo/15.f));
+        barraA.setFillColor(sf::Color::White);
+        barraA.setPosition(LarghezzaSchermo/3.f, AltezzaSchermo*12/15.f);
+        window.draw(barraA);
+
+        sf::RectangleShape barraB(sf::Vector2f(LarghezzaSchermo/3.f-8, AltezzaSchermo/15.f-8));
+        barraB.setFillColor(sf::Color::Black);
+        barraB.setPosition(LarghezzaSchermo/3.f+4, AltezzaSchermo*12/15.f+4);
+        window.draw(barraB);
+
+        sf::RectangleShape barraC(sf::Vector2f(LarghezzaSchermo/3.f-14, AltezzaSchermo/15.f-14));
+        barraC.setFillColor(sf::Color::White);
+        barraC.setPosition(LarghezzaSchermo/3.f+7, AltezzaSchermo*12/15.f+7);
+        barraC.setScale(1/16.f, 1);
+        window.draw(barraC);
+        window.display();
+
+        testo=caricaLibro("Sxipen");
+        unsigned int inizio=0, fine=0, lunghezza=0;
+        for(int i=0; fine!=testo.size()-1; i++)
+        {
+            inizio=testo.find("#"+to_string(i)+" ");
+            fine=testo.find("#"+to_string(i+1)+" ");
+            if(fine==string::npos)  fine=testo.size()-1;
+            lunghezza=fine-inizio;
+            nomePagina[i]=testo.substr(inizio).substr(testo.find(" ")+2, testo.substr(inizio).find("/")-4);
+            pagina[i]=testo.substr(inizio, lunghezza);
+            nPagine=i+1;
+        }
+        nSez=disseziona(pagina[partita.indPagina], sezione);
+
+
+
+        dimIntrSchermata[home]=sf::Vector2f(MargS*15/10, AltezzaSchermo);
+        dimIntrSchermata[gioca]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+        dimIntrSchermata[impostazioni]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+        dimIntrSchermata[elencoLibri]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+        dimIntrSchermata[elencoGiochi]=sf::Vector2f(MargS*9/10, AltezzaSchermo);
+
+        intreccio=disegnaIntreccio(dimIntrSchermata[home]);
+        barraC.setScale(2/8.f, 1);
+            window.draw(testoCaricamento);
+            window.draw(barraA);
+            window.draw(barraB);
+            window.draw(barraC);
+            window.display();
+
+        for(int i=0; i<5; i++)
+        {
+            intreccioR[i]=disegnaIntreccio(dimIntrSchermata[i]);
+
+            barraC.setScale((i+3)/8.f, 1);
+            window.draw(testoCaricamento);
+            window.draw(barraA);
+            window.draw(barraB);
+            window.draw(barraC);
+            window.display();
+        }
+    }
+
+
 
     sf::Event event;
     while (window.isOpen())

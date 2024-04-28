@@ -1162,6 +1162,52 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         window->draw(etichetta);
     }
 
+    {///Eliro
+        sf::Vector2f pos((LarghezzaSchermo-120)/2, (AltezzaSchermo-60)/2+240);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(120.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(sf::Color::Black);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(114.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(sf::Color::White);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(108.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString("Eliru");
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(sf::Color::White);
+            PulsanteH2.setFillColor(sf::Color::Black);
+            PulsanteH3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    window->close();
+                    return -1;
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+    }
 
     return home;
 }

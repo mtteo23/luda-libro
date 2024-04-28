@@ -1614,7 +1614,7 @@ void caricamento(sf::RenderWindow* window, string pagina[10000], string nomePagi
     window->draw(testoCaricamento);
     window->display();
 
-    testo=caricaLibro("Libro0");
+    testo=caricaLibro("Sxipen");
     unsigned int inizio=0, fine=0, lunghezza=0;
     for(int i=0; fine!=testo.size()-1; i++)
     {

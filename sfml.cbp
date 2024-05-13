@@ -47,6 +47,7 @@
 			<Add directory="C:/Users/luigi/OneDrive/Documenti/cose da tenere/progetti/librerie/SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit/SFML-2.5.1/include" />
 		</Compiler>
 		<Linker>
+			<Add library="pthread" />
 			<Add directory="C:/Users/luigi/OneDrive/Documenti/cose da tenere/progetti/librerie/SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="main.cpp" />

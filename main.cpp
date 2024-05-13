@@ -5,6 +5,7 @@
 #include <fstream>
 #include <time.h>
 #include <pthread.h>
+#include <cmath>
 
 #define AltezzaSchermo 700
 #define LarghezzaSchermo 1370
@@ -802,6 +803,12 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
 
+        if(partita.indPagina==0)
+        {
+            PulsantePP2.setFillColor(sf::Color(150, 150, 150));
+            etichetta.setFillColor(sf::Color(150, 150, 150));
+        }
+
         static bool PulsanteParagrafoPrecedentePremuto=0;
         if(PulsantePP1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window)))&& partita.indPagina!=0)
         {
@@ -903,7 +910,82 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         window->draw(etichetta);
     }
 
+    {///Lancio moneta
+        static bool faccia=0;
+        static int numero=0;
+        static sf::Time tempoLancio;
+        static sf::Clock clock;
 
+        sf::Vector2f pos(LarghezzaSchermo-MargS-60*prop, AltezzaSchermo-(MargA*9/10+60.f*prop)/2);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::CircleShape PulsantePP1(32.f*prop);
+        PulsantePP1.setPosition(pos*prop);
+        PulsantePP1.setFillColor(sf::Color::Black);
+
+        sf::CircleShape PulsantePP2((32.f-diff.x)*prop);
+        PulsantePP2.setPosition((pos+diff)*prop);
+        PulsantePP2.setFillColor(sf::Color::White);
+
+        sf::CircleShape PulsantePP3((32.f-2*diff.x)*prop);
+        PulsantePP3.setPosition((pos+2.f*diff)*prop);
+        PulsantePP3.setFillColor(sf::Color::Black);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(" M");
+        if(faccia) etichetta.setString(" "+to_string(numero));
+        etichetta.setFillColor(sf::Color::White);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        if(clock.getElapsedTime()<tempoLancio)
+        {
+            faccia=(cos(sqrt(clock.getElapsedTime().asMilliseconds())))>0;
+            numero=rand()%6+1;
+        }
+
+        if(faccia)
+        {
+            PulsantePP1.setFillColor(sf::Color::White);
+            PulsantePP2.setFillColor(sf::Color::Black);
+            PulsantePP3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+        }
+
+
+        static bool PulsanteLancioMoneta=0;
+        if(PulsantePP1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsantePP1.setFillColor(sf::Color::White);
+            PulsantePP2.setFillColor(sf::Color::Black);
+            PulsantePP3.setFillColor(sf::Color::White);
+            etichetta.setFillColor(sf::Color::Black);
+
+            if(faccia)
+            {
+                PulsantePP1.setFillColor(sf::Color::Black);
+                PulsantePP2.setFillColor(sf::Color::White);
+                PulsantePP3.setFillColor(sf::Color::Black);
+                etichetta.setFillColor(sf::Color::White);
+            }
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteLancioMoneta=1;
+            else
+            {
+                if(PulsanteLancioMoneta)
+                {
+                    PulsanteLancioMoneta=0;
+                    tempoLancio=sf::milliseconds(rand()%1000+2000);
+                    clock.restart();
+                }
+            }
+        }
+        window->draw(PulsantePP1);
+        window->draw(PulsantePP2);
+        window->draw(PulsantePP3);
+        window->draw(etichetta);
+    }
 
     ///-----------------Barra Alta-----------------
 

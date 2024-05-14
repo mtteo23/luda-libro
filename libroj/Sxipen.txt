@@ -46,7 +46,7 @@ Se ci volas uzi viajn vestajxojn iru cxe /l8 8/, alie, se ci volas provi supreni
 
 #8 Vestajxvelo/
 Ci ne riskos la vivojn de ciaj gefratetoj sennecese. Ci vekigxas cxius kaj vi komencas repari la grandan velon per viaj vestajxoj.
-/c1 Visxu la noton/ /c1 rompita velo/ kaj /c1 kreu la noton/ /n11 nuda sxipistaro/.
+/c1 Visxu la noton/ /c2 rompita velo/ kaj /c1 kreu la noton/ /n11 nuda sxipistaro/.
 
 Por daurxrigi iru cxe /l25 25/.
 
@@ -135,11 +135,18 @@ Fino de la unua parto
 
 #26 nelogxita insulo/
 
-Ci vekigxas sur plagxo, la suno kalde brilas en la cxielo. Ci levigxas cin por kompreni kie ci estis forsendita.
-Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Alieflanke la plagxo tuj finas antaux pina arbaro, oni videblas birdojn kaj porkojn. Ci tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj.
-Iru cxe /l14 14/.
+Ci vekigxas sur plagxo, la suno kalde brilas kaj ci tre soifas. Ci levigxas cin por kompreni kie ci estis forsendita.
+Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. Alieflanke la plagxo tuj finas antaux densa pina arbaro, oni videblas birdojn kaj grandajn porkojn. 
+Cxi tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj, precipe ci ne vidas ciajn gefratojn kaj cian sxipo, espereble ili estas sane alvenita al Roko.
+/a0 visxu cxiun streketon/
+Iru cxe /l27 27/.
 
-#27 senesperata rekunigxo/
+#27 plagxo/
+Ci estas sur la plagxo kie ci vekigxis.
+La suno mallevigxas kaj sian kaldo malrapide foriras sed ci tro soifas /c1 kreu noto/ /n14 soifa kaj malsata/.
+Ci devas tuj trovi akvon, ci povas sercxi en la densa arbaro sed sxajnas malfacila trairi gxin kaj ci puvus perdigxi cin ene.
+Alie ci povas provi cxirkauxiri la insulo restante sur la plagxo, ci certe irus pli rapide.
+Se ci volas eniri en la arbaro iru cxe /l40 40/, alie iru cxe /l14 14/.
 
 #28 aliula velo/
 Se ci jam prenis la velon aux ci ne havas la noton "rompita velo" ci havas neniu por fari cxi tie, iru cxe /l9 9/.
@@ -216,14 +223,35 @@ Kun cia trancxilo ci rapide trancxas la gorgxon de la dormanto. Li vekigxas kaj 
 Ci perdas /s-1 unu sorton/.
 Ci prendas /n17 lian sakon/ kaj iras cxe /n33 33/.
 
-#40 /
-#41 /
-#42 /
-#43 /
-#44 /
-#45 /
-#46 /
-#47 /
+#40 arbaro/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+El cxi tie ci povas iri al /l41 41/, /l42 42/ aux /l43 43/.
+
+#41 arbaro/
+Ci trairas la arbaro, la tempo fluas kaj la suno pli kaj pli mallevigxas.
+/b1 aldonu unu streketo/.
+El cxi tie ci povas iri al /l42 42/, /l45 45/ aux /l46 46/.
+
+#42 fonto/
+Poste longa marsxado ci fine trovas fonton! Ci avide trinkas la akvon, /c1 visxu la noton/ /c2 soifa kaj malsata/.
+/b1 Aldonu unu streketo/. 
+Nun ci povas provi trovi kielo per kiu eliri el cxi tiu insulo kaj renkontigxi ciajn gefratoj al Roko.
+El cxi tie ci povas iri al /l44 44/ aux al /l45 45/.
+
+#43 arbaro/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+El cxi tie ci povas iri al /l41 41/, /l44 44/ aux /l14 14/.
+
+#44 arbaro/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+El cxi tie ci povas iri al /l41 41/, /l47 47/ aux /l43 43/.
+
+#45 porkidoj/
+
+#46 eliro/
+
+#47 kandomo/
+
 #48 ci trovas nenio utila cxi tie/
 Reiru cxe /l28 28/.
 

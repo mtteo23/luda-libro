@@ -23,8 +23,30 @@ int indCP=0, nCP=0;
 
 class Impostazioni{
     public:
-    int volume=0;
-    sf::Color colore[6]={sf::Color::Black, sf::Color::White, sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(100, 100, 100)};
+    string lingvo;
+    string lingue_disponibili[50]={};
+    int volume=50;
+    sf::Color colore[5]={sf::Color::Black, sf::Color::White, sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(100, 100, 100)};
+    void scarica()
+    {
+        ifstream fin("impostazioni.txt");
+
+        getline(fin, lingvo);
+        for(int i=0; i<5; i++)
+        {
+            int a, b, c;
+            fin>>a;
+            fin>>b;
+            fin>>c;
+            colore[i]=sf::Color(a, b, c);
+        }
+        fin.close();
+
+        fin.open("tradukajxoj\\enhavo.txt");
+        for(int i=0; i<50 && !fin.eof(); i++)
+            getline(fin, lingue_disponibili[i]);
+        fin.close();
+    }
 }impozado;
 
 enum {home, gioca, impostazioni, elencoLibri, elencoGiochi};
@@ -53,7 +75,7 @@ class Partita{
 
 }partita;
 
-
+string scritta[100];
 
 
 ///./////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -489,6 +511,15 @@ string caricaLibro(string titolo)
     return ret;
 }
 
+void caricaLingua()
+{
+    ifstream fin("tradukajxoj\\"+impozado.lingvo+".txt");
+    for(int i=0; i<100 && !fin.eof(); i++)
+    {
+        getline(fin, scritta[i]);
+    }
+}
+
 int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture intreccio, string nomePagina[10000], int scroll)
 {
     float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -522,7 +553,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     testoSorte.setCharacterSize(AltezzaCarattere);
     testoSorte.setStyle(sf::Text::Bold);
 
-    testoSorte.setString("Sorto: "+to_string(partita.sorte));
+    testoSorte.setString(scritta[9]+": "+to_string(partita.sorte));
     testoSorte.setPosition(sf::Vector2f(MargS*10/50, MargA/2));
     window->draw(testoSorte);
 
@@ -666,7 +697,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     testoNote.setCharacterSize(AltezzaCarattere);
     testoNote.setStyle(sf::Text::Bold);
 
-    testoNote.setString("------Notoj-----");
+    testoNote.setString("------"+scritta[10]+"-----");
     testoNote.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA/2));
     window->draw(testoNote);
 
@@ -696,7 +727,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
                     testoOpzioni.setStyle(sf::Text::Regular);
 
                     //vidu
-                    testoOpzioni.setString("vidu");
+                    testoOpzioni.setString(scritta[11]);
                     testoOpzioni.setFillColor(impozado.colore[2]);
                     testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5, MargA+(i+1)*AltezzaCarattere));
 
@@ -717,10 +748,10 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
                     window->draw(testoOpzioni);
                     //uzu
-                    testoOpzioni.setString("uzu");
+                    testoOpzioni.setString(scritta[12]);
                     testoOpzioni.setStyle(sf::Text::Regular);
                     testoOpzioni.setFillColor(impozado.colore[2]);
-                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+2*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+3*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
 
                     static bool uzuPremuto=0;
                     if(testoOpzioni.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
@@ -739,10 +770,10 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
                     window->draw(testoOpzioni);
                     //visxu
-                    testoOpzioni.setString("visxu");
+                    testoOpzioni.setString(scritta[13]);
                     testoOpzioni.setStyle(sf::Text::Regular);
                     testoOpzioni.setFillColor(impozado.colore[2]);
-                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+4*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
+                    testoOpzioni.setPosition(sf::Vector2f(LarghezzaSchermo-MargS*4/5+5*AltezzaCarattere, MargA+(i+1)*AltezzaCarattere));
 
                     static bool visxuPremuto=0;
                     if(testoOpzioni.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
@@ -1093,7 +1124,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Ludu");
+        etichetta.setString(scritta[4]);
         etichetta.setFillColor(impozado.colore[1]);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -1140,7 +1171,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Impost");
+        etichetta.setString(scritta[5]);
         etichetta.setFillColor(impozado.colore[1]);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -1187,7 +1218,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Enhavo");
+        etichetta.setString(scritta[6]);
         etichetta.setFillColor(impozado.colore[1]);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -1235,7 +1266,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Ludaro");
+        etichetta.setString(scritta[7]);
         etichetta.setFillColor(impozado.colore[1]);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -1282,7 +1313,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
         sf::Text etichetta;
         etichetta.setFont(font);
-        etichetta.setString("Eliru");
+        etichetta.setString(scritta[8]);
         etichetta.setFillColor(impozado.colore[1]);
         etichetta.setPosition((pos+4.f*diff)*prop);
         etichetta.setCharacterSize(AltezzaCarattere+5);
@@ -1327,13 +1358,128 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(LarghezzaSchermo, 0);
     window->draw(barraD);
 
-    sf::Text WIP;
-    WIP.setFont(font);
-    WIP.setString("WORK IN PROGRESS");
-    WIP.setFillColor(impozado.colore[1]);
-    WIP.setCharacterSize(AltezzaCarattere+5);
-    WIP.setPosition((LarghezzaSchermo-WIP.getGlobalBounds().width)/2.f, AltezzaSchermo/3.f);
-    window->draw(WIP);
+    {///Lingua
+        sf::Vector2f pos(300.f, 180.f);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(impozado.colore[0]);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(impozado.colore[1]);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f(144.f, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(impozado.colore[0]);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(impozado.lingvo);
+        etichetta.setFillColor(impozado.colore[1]);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        sf::Text titolo;
+        titolo.setFont(font);
+        titolo.setString(scritta[14]);
+        titolo.setFillColor(impozado.colore[1]);
+        titolo.setPosition((pos+4.f*diff+sf::Vector2f(0, -50.f))*prop);
+        titolo.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(impozado.colore[1]);
+            PulsanteH2.setFillColor(impozado.colore[0]);
+            PulsanteH3.setFillColor(impozado.colore[1]);
+            etichetta.setFillColor(impozado.colore[0]);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    int I=0, n=0;
+                    int i=0;
+                    for(; i<50 && impozado.lingue_disponibili[i]!=""; i++)
+                        if(impozado.lingue_disponibili[i]==impozado.lingvo)
+                            I=i;
+                    n=i;
+
+                    impozado.lingvo=impozado.lingue_disponibili[(I+1)%n];
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+        window->draw(titolo);
+    }
+
+    {///Volume
+        sf::Vector2f pos(500.f, 180.f);
+        sf::Vector2f diff(3.f, 3.f);
+
+        sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
+        PulsanteH1.setPosition(pos*prop);
+        PulsanteH1.setFillColor(impozado.colore[0]);
+
+        sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
+        PulsanteH2.setPosition((pos+diff)*prop);
+        PulsanteH2.setFillColor(impozado.colore[1]);
+
+        sf::RectangleShape PulsanteH4(sf::Vector2f(144.f, 48.f)*prop);
+        PulsanteH4.setPosition((pos+diff*2.f)*prop);
+        PulsanteH4.setFillColor(impozado.colore[3]);
+
+        sf::RectangleShape PulsanteH3(sf::Vector2f((float) impozado.volume*144.f/100, 48.f)*prop);
+        PulsanteH3.setPosition((pos+diff*2.f)*prop);
+        PulsanteH3.setFillColor(impozado.colore[0]);
+
+        sf::Text etichetta;
+        etichetta.setFont(font);
+        etichetta.setString(to_string(impozado.volume)+"%");
+        etichetta.setFillColor(impozado.colore[1]);
+        etichetta.setPosition((pos+4.f*diff)*prop);
+        etichetta.setCharacterSize(AltezzaCarattere+5);
+
+        sf::Text titolo;
+        titolo.setFont(font);
+        titolo.setString(scritta[15]);
+        titolo.setFillColor(impozado.colore[1]);
+        titolo.setPosition((pos+4.f*diff+sf::Vector2f(0, -50.f))*prop);
+        titolo.setCharacterSize(AltezzaCarattere+5);
+
+        static bool PulsanteHomePremuto=0;
+        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        {
+            PulsanteH1.setFillColor(impozado.colore[1]);
+            PulsanteH2.setFillColor(impozado.colore[0]);
+            PulsanteH3.setFillColor(impozado.colore[1]);
+            PulsanteH4.setFillColor(impozado.colore[4]);
+            etichetta.setFillColor(impozado.colore[0]);
+
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
+            else
+            {
+                if(PulsanteHomePremuto)
+                {
+                    PulsanteHomePremuto=0;
+                    impozado.volume=(sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x*100.f/(144.f*prop);
+                }
+            }
+        }
+        window->draw(PulsanteH1);
+        window->draw(PulsanteH2);
+        window->draw(PulsanteH4);
+        window->draw(PulsanteH3);
+        window->draw(etichetta);
+        window->draw(titolo);
+    }
 
     {///Home
         sf::Vector2f pos(MargS, (MargA-60.f)/2);
@@ -1381,7 +1527,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         window->draw(PulsanteH3);
         window->draw(etichetta);
     }
-
+    caricaLingua();
     return impostazioni;
 }
 
@@ -1446,7 +1592,7 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
 
     ///carica elenco libri
     ifstream fin;
-    fin.open("libroj/Enhavo.txt");
+    fin.open("libroj/enhavo.txt");
     string titolo[100];
     int i=0;
     while(!fin.eof() && i<100)
@@ -1753,6 +1899,9 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
 
 int main()
 {
+    impozado.scarica();
+    caricaLingua();
+
     sf::RenderWindow window(sf::VideoMode(LarghezzaSchermo, AltezzaSchermo), "Display");
     string testo="#0/";
 
@@ -1779,7 +1928,7 @@ int main()
         window.clear(impozado.colore[0]);
         sf::Text testoCaricamento;
         testoCaricamento.setFont(font);
-        testoCaricamento.setString("Caricamento in corso\nAttendere prego");
+        testoCaricamento.setString(scritta[0]+"\n"+scritta[1]);
         testoCaricamento.setFillColor(impozado.colore[1]);
         testoCaricamento.setPosition((LarghezzaSchermo-testoCaricamento.getGlobalBounds().width)/2, (AltezzaSchermo-testoCaricamento.getGlobalBounds().height)/2);
         window.draw(testoCaricamento);
@@ -1802,7 +1951,7 @@ int main()
         window.draw(barraC);
         window.display();
 
-        testo="#0 Non hai ancora selezionato un libro \nvai nella sezione \"Henhavo\" ";
+        testo="#0 "+scritta[2]+"/\n\n"+scritta[3];
         unsigned int inizio=0, fine=0, lunghezza=0;
         for(int i=0; fine!=testo.size()-1; i++)
         {

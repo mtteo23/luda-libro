@@ -228,29 +228,34 @@ Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
 El cxi tie ci povas iri al /l41 41/, /l42 42/ aux /l43 43/.
 
 #41 arbaro/
-Ci trairas la arbaro, la tempo fluas kaj la suno pli kaj pli mallevigxas.
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 /b1 aldonu unu streketo/.
 El cxi tie ci povas iri al /l42 42/, /l45 45/ aux /l46 46/.
 
 #42 fonto/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 Poste longa marsxado ci fine trovas fonton! Ci avide trinkas la akvon, /c1 visxu la noton/ /c2 soifa kaj malsata/.
-/b1 Aldonu unu streketo/. 
 Nun ci povas provi trovi kielo per kiu eliri el cxi tiu insulo kaj renkontigxi ciajn gefratoj al Roko.
 El cxi tie ci povas iri al /l44 44/ aux al /l45 45/.
 
 #43 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 El cxi tie ci povas iri al /l41 41/, /l44 44/ aux /l14 14/.
 
 #44 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 El cxi tie ci povas iri al /l41 41/, /l47 47/ aux /l43 43/.
 
 #45 porkidoj/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 
 #46 eliro/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 
 #47 kandomo/
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 
 #48 ci trovas nenio utila cxi tie/
 Reiru cxe /l28 28/.

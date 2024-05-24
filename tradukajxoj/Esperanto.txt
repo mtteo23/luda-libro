@@ -14,3 +14,4 @@ uzu
 visxu
 Lingvo
 Sonlivelo
+Reskribu

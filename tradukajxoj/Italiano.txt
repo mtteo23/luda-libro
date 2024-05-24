@@ -14,3 +14,4 @@ usa
 cancella
 Lingua
 Volume
+Resetta

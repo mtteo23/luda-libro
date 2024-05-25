@@ -248,7 +248,9 @@ El cxi tie ci povas iri al /l41 41/, /l47 47/ aux /l43 43/.
 
 #45 porkidoj/
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-
+Tra la arboj ci vidas tri porkidoj, ili sxajnas bongustaj kaj ci tre malsatas.
+Se ci volas provi kapti unu porkido aux ci havas la noton /c2 soifa kaj malsata/ iru cxe /l56 56/,
+se ci timas ke la patrino de la porkidoj alvenos kaj ci ne havas la noton /c2 soifa kaj malsata/ iru cxe /l14 14/.
 
 #46 eliro/
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
@@ -285,4 +287,17 @@ Reiru cxe /l34 34/.
 #55 ci trovas nenio utila cxi tie/
 Reiru cxe /l35 35/.
 
+#56 porkidsxtelisto/
+Ci prendas la plej dika porkido kaj kuras for.
+Malantaux cin ci auxdas la krion de la patrino, sxi sekvantas cin!
+Cxu ci havas pli ol /c1 kvar streketojn/?
+Cxu jes iru cxe /l57 57/
+Cxu ne iru cxe /l14 14/
 
+#57 kolera patrino/
+Forkurante ci eliras el la arbaro, antaux ol ci povas vidi kie ci trovas, timinda sono alvenas el malantaux cin.
+La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun grandaj dentegoj.
+Ci apenaux vidis sxin kiam sxi frapas cian kruron. Grandega doloro malpovigas cin dauxrigi, la patrino pretigxas alian mordon.
+Cxu ci havas almenaux /c1 unu sorton/?
+Cxu jes iru cxe /l14 14/,
+Alie ci mortas cxi tie, vivmangxita el la porkino.

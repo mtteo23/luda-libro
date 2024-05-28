@@ -432,13 +432,15 @@
 	<iostream>
 	<time.h>
 
-1716571003 source:c:\users\luigi\onedrive\desktop\informatica\c++\non finiti\capolavoro2024\copia\main.cpp
+1716911165 source:c:\users\luigi\onedrive\desktop\informatica\c++\non finiti\capolavoro2024\copia\main.cpp
+	<iostream>
+	<time.h>
+	<cmath>
+	"GUI.hpp"
+
+1716911034 c:\users\luigi\onedrive\desktop\informatica\c++\non finiti\capolavoro2024\copia\gui.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<SFML/System.hpp>
-	<iostream>
 	<fstream>
-	<time.h>
-	<pthread.h>
-	<cmath>
 

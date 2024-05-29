@@ -1022,6 +1022,9 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         }
     }
 
+    Barra bVolume("%", 500.f, 180.f, 3, &impozado.volume, 100);
+    bVolume.draw(window);
+    /*
     {///Volume
         sf::Vector2f pos(500.f, 180.f);
         sf::Vector2f diff(3.f, 3.f);
@@ -1082,6 +1085,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         window->draw(etichetta);
         window->draw(titolo);
     }
+    */
 
     {///Colori
         sf::Vector2f pos(300.f, 250.f);

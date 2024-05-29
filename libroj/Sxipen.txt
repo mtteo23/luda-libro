@@ -170,7 +170,7 @@ alie vi fine povas reparti al Roko, iru cxe /l25 25/.
 
 #31 malunua eblo/
 Vi devar reveni al Roko sed via velo estas ankoraux rompita! Vi havas nur unu eblo, ecx se gxi estas malkomforta kaj honta vi uzas viajn vestajxojn por ripari la velon.
-Viŝu la noton rompita velo kaj kreu la noton nuda sxipistaro.
+Visxu la noton rompita velo kaj kreu la noton nuda sxipistaro.
 Fine vi havas nerompita velo kaj vi povas reparti, dauxru cxe /l25 25/.
 
 #32 malorda varejo/

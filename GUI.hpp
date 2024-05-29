@@ -133,7 +133,7 @@ class Pulsante
         else return 0;
     }
 
-    void draw(sf::RenderWindow* window)
+    int draw(sf::RenderWindow* window)
     {
         stato=state(window);
         switch(stato)
@@ -171,6 +171,8 @@ class Pulsante
         window->draw(Layer2);
         window->draw(Layer3);
         window->draw(etichetta);
+
+        return stato;
     }
 };
 

@@ -1030,7 +1030,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         sf::Vector2f diff(5.f, 5.f);
         sf::Vector2f larg(60.f, 60.f);
         static int indColore=0;
-        for(int i=0; i<5; i++)
+        for(int i=0; i<3; i++)
             {//C1
             sf::RectangleShape PulsanteH1(larg*prop);
             PulsanteH1.setPosition((pos+(sf::Vector2f(larg.x-diff.x, 0))*float(i))*prop);
@@ -1225,7 +1225,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=4;
+                    sezione[i].colore=2;
                     premuto[i]=0;
                 }
             break;
@@ -1250,7 +1250,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=4;
+                    sezione[i].colore=2;
                     premuto[i]=0;
                 }
             break;
@@ -1276,7 +1276,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=4;
+                    sezione[i].colore=2;
                     premuto[i]=0;
                 }
             break;
@@ -1302,7 +1302,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=4;
+                    sezione[i].colore=2;
                     premuto[i]=0;
                 }
             break;
@@ -1328,7 +1328,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=4;
+                    sezione[i].colore=2;
                     premuto[i]=0;
                 }
             break;

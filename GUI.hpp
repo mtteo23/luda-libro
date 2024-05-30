@@ -19,8 +19,8 @@ class Impostazioni{
     string lingvo="Italiano";
     string lingue_disponibili[50]={"English", "Esperanto", "Italiano"};
     int volume=50;
-    sf::Color colore[5]=
-    {sf::Color::Black, sf::Color::White, sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(100, 100, 100)};
+    sf::Color colore[3]=
+    {sf::Color::Black, sf::Color::White, sf::Color(200, 200, 200)};
 
     sf::Font font;
     int AltezzaCarattere=24;
@@ -31,7 +31,7 @@ class Impostazioni{
 
         getline(fin, lingvo);
         fin>>volume;
-        for(int i=0; i<5; i++)
+        for(int i=0; i<3; i++)
         {
             int a, b, c;
             fin>>a;
@@ -57,7 +57,7 @@ class Impostazioni{
         fout<<lingvo<<endl;
         fout<<volume<<endl;
 
-        for(int i=0; i<5; i++)
+        for(int i=0; i<3; i++)
         {
             fout<<to_string(colore[i].r)<<" ";
             fout<<to_string(colore[i].g)<<" ";

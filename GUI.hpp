@@ -180,7 +180,7 @@ class Barra
 {
     public:
     float k;
-    int *var;
+    int var;
     int range;
     string etic="";
 
@@ -194,12 +194,12 @@ class Barra
 
     sf::Text etichetta;
 
-    Barra(string inpEtic, float x, float y, float K, int *varControllata, int inpRange)
+    Barra(string inpEtic, float x, float y, float K, int varControllata, int inpRange)
     {
 
         var=varControllata;
 
-        etic=to_string(*var)+inpEtic;
+        etic=to_string(var)+inpEtic;
 
         range=inpRange;
 
@@ -229,20 +229,23 @@ class Barra
     }
 
 
-    void draw(sf::RenderWindow* window)
+    int draw(sf::RenderWindow* window)
     {
 
         if((Layer1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))&&(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)))
-            *var=((((sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x)*range)/((60.f*k-4.f*diff.x)*prop));
+            var=((((sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x)*range)/((60.f*k-4.f*diff.x)*prop));
 
-        *var=max(0, *var);
-        *var=min(range, *var);
-        Layer3.setSize(sf::Vector2f((60.f*k-4.f*diff.x)**var/range*prop, larg.y-4.f*diff.y));
+        var=max(0, var);
+        var=min(range, var);
+        Layer3.setSize(sf::Vector2f((60.f*k-4.f*diff.x)*var/range*prop, larg.y-4.f*diff.y));
 
         etichetta.setString(etic);
         window->draw(Layer1);
         window->draw(Layer2);
         window->draw(Layer3);
         window->draw(etichetta);
+        return var;
     }
 };
+
+

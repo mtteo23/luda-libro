@@ -23,7 +23,7 @@ struct Sezione
     string testo="";//principale, a capo
     float lung=0;
     sf::Vector2f posizione;
-    sf::Color colore=impozado.colore[1];
+    int colore=1;
     sf::Text::Style stile=sf::Text::Regular;
     int arg=0;
     char tipo='x';
@@ -384,7 +384,7 @@ int disseziona(string testo, Sezione sezione[])
         sezione[i].testo="";
         sezione[i].arg=0;
         sezione[i].tipo='x';
-        sezione[i].colore=impozado.colore[1];
+        sezione[i].colore=1;
         sezione[i].posizione=sf::Vector2f(0.f, 0.f);
         sezione[i].lung=0;
     }
@@ -402,7 +402,7 @@ int disseziona(string testo, Sezione sezione[])
                     sezione[indSez].stile=sf::Text::Regular;
                     sezione[indSez].tipo='x';
                     sezione[indSez].arg=0;
-                    sezione[indSez].colore=impozado.colore[1];
+                    sezione[indSez].colore=1;
                     sezione[indSez].posizione=sf::Vector2f(c*impozado.AltezzaCarattere/2+MargS, r*impozado.AltezzaCarattere+MargA);
                     i--;
                 }
@@ -415,7 +415,7 @@ int disseziona(string testo, Sezione sezione[])
                     sezione[indSez].arg=stoi(testo.substr(i, k));
                     i+=k;
                     sezione[indSez].posizione=sf::Vector2f(c*impozado.AltezzaCarattere/2+MargS, r*impozado.AltezzaCarattere+MargA);
-                    sezione[indSez].colore=impozado.colore[2];
+                    sezione[indSez].colore=2;
                 }
             }
             else//#
@@ -427,7 +427,7 @@ int disseziona(string testo, Sezione sezione[])
                 sezione[indSez].arg=stoi(testo.substr(i, k));
                 sezione[indSez].testo+=to_string(sezione[indSez].arg)+" - ";
                 i+=k;
-                sezione[indSez].colore=impozado.colore[1];
+                sezione[indSez].colore=1;
                 sezione[indSez].posizione=sf::Vector2f(c*impozado.AltezzaCarattere/2+MargS, r*impozado.AltezzaCarattere+MargA);
             }
         }
@@ -498,7 +498,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     for(int i=0; i<nSez; i++)
     {
         float c=0;
-        testoPagina.setFillColor(sezione[i].colore);
+        testoPagina.setFillColor(impozado.colore[sezione[i].colore]);
         testoPagina.setStyle(sezione[i].stile);
         for(unsigned int j=0; j<sezione[i].testo.size(); j++)
         {
@@ -1022,70 +1022,8 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         }
     }
 
-    Barra bVolume("%", 500.f, 180.f, 3, &impozado.volume, 100);
-    bVolume.draw(window);
-    /*
-    {///Volume
-        sf::Vector2f pos(500.f, 180.f);
-        sf::Vector2f diff(3.f, 3.f);
-
-        sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
-        PulsanteH1.setPosition(pos*prop);
-        PulsanteH1.setFillColor(impozado.colore[0]);
-
-        sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
-        PulsanteH2.setPosition((pos+diff)*prop);
-        PulsanteH2.setFillColor(impozado.colore[1]);
-
-        sf::RectangleShape PulsanteH4(sf::Vector2f(144.f, 48.f)*prop);
-        PulsanteH4.setPosition((pos+diff*2.f)*prop);
-        PulsanteH4.setFillColor(impozado.colore[3]);
-
-        sf::RectangleShape PulsanteH3(sf::Vector2f((float) impozado.volume*144.f/100, 48.f)*prop);
-        PulsanteH3.setPosition((pos+diff*2.f)*prop);
-        PulsanteH3.setFillColor(impozado.colore[0]);
-
-        sf::Text etichetta;
-        etichetta.setFont(impozado.font);
-        etichetta.setString(to_string(impozado.volume)+"%");
-        etichetta.setFillColor(impozado.colore[1]);
-        etichetta.setPosition((pos+4.f*diff)*prop);
-        etichetta.setCharacterSize(impozado.AltezzaCarattere+5);
-
-        sf::Text titolo;
-        titolo.setFont(impozado.font);
-        titolo.setString(scritta[15]);
-        titolo.setFillColor(impozado.colore[1]);
-        titolo.setPosition((pos+4.f*diff+sf::Vector2f(0, -50.f))*prop);
-        titolo.setCharacterSize(impozado.AltezzaCarattere+5);
-
-        static bool PulsanteHomePremuto=0;
-        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
-        {
-            PulsanteH1.setFillColor(impozado.colore[1]);
-            PulsanteH2.setFillColor(impozado.colore[0]);
-            PulsanteH3.setFillColor(impozado.colore[1]);
-            PulsanteH4.setFillColor(impozado.colore[4]);
-            etichetta.setFillColor(impozado.colore[0]);
-
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
-            else
-            {
-                if(PulsanteHomePremuto)
-                {
-                    PulsanteHomePremuto=0;
-                    impozado.volume=(sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x*100.f/(144.f*prop);
-                }
-            }
-        }
-        window->draw(PulsanteH1);
-        window->draw(PulsanteH2);
-        window->draw(PulsanteH4);
-        window->draw(PulsanteH3);
-        window->draw(etichetta);
-        window->draw(titolo);
-    }
-    */
+    Barra bVolume("%", 500.f, 180.f, 3, impozado.volume, 100);
+    impozado.volume=bVolume.draw(window);
 
     {///Colori
         sf::Vector2f pos(300.f, 250.f);
@@ -1121,208 +1059,28 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         }
 
             {///R
-            pos=sf::Vector2f(300.f, 320.f);
-            diff=sf::Vector2f(3.f, 3.f);
-
-            sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
-            PulsanteH1.setPosition(pos*prop);
-            PulsanteH1.setFillColor(impozado.colore[0]);
-
-            sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
-            PulsanteH2.setPosition((pos+diff)*prop);
-            PulsanteH2.setFillColor(impozado.colore[1]);
-
-            sf::RectangleShape PulsanteH4(sf::Vector2f(144.f, 48.f)*prop);
-            PulsanteH4.setPosition((pos+diff*2.f)*prop);
-            PulsanteH4.setFillColor(impozado.colore[3]);
-
-            sf::RectangleShape PulsanteH3(sf::Vector2f((float) impozado.colore[indColore].r*144.f/255, 48.f)*prop);
-            PulsanteH3.setPosition((pos+diff*2.f)*prop);
-            PulsanteH3.setFillColor(impozado.colore[0]);
-
-            sf::Text etichetta;
-            etichetta.setFont(impozado.font);
-            etichetta.setString(to_string(impozado.colore[indColore].r));
-            etichetta.setFillColor(impozado.colore[1]);
-            etichetta.setPosition((pos+4.f*diff)*prop);
-            etichetta.setCharacterSize(impozado.AltezzaCarattere+5);
-
-            static bool PulsanteHomePremuto=0;
-            if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
-            {
-                PulsanteH1.setFillColor(impozado.colore[1]);
-                PulsanteH2.setFillColor(impozado.colore[0]);
-                PulsanteH3.setFillColor(impozado.colore[1]);
-                etichetta.setFillColor(impozado.colore[0]);
-
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
-                else
-                {
-                    if(PulsanteHomePremuto)
-                    {
-                        PulsanteHomePremuto=0;
-                        impozado.colore[indColore]=sf::Color((sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x*255.f/(144.f*prop), impozado.colore[indColore].g, impozado.colore[indColore].b);
-                    }
-                }
+                Barra bRed("", 300.f, 320.f, 3,impozado.colore[indColore].r, 255);
+                impozado.colore[indColore].r=bRed.draw(window);
             }
-            window->draw(PulsanteH1);
-            window->draw(PulsanteH2);
-            window->draw(PulsanteH3);
-            window->draw(etichetta);
-        }
-
             {///G
-            pos=sf::Vector2f(300.f, 380.f);
-            diff=sf::Vector2f(3.f, 3.f);
-
-            sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
-            PulsanteH1.setPosition(pos*prop);
-            PulsanteH1.setFillColor(impozado.colore[0]);
-
-            sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
-            PulsanteH2.setPosition((pos+diff)*prop);
-            PulsanteH2.setFillColor(impozado.colore[1]);
-
-            sf::RectangleShape PulsanteH4(sf::Vector2f(144.f, 48.f)*prop);
-            PulsanteH4.setPosition((pos+diff*2.f)*prop);
-            PulsanteH4.setFillColor(impozado.colore[3]);
-
-            sf::RectangleShape PulsanteH3(sf::Vector2f((float) impozado.colore[indColore].g*144.f/255, 48.f)*prop);
-            PulsanteH3.setPosition((pos+diff*2.f)*prop);
-            PulsanteH3.setFillColor(impozado.colore[0]);
-
-            sf::Text etichetta;
-            etichetta.setFont(impozado.font);
-            etichetta.setString(to_string(impozado.colore[indColore].b));
-            etichetta.setFillColor(impozado.colore[1]);
-            etichetta.setPosition((pos+4.f*diff)*prop);
-            etichetta.setCharacterSize(impozado.AltezzaCarattere+5);
-
-            static bool PulsanteHomePremuto=0;
-            if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
-            {
-                PulsanteH1.setFillColor(impozado.colore[1]);
-                PulsanteH2.setFillColor(impozado.colore[0]);
-                PulsanteH3.setFillColor(impozado.colore[1]);
-                etichetta.setFillColor(impozado.colore[0]);
-
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
-                else
-                {
-                    if(PulsanteHomePremuto)
-                    {
-                        PulsanteHomePremuto=0;
-                        impozado.colore[indColore]=sf::Color(impozado.colore[indColore].r, (sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x*255.f/(144.f*prop), impozado.colore[indColore].b);
-                    }
-                }
+                Barra bGreen("", 300.f, 390.f, 3,impozado.colore[indColore].g, 255);
+                impozado.colore[indColore].g=bGreen.draw(window);
             }
-            window->draw(PulsanteH1);
-            window->draw(PulsanteH2);
-            window->draw(PulsanteH3);
-            window->draw(etichetta);
-        }
-
-
-        {///B
-            pos=sf::Vector2f(300.f, 440.f);
-            diff=sf::Vector2f(3.f, 3.f);
-
-            sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
-            PulsanteH1.setPosition(pos*prop);
-            PulsanteH1.setFillColor(impozado.colore[0]);
-
-            sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
-            PulsanteH2.setPosition((pos+diff)*prop);
-            PulsanteH2.setFillColor(impozado.colore[1]);
-
-            sf::RectangleShape PulsanteH4(sf::Vector2f(144.f, 48.f)*prop);
-            PulsanteH4.setPosition((pos+diff*2.f)*prop);
-            PulsanteH4.setFillColor(impozado.colore[3]);
-
-            sf::RectangleShape PulsanteH3(sf::Vector2f((float) impozado.colore[indColore].b*144.f/255, 48.f)*prop);
-            PulsanteH3.setPosition((pos+diff*2.f)*prop);
-            PulsanteH3.setFillColor(impozado.colore[0]);
-
-            sf::Text etichetta;
-            etichetta.setFont(impozado.font);
-            etichetta.setString(to_string(impozado.colore[indColore].b));
-            etichetta.setFillColor(impozado.colore[1]);
-            etichetta.setPosition((pos+4.f*diff)*prop);
-            etichetta.setCharacterSize(impozado.AltezzaCarattere+5);
-
-            static bool PulsanteHomePremuto=0;
-            if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
-            {
-                PulsanteH1.setFillColor(impozado.colore[1]);
-                PulsanteH2.setFillColor(impozado.colore[0]);
-                PulsanteH3.setFillColor(impozado.colore[1]);
-                etichetta.setFillColor(impozado.colore[0]);
-
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
-                else
-                {
-                    if(PulsanteHomePremuto)
-                    {
-                        PulsanteHomePremuto=0;
-                        impozado.colore[indColore]=sf::Color(impozado.colore[indColore].r, impozado.colore[indColore].g, (sf::Vector2f(sf::Mouse::getPosition(*window))-(pos+2.f*diff)).x*255.f/(144.f*prop));
-                    }
-                }
+            {///B
+                Barra bBlue("", 300.f, 460.f, 3,impozado.colore[indColore].b, 255);
+                impozado.colore[indColore].b=bBlue.draw(window);
             }
-            window->draw(PulsanteH1);
-            window->draw(PulsanteH2);
-            window->draw(PulsanteH3);
-            window->draw(etichetta);
-        }
-
     }
 
     {///reset
-        sf::Vector2f pos(300.f, 500.f);
-        sf::Vector2f diff(3.f, 3.f);
-
-        sf::RectangleShape PulsanteH1(sf::Vector2f(156.f, 60.f)*prop);
-        PulsanteH1.setPosition(pos*prop);
-        PulsanteH1.setFillColor(impozado.colore[0]);
-
-        sf::RectangleShape PulsanteH2(sf::Vector2f(150.f, 54.f)*prop);
-        PulsanteH2.setPosition((pos+diff)*prop);
-        PulsanteH2.setFillColor(impozado.colore[1]);
-
-        sf::RectangleShape PulsanteH3(sf::Vector2f(144.f, 48.f)*prop);
-        PulsanteH3.setPosition((pos+diff*2.f)*prop);
-        PulsanteH3.setFillColor(impozado.colore[0]);
-
-        sf::Text etichetta;
-        etichetta.setFont(impozado.font);
-        etichetta.setString(scritta[16]);
-        etichetta.setFillColor(impozado.colore[1]);
-        etichetta.setPosition((pos+4.f*diff)*prop);
-        etichetta.setCharacterSize(impozado.AltezzaCarattere+5);
-
-
-        static bool PulsanteHomePremuto=0;
-        if(PulsanteH1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+        static bool pHome=0;
+        Pulsante PHome(scritta[16], 500.f, 560.f, 3, &pHome);
+        if(PHome.draw(window)==3)
         {
-            PulsanteH1.setFillColor(impozado.colore[1]);
-            PulsanteH2.setFillColor(impozado.colore[0]);
-            PulsanteH3.setFillColor(impozado.colore[1]);
-            etichetta.setFillColor(impozado.colore[0]);
-
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteHomePremuto=1;
-            else
-            {
-                if(PulsanteHomePremuto)
-                {
-                    PulsanteHomePremuto=0;
-                    Impostazioni i;
-                    impozado=i;
-                }
-            }
+            Impostazioni i;
+            i.salva();
+            impozado.scarica();
         }
-        window->draw(PulsanteH1);
-        window->draw(PulsanteH2);
-        window->draw(PulsanteH3);
-        window->draw(etichetta);
     }
 
 
@@ -1457,7 +1215,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
             case 'l':
                 if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y+scroll*impozado.AltezzaCarattere/4.f, sezione[i].lung*impozado.AltezzaCarattere/2, impozado.AltezzaCarattere).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
                 {
-                    sezione[i].colore=impozado.colore[1];
+                    sezione[i].colore=1;
                     sezione[i].stile=sf::Text::Bold;
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                     {
@@ -1467,7 +1225,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=impozado.colore[4];
+                    sezione[i].colore=4;
                     premuto[i]=0;
                 }
             break;
@@ -1475,7 +1233,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
             case 'n':
                 if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y+scroll*impozado.AltezzaCarattere/4.f, sezione[i].lung*impozado.AltezzaCarattere/2, impozado.AltezzaCarattere).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
                 {
-                    sezione[i].colore=impozado.colore[1];
+                    sezione[i].colore=1;
                     sezione[i].stile=sf::Text::Bold;
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                     {
@@ -1492,7 +1250,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=impozado.colore[4];
+                    sezione[i].colore=4;
                     premuto[i]=0;
                 }
             break;
@@ -1500,7 +1258,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
             case 's':
                 if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y+scroll*impozado.AltezzaCarattere/4.f, sezione[i].lung*impozado.AltezzaCarattere/2, impozado.AltezzaCarattere).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
                 {
-                    sezione[i].colore=impozado.colore[1];
+                    sezione[i].colore=1;
                     sezione[i].stile=sf::Text::Bold;
                     if(premuto[i])
                     {
@@ -1518,7 +1276,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=impozado.colore[4];
+                    sezione[i].colore=4;
                     premuto[i]=0;
                 }
             break;
@@ -1526,7 +1284,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
             case 'b':
                 if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y+scroll*impozado.AltezzaCarattere/4.f, sezione[i].lung*impozado.AltezzaCarattere/2, impozado.AltezzaCarattere).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
                 {
-                    sezione[i].colore=impozado.colore[1];
+                    sezione[i].colore=1;
                     sezione[i].stile=sf::Text::Bold;
                     if(premuto[i])
                     {
@@ -1544,7 +1302,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=impozado.colore[4];
+                    sezione[i].colore=4;
                     premuto[i]=0;
                 }
             break;
@@ -1552,7 +1310,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
             case 'a':
                 if(sf::FloatRect(sezione[i].posizione.x, sezione[i].posizione.y+scroll*impozado.AltezzaCarattere/4.f, sezione[i].lung*impozado.AltezzaCarattere/2, impozado.AltezzaCarattere).contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
                 {
-                    sezione[i].colore=impozado.colore[1];
+                    sezione[i].colore=1;
                     sezione[i].stile=sf::Text::Bold;
                     if(premuto[i])
                     {
@@ -1570,7 +1328,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                 else
                 {
                     sezione[i].stile=sf::Text::Regular;
-                    sezione[i].colore=impozado.colore[4];
+                    sezione[i].colore=4;
                     premuto[i]=0;
                 }
             break;

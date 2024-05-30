@@ -89,14 +89,18 @@ Ci trovis cxi tiun taglibro en la dormejo de la sanga sxipo.
 
 Ci sxtelis cxi tiun sakon el la dormantulo kiu ci mortigis.
 
-#18 /
+#18 mordita kruro/
 
-#19 /
+Ci provis sxteli porkido el patrinporko, tio ne finis bone, ci ne plu povas facile pasxi kaj ci bezonas pasxbastonon
+
+#19 salvinta junulino/
+
+Ci renkontis Sarino, junulino kiu perdis sian sxipistaro kaj savis cin el patrina porkino kiu preskaux mortigis cin.
 
 #20 Jxuranta/
 
 Ci provas jxuri kiel la monstro petas, sed la akvon plenas cian busxon sen lasi eliranti ciajn parolojn. Ci fermas la okulojn kaj svenas.
-/c1 Kreu noton/ /n12 submara pakto/
+/c2 Kreu noton/ /n12 submara pakto/
 Dauru cxe /l26 26/.
 
 #21 Senaere/
@@ -112,7 +116,7 @@ Sal', cxi tion parto ne dauxros en cxi tio libro, mi ankoraux ne skribis gxin ka
 
 Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin.
 
-Cxu ci havas almenaux unu /c1 sorton/? Cxu jes iru cxe /l4 4/ alie iru cxe /l23 23/.
+Cxu ci havas almenaux unu /c2 sorton/? Cxu jes iru cxe /l4 4/ alie iru cxe /l23 23/.
 
 #23 dronita/
 Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis gxin ankaux haltas.
@@ -125,7 +129,7 @@ Cia adventuro finas cxi tie.
 
 Ci provas krii ke ci neniam servos homdronantajn monstrojn kaj pli gravajn insultojn, sed la akvon plenas cian busxon sen lasi eliranti ciajn parolojn. Ci fermas la okulojn kaj svenas.
 
-Cxu ci havas almenaux unu /c1 sorton/? Cxu jes iru cxe /l21 21/ alie iru cxe /l23 23/.
+Cxu ci havas almenaux unu /c2 sorton/? Cxu jes iru cxe /l21 21/ alie iru cxe /l23 23/.
 
 #25 al Roko/
 
@@ -273,7 +277,7 @@ Reiru cxe /l31 31/.
 
 #52 ci sercxas la verejo/
 Sub la rubajxoj ci trovas grandan kaj apenauxn malpuran tapisxon. Ci povos vendi gxin kontraux iom da monoj kiam ci alvenos al Roko.
-/c1 Kreu la noton/ /n15 tapisxo/.
+/c2 Kreu la noton/ /n15 tapisxo/.
 Reiru cxe /l32 32/.
 
 #53 ci sercxas la la dormejo/
@@ -297,7 +301,25 @@ Cxu ne iru cxe /l14 14/
 #57 kolera patrino/
 Forkurante ci eliras el la arbaro, antaux ol ci povas vidi kie ci trovas, timinda sono alvenas el malantaux cin.
 La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun grandaj dentegoj.
-Ci apenaux vidis sxin kiam sxi frapas cian kruron. Grandega doloro malpovigas cin dauxrigi, la patrino pretigxas alian mordon.
+Ci apenaux vidis sxin kiam sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
 Cxu ci havas almenaux /c1 unu sorton/?
 Cxu jes iru cxe /l14 14/,
 Alie ci mortas cxi tie, vivmangxita el la porkino.
+
+#58 salvanta sinjorino/
+Antaux la porkino povas provi mortigi cin granda krio alvenas el malantaux cin.
+El tero ci vidas alta junulino frapi remilon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
+Ci dankegas la junulino sed la mordo de la porkino estas terure profunda kaj multego da sango eliras.
+/c2 Kreu la noton/ /n18 mordita kruro/.
+La junulino rapide formetas sian cxemizo kaj uzas gxin por bandagxi cian kruron. Tamen gxi sxajnas tre malbona vundajxo.
+"Ci necesas pli bona sanigo, mi ne povas fari pli tie cxi", la junulino diras, "Mi nomas Sarino, cxu ci scias kie troveblas sxipon?".
+"Mi sercxis la saman, sed sxajnas ke tiu cxi estas nelogxata insulo, ci ne logxas cxi tie, cxu ne?", ci demandas al la junulino.
+"Ne, mi alvenis cxi tio mateno sxipe, sed mi jaj mia sxipistaro estis atakitaj el la logxantoj, ni mortigis cxiujn el ili sed ili preskaux faris la saman al nin.
+Mi estas la sola supervivintino, kaj mi pensis la sola gehomo sur la insulo, antaux vidi cin, kiel ci alvenis tie cxi?".
+Ci auskultas Sarina rakonto kaj ci povas vidi sxia espero forigi kiam ci diras kiel ci alvenis sur la insulo.
+/c2 Kreu la noton/ /n19 salvinta junulino/.
+"Do ci ne havas sxipon? Mia rompigxis sur rokoj kiam mi alvenis, kvankam gxi estis tro granda kaj ni bezonus almenaux ok ulojn por veturi gxin. Ni devas trovi alian kielo por eliri el cxi tiu insulo".
+"Ni farigu fajron plagxen, tio alvenigos proksimajn sxipojn", ci proponas, ci ne estas la unua fojon ci perdis cian sxipo kaj restis sur nelogxata insulo, sed ci ne sxatas memori tion.
+Sarino ekkomencas pretigi la fajron, baldaux gxi bruligas kaj kreas multe da fumon.
+Pasas apenaux duonhoron kaj malgraux ne alvenas sxipoj vi auxdas fortan gxojan krion, vi vidas cian frato [nomo2] alkuri skuante siajn brakojn.
+  

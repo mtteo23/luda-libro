@@ -254,8 +254,16 @@ se ci timas ke la patrino de la porkidoj alvenos kaj ci ne havas la noton /c2 so
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 
 
-#47 kandomo/
+#47 kandomoj/
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+Ci alvenas en granda senarbejo ene la arbaro. 
+Estas tri kotaj kandomoj turnitaj al la centro de la ejo, tie ci vidas teruran vidajxon.
+Preskaux dudek mortaj korpoj, unu aux du preskaux nur ostaroj, estas amasataj en la centro de la ejo.
+Malbonega odoro plenas la aero kaj arego de musxoj bruas super la mortitoj.
+Se ci volas rapide foriri kaj malmemori tion malbelegan vidajxon iru cxe /l60 60/,
+se ci volas pli bone sercxi la kandomojn iru cxe /l14 14/,
+alie, se ci volas sercxi la mortkorpojn iru cxe /l14 14/.
+
 
 #48 ci trovas nenio utila cxi tie/
 Reiru cxe /l28 28/.
@@ -297,7 +305,7 @@ Forkurante ci eliras el la arbaro, antaux ol ci povas vidi kie ci trovas, timind
 La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun grandaj dentegoj.
 Ci apenaux vidis sxin kiam sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
 Cxu ci havas almenaux /c1 unu sorton/?
-Cxu jes iru cxe /l14 14/,
+Cxu jes iru cxe /l58 58/,
 Alie ci mortas cxi tie, vivmangxita el la porkino.
 
 #58 salvanta sinjorino/
@@ -325,13 +333,14 @@ Ci estas felicxega! Ili cxiujn estas sanaj kaj vi povas eliri el cxi tiu nelogxa
 /a0 Visxu cxiujn streketojn/
 Hodiaux vi restos sur la insulo kaj morgaux matene vi dauxros vian vojagxon al Roko.
 Se ci havas la noto /c2 salvinta junulino/ iru cxe /l62 62/,
-se ci ne havas gxin sed se ci havas la noton  /c2 mordita kruro/ iru cxe /l14 14/.
-Se ci ne havas nek unun el la du notoj vi festas kun ciajn gefratojn, dormas tra la nokto kaj al la mateno reekveturas, dauxru cxe /l61 61/.
+se ci ne havas gxin sed ci havas la noton  /c2 mordita kruro/ iru cxe /l63 63/.
+se ci ne havas ilin sed ci havas la noton  /c2 sovaga porkido/ iru cxe /l68 68/.
+Se ci ne havas nek unun el la notoj dauxru cxe /l61 61/.
  
 #60 eliro el la arbaro
-Ci rapide dauxras cian sercxo, la suno mallevos en kalkajn horon kaj ci ne povas riski la kolero de iu patrinporko.
+Ci rapide foriras kaj dauxras cian sercxo, la suno mallevos en kalkajn horon kaj ci ne povas perdi tempon.
 Rapide la arbaro finas kaj ci alvenas al alia plagxo. La suno malrapide mallevas antauxe cin kaj la ombroj plilongigxas.
-Se ci ne trovintus kiel eliri el la insulo cxi tiu estus grava problemo, sed tio ne estas problemo nun cxar antauxe cin estas la Glenkoro kaj ciajn gefratojn.
+Se ci ne trovintus kiel eliri el la insulo cxi tiu estus grava problemo, sed tio ne estas problemo nun: antauxe cin estas la Glenkoro kaj ciajn gefratojn.
 Iru cxe /l59 59/.
 
 #61 nokta festo
@@ -348,7 +357,7 @@ Se ci havas la noton /c2 mordita kruro/ iru cxe /l63 63/.
 Viajn gefratoj levas la cxemizon kiu kovras cian vundo, Pino rekudras gxin sed gxi estas tro grava. Sxajnas ke ci travivos sed ci ne plu povos normale pasxi, kaj certe ci ne povos kuri.
 Daxuru cxe /l61 61/.
 
-#64 
+#64 pli rapida ol porkino
 Ci rapidege kuras, baldaux ci ne plu sentas ion malantaux cin. La porkido provas fugxi el ciaj brakoj sed ci forte tenas gxin.
 Ci havas multege da malsato, se ci volas rapide mortigi kaj mangxi la porkidon ci povas /c1 visxi la noton/ /c2 soifa kaj malsata/.
 Alie /c2 kreu la noton/ /n65 sovagxa porkido/.
@@ -357,3 +366,23 @@ Dauxru cxe /l60 60/.
 #65 sovagxa porkido
 
 Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
+
+#66 rokplagxo
+
+#67 tro granda rompita sxipo
+
+#68
+"Ci kunportis memorajxo el la arbaro?" petas cia frato [nomo2] vidante la porkido, "Gxi estus bongustega, rostite".
+"Mi ankoraux ne decidis cxu mortigi gxin, gxi povus esti utila" ci respondas.
+Daxuru cxe /l61 61/.
+ 
+#69 arbara strateto
+Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+Eke ci trovas cin super mallargxa kaj malrekta strateto.
+Tio miras cin cxar ci kredis ka le insulo ne estis logxita.
+Espero plenas cin: se estas homoj sur la insulo eble estas sxipoj kaj kieloj por alveni al Roko al ciajn gefratoj!
+Sed iom post iom ci memoras pri rakontoj kiun ci auxdis kiam ci estis knabo. Rakontoj pri sovagxuloj, kiu mangxas homviando en noktaj festoj kaj logxas en nekonataj kaj malproksimaj insuloj.
+Rakontoj pri stultaj marvojagxistoj kiu lasis sin kapti el la hombestoj kaj mortis for de hejme.
+Certe dauxri sur la strateto estas la vojo pli rapida por alveni al Roko, aux al la mortejo.
+Se ci volas sekvi la strateto iru cxe /l47 47/,
+alie, se ci volas dauxri en la arbaro iru cxe /l14 14/

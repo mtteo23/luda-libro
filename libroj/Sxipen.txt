@@ -84,6 +84,10 @@ Ci ankoraux ne vendis la tapisxon kiun vi trovis en la sanga sxipo.
 #16 taglibron/
 
 Ci trovis cxi tiun taglibro en la dormejo de la sanga sxipo.
+Ci mlkovras ke la sxipo 
+Plejparte gxi estas seninteresa rakonto de la vivo de sxipistoj kion ci jam suficxe konas.
+Sed unu legeron interesegas cin:
+"Mi ankoraux ne skribis tion"
 
 #17 granda sako/
 
@@ -252,10 +256,10 @@ se ci timas ke la patrino de la porkidoj alvenos kaj ci ne havas la noton /c2 so
 
 #46 eliro/
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Poste iom da tempo la arbaro finas. Ci estas antaux la maro, malantauxe vin estas la arbaro.
+Poste iom da tempo la arbaro finas. Ci estas antaux la maro, malantauxe cin estas la arbaro.
 Ci ankoraux necesas trovi ejo por dormi kaj eble iom por mangxi kaj trinki,
-se ci volas sercxi tion sekvante la plagxon dauxru cxe /l14 14/,
-se ci vola reeni arbaren iru cxe /l14 14/.
+se ci volas sercxi tion sekvante la plagxon dauxru cxe /l66 66/,
+se ci vola reeni arbaren iru cxe /l79 79/.
 
 #47 terura vidajxo/
 Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
@@ -370,10 +374,22 @@ Dauxru cxe /l60 60/.
 Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
 
 #66 rokplagxo/
+Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
+Ci trovas nenion tie, nur tro kaldan sunon, se ci volas daurxi pasxi sur la sablo iru cxe /l67 67/,
+alie se ci volas reeni en la arbaro iru cxe /l79 79/.
 
 #67 tro granda rompita sxipo/
+Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
+Eke ci vidas etan kaj malproksiman ajxo sur la plagxo.
+Ju plue ci alproksimigxas des pli ci komprenas ke gxi estas sxipo, kaj certe ne eta sxipo.
+Kiam ci alvenas al la sxipo ci vidas ke bedaurinde ne estas sxipistoj sure kaj ke la sxipo estas fiksita sur la plagxo.
+Ne estus facila reporti gxin maren ecx se ci havas deko da helpantoj, sed ci estas nur unu kaj ne povus ecx ne veturi gxin.
+Se ci volas esplori la sxipon kaj sercxi ion ajn utila iru cxe /l80 80/,
+se ci volas dauxri sur la plagxo iru cxe /81 81/,
+se ci volas reeni en la arbaro iru cxe /79 79/.
 
-#68  /
+
+#68  porkido sursxipe/
 "Ci kunportis memorajxo el la arbaro?" petas cia frato [nomo2] vidante la porkido, "Gxi estus bongustega, rostite".
 "Mi ankoraux ne decidis cxu mortigi gxin, gxi povus esti utila" ci respondas.
 Daxuru cxe /l61 61/.
@@ -433,6 +449,20 @@ Antaux ci povas forkuri la mortulo mordas cian kruron, farante profunda vundon.
 Fine ci sukcesas forkuri el tie sed ci nun havas /n18 mordita kruro/ kaj /n79 teruro de mortkorpoj/.
 Ci bandagxas la vundo per cian cxemizo, nun ci devas dauxri la esploron de la insulo.
 Iru cxe /l60 60/.
+
+#79 reene arbaren/
+Ci reenas arbaren kaj la tempo fluas: /b1 aldonu unu streketon/.
+El cxi tie ci povas iri al /l69 69/, /l45 45/ aux /l43 43/.
+
+#80 esploro de la sxipego/
+Dum ci enesploras la sxipego la suno multe mallevigxas, /b1 aldonu unu streketon/.
+Preskaux cxion ci trovas ene estas senutila, la nura ajxo ci volas preni estas /n16 taglibron/.
+Dauxru cxe /l67 67/.
+
+#81 bonsxanca surprizo/
+Ci dauxras vojagxi surplagxe gxis ci vidas alian sxipon proksime. Gxi preskaux kredas esti en songxacxo sed ci rekonas ke gxin ne estas ajna sxipo.
+Gxi estas cia sxipo! La Glenkoro kaj sur gxin ci povas vidi ciajn gefratojn.
+Kuru cxe /l59 59/.
 
 #atakita+trancxilo
 Ci trancxas la mano de la mortulo kaj forkuras el tie.

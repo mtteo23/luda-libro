@@ -20,7 +20,7 @@ class Impostazioni{
     string lingue_disponibili[50]={"English", "Esperanto", "Italiano"};
     int volume=50;
     sf::Color colore[3]=
-    {sf::Color::Black, sf::Color::White, sf::Color(200, 200, 200)};
+    {sf::Color::Black, sf::Color::White, sf::Color::Red};
 
     sf::Font font;
     int AltezzaCarattere=24;

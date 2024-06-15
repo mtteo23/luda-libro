@@ -1469,6 +1469,8 @@ int main()
             nCP=indCP+1;
             partita.cronoPagine[indCP]=partita.indPagina;
             nSez=disseziona(pagina[partita.indPagina], sezione);
+
+            scroll=0;
         }
 
         if(cambioPagina || schermata!=schermataS)

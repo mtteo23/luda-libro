@@ -2,10 +2,10 @@ Sxargxante
 Atendu bonvole
 Vi ankoraux ne elektis libron
 Iru al la sekcio "Enhavo" 
-Ludu
-Impo
-Enhavo
-Ludaro
+Dauxru
+Impozadoj
+Nova ludo
+Antauxludoj
 Eliru
 Sorto
 Notoj

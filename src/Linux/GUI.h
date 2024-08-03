@@ -156,7 +156,7 @@ class Pulsante
         etichetta.setCharacterSize(settings.AltezzaCarattere+5);
         etichetta.setString(etic);
         sf::Vector2f posLabel=pos+4.f*diff;
-        {float width=etichetta.getGlobalBounds().width; posLabel.x+=(larg.x-width)/4.f;}
+        {float width=etichetta.getGlobalBounds().width; posLabel.x+=(larg.x-8.f*diff.x-width)/2.f;}
         etichetta.setPosition(posLabel);
     }
 

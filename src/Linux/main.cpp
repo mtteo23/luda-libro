@@ -17,14 +17,28 @@ enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame};
 
 class Partita{
     public:
+    string nome="";
+    string libro="";
+    
     int indPagina=0;
     int cronoPagine[10000]={0};
 
     int nota[100];
     int nNote=0;
 
-    int sorte=2;
+    int sorte=0;
     int barre=0;
+    
+    void newGame(string Libro)
+    {
+		libro=Libro;
+		nome=Libro+"-"+to_string(0);
+		sorte=0;
+		barre=0;
+		indPagina=0;
+		cronoPagine[0]=0;
+		nNote=0;
+	};
 }partita;
 
 wstring scritta[100];
@@ -270,9 +284,9 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     testoNote.setCharacterSize(settings.AltezzaCarattere);
     testoNote.setStyle(sf::Text::Bold);
 
-    testoNote.setString(L"------"+scritta[10]+L"-----");
+    testoNote.setString(scritta[10]);
     testoNote.setFillColor(settings.colore[1]);
-    testoNote.setPosition(sf::Vector2f(ScreenSize.x-MarginSize.x*4/5, MarginSize.y/2));
+    testoNote.setPosition(sf::Vector2f(ScreenSize.x-MarginSize.x+(MarginSize.x-testoNote.getGlobalBounds().width)/2.f, MarginSize.y/2));
     window->draw(testoNote);
 
     testoNote.setStyle(sf::Text::Regular);
@@ -537,7 +551,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     window->draw(barraB);
     {///Home
         static bool pHome=0;
-        Pulsante PHome(L"H ", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+        Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
         if(PHome.draw(window)==3) return IdHome;
     }
 
@@ -726,7 +740,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
 
     {///Home
         static bool pHome=0;
-        Pulsante PHome(L"H ", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+        Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
         if(PHome.draw(window)==3) return IdHome;
     }
 
@@ -749,7 +763,7 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
 
     {//IdHome
         static bool pHome=0;
-        Pulsante PHome(L"H ", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+        Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
         if(PHome.draw(window)==3) return IdHome;
     }
 
@@ -769,9 +783,10 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
     for(int j=0; j<i; j++)
     {
         static bool pLibro=0;
-        Pulsante PLibro(Str2Wstr(titolo[j]), (1200-120)/2, 2*MarginSize.y+60*j, 2, &pLibro);
+        Pulsante PLibro(Str2Wstr(titolo[j]), (1200-240)/2, 2*MarginSize.y+60*j, 4, &pLibro);
         if(PLibro.draw(window)==3)
         {
+			partita.newGame(titolo[j]);
             testo=caricaLibro(titolo[j]);        
 			nPagine=dividiInPagine(pagina, nomePagina, testo);
         	nSez=disseziona(pagina[partita.indPagina], sezione);
@@ -804,7 +819,7 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
     window->draw(WIP);
 
     static bool pHome=0;
-    Pulsante PHome(L"H ", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+    Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
     if(PHome.draw(window)==3) return IdHome;
 
     return IdGame;
@@ -1137,7 +1152,7 @@ int main()
             visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
         }
-        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) rilascio=1;
+        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(pagina[partita.indPagina], sezione);}
     }
 
     return 0;

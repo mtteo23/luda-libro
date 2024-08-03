@@ -2,10 +2,10 @@ Loading
 Wait please
 You still haven't selected a book
 Go to the section "Books" 
-Play
-Setting
-Books
-Games
+Continue
+Settings
+New game
+Old games
 Exit
 Fate
 Notes

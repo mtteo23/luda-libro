@@ -13,9 +13,9 @@
 
 int indCP=0, nCP=0;
 
-enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame};
+enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame, IdRules};
 
-class Partita{
+class Game{
     public:
     string nome="";
     string libro="";
@@ -39,7 +39,7 @@ class Partita{
 		cronoPagine[0]=0;
 		nNote=0;
 	};
-}partita;
+}game;
 
 wstring scritta[100];
 
@@ -140,7 +140,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     testoSorte.setCharacterSize(settings.AltezzaCarattere);
     testoSorte.setStyle(sf::Text::Bold);
 
-    testoSorte.setString(scritta[9]+L": "+Str2Wstr(to_string(partita.sorte)));
+    testoSorte.setString(scritta[9]+L": "+Str2Wstr(to_string(game.sorte)));
     testoSorte.setPosition(sf::Vector2f(MarginSize.x*10/50, MarginSize.y/2)*prop);
     window->draw(testoSorte);
 
@@ -156,7 +156,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 premutoP=0;
-                partita.sorte++;
+                game.sorte++;
             }
         }
         else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoP=1;
@@ -179,7 +179,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 premutoM=0;
-                partita.sorte=max(0, partita.sorte-1);
+                game.sorte=max(0, game.sorte-1);
             }
         }
         else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoM=1;
@@ -205,7 +205,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
     testoSbarre.setPosition(sf::Vector2f(MarginSize.x*10/50*prop.x, MarginSize.y/2*prop.y+settings.AltezzaCarattere*1.5f));
     string txtSbarre="";
-    for(int i=0; i<partita.barre; i++)
+    for(int i=0; i<game.barre; i++)
     {
         if(i%10==0 && i) txtSbarre+="\n";
         else
@@ -229,7 +229,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 premutoP=0;
-                partita.barre++;
+                game.barre++;
             }
         }
         else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoP=1;
@@ -252,7 +252,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 premutoM=0;
-                partita.barre=max(0, partita.barre-1);
+                game.barre=max(0, game.barre-1);
             }
         }
         else    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) premutoM=1;
@@ -290,11 +290,11 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     window->draw(testoNote);
 
     testoNote.setStyle(sf::Text::Regular);
-    static int notaAperta=partita.nNote;
-    for(int i=0; i<partita.nNote; i++)
+    static int notaAperta=game.nNote;
+    for(int i=0; i<game.nNote; i++)
     {
         testoNote.setFillColor(settings.colore[2]);
-        testoNote.setString(nomePagina[partita.nota[i]]+" ["+to_string(partita.nota[i])+"]");
+        testoNote.setString(nomePagina[game.nota[i]]+" ["+to_string(game.nota[i])+"]");
         testoNote.setPosition(sf::Vector2f(ScreenSize.x-MarginSize.x*4/5*prop.x, MarginSize.y*prop.y+(i+(notaAperta<i))*settings.AltezzaCarattere));
         if(testoNote.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         {
@@ -329,7 +329,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
                             if(viduPremuto)
                             {
                                 viduPremuto=0;
-                                partita.indPagina=partita.nota[i];
+                                game.indPagina=game.nota[i];
                             }
                         }
                     }
@@ -351,7 +351,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
                             if(uzuPremuto)
                             {
                                 uzuPremuto=0;
-                                partita.indPagina+=partita.nota[i];
+                                game.indPagina+=game.nota[i];
                             }
                         }
                     }
@@ -373,8 +373,8 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
                             if(visxuPremuto)
                             {
                                 visxuPremuto=0;
-                                partita.nNote--;
-                                for(int j=i; j<partita.nNote; j++)  partita.nota[j]=partita.nota[j+1];
+                                game.nNote--;
+                                for(int j=i; j<game.nNote; j++)  game.nota[j]=game.nota[j+1];
                             }
                         }
                     }
@@ -384,7 +384,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             }
             else
             {
-                notaAperta=partita.nNote;
+                notaAperta=game.nNote;
             }
         }
         window->draw(testoNote);
@@ -409,10 +409,10 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
     {///Paragrafo precedente
         static bool pHome=0;
-        Pulsante PHome(L"<<  ", MarginSize.x, ScreenSize.y/prop.y-(MarginSize.y+60.f)/2, 1, &pHome);
+        Pulsante PHome(L"<<", MarginSize.x, ScreenSize.y/prop.y-(MarginSize.y+60.f)/2, 1, &pHome);
         if(PHome.draw(window)==3)
         {
-            partita.indPagina=partita.cronoPagine[indCP-1];
+            game.indPagina=game.cronoPagine[indCP-1];
             indCP-=2;
         }
     }
@@ -427,7 +427,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
 
         if(staDigitando)
         {
-            PHome.etic=L" "+Str2Wstr(to_string((int) prossimoParagrafo/100))+L" "+Str2Wstr(to_string(((int) prossimoParagrafo%100)/10))+L" "+Str2Wstr(to_string((int) prossimoParagrafo%10));
+            PHome.etic=Str2Wstr(to_string((int) prossimoParagrafo/100))+L" "+Str2Wstr(to_string(((int) prossimoParagrafo%100)/10))+L" "+Str2Wstr(to_string((int) prossimoParagrafo%10));
 
             sf::Keyboard::Key numKey[10]={sf::Keyboard::Num0, sf::Keyboard::Num1, sf::Keyboard::Num2, sf::Keyboard::Num3, sf::Keyboard::Num4, sf::Keyboard::Num5, sf::Keyboard::Num6, sf::Keyboard::Num7, sf::Keyboard::Num8, sf::Keyboard::Num9};
             for(int i=0; i<10; i++)
@@ -445,7 +445,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
             {
                 staDigitando=0;
-                partita.indPagina=prossimoParagrafo;
+                game.indPagina=prossimoParagrafo;
                 prossimoParagrafo=0;
             }
         }
@@ -455,100 +455,13 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
             staDigitando=1;
         }
     }
-    /*Moneta
-    {///Lancio moneta
-        static bool faccia=0;
-        static int numero=0;
-        static sf::Time tempoLancio;
-        static sf::Clock clock;
-
-        sf::Vector2f pos(ScreenSize.x-(MarginSize.x-60)*prop, ScreenSize.y-((MarginSize.y*9/10+60.f)*prop)/2);
-        sf::Vector2f diff(3.f, 3.f);
-
-        sf::CircleShape PulsantePP1(32.f*prop);
-        PulsantePP1.setPosition(pos*prop);
-        PulsantePP1.setFillColor(settings.colore[0]);
-
-
-        sf::CircleShape PulsantePP2((32.f-diff.x)*prop);
-        PulsantePP2.setPosition((pos+diff)*prop);
-        PulsantePP2.setFillColor(settings.colore[1]);
-
-        sf::CircleShape PulsantePP3((32.f-2*diff.x)*prop);
-        PulsantePP3.setPosition((pos+2.f*diff)*prop);
-        PulsantePP3.setFillColor(settings.colore[0]);
-
-        sf::Text etichetta;
-        etichetta.setFont(settings.font);
-        etichetta.setString(" M");
-        if(faccia) etichetta.setString(" "+to_string(numero));
-        etichetta.setFillColor(settings.colore[1]);
-        etichetta.setPosition((pos+4.f*diff)*prop);
-        etichetta.setCharacterSize(settings.AltezzaCarattere+5);
-
-        if(clock.getElapsedTime()<tempoLancio)
-        {
-            float fase=cos(sqrt(clock.getElapsedTime().asMilliseconds()));
-            PulsantePP1.setScale(1.f, abs(fase));
-            PulsantePP2.setScale(1.f, abs(fase));
-            PulsantePP3.setScale(1.f, abs(fase));
-            etichetta.setScale(1.f, abs(fase));
-
-            PulsantePP1.setPosition(pos*prop+sf::Vector2f(0, (32.f+0*diff.y)*(1-abs(fase))));
-            PulsantePP2.setPosition(pos*prop+sf::Vector2f(diff.x, (32.f+0.5*diff.y)*(1-abs(fase))+0.5*diff.y));
-            PulsantePP3.setPosition(pos*prop+sf::Vector2f(2*diff.x, (32.f+1*diff.y)*(1-abs(fase))+1*diff.y));
-            etichetta.setPosition(pos*prop+sf::Vector2f(4*diff.x, (32.f+2*diff.y)*(1-abs(fase))+2*diff.y));
-            faccia=fase>0;
-            if(!faccia) numero=rand()%6+1;
-        }
-
-        if(faccia)
-        {
-            PulsantePP1.setFillColor(settings.colore[1]);
-            PulsantePP2.setFillColor(settings.colore[0]);
-            PulsantePP3.setFillColor(settings.colore[1]);
-            etichetta.setFillColor(settings.colore[0]);
-        }
-
-
-        static bool PulsanteLancioMoneta=0;
-        if(PulsantePP1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
-        {
-            PulsantePP1.setFillColor(settings.colore[1]);
-            PulsantePP2.setFillColor(settings.colore[0]);
-            PulsantePP3.setFillColor(settings.colore[1]);
-            etichetta.setFillColor(settings.colore[0]);
-
-            if(faccia)
-            {
-                PulsantePP1.setFillColor(settings.colore[0]);
-                PulsantePP2.setFillColor(settings.colore[1]);
-                PulsantePP3.setFillColor(settings.colore[0]);
-                etichetta.setFillColor(settings.colore[1]);
-            }
-
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) PulsanteLancioMoneta=1;
-            else
-            {
-                if(PulsanteLancioMoneta)
-                {
-                    PulsanteLancioMoneta=0;
-                    tempoLancio=sf::milliseconds(rand()%1000+4000);
-                    clock.restart();
-                }
-            }
-        }
-        window->draw(PulsantePP1);
-        window->draw(PulsantePP2);
-        window->draw(PulsantePP3);
-        window->draw(etichetta);
-    }
-    //*/
+    
     ///-----------------Barra Alta-----------------
-
-    barraB.setFillColor(settings.colore[0]);
-    barraB.setPosition(MarginSize.x*prop.x, 0);
-    window->draw(barraB);
+	sf::RectangleShape barraA(sf::Vector2f(ScreenSize.x-2*MarginSize.x*prop.x, MarginSize.y*prop.y));
+    barraA.setFillColor(settings.colore[0]);
+    barraA.setPosition(MarginSize.x*prop.x, 0);
+    window->draw(barraA);
+    
     {///Home
         static bool pHome=0;
         Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
@@ -594,11 +507,16 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         Pulsante PHome(scritta[7], (1200-180)/2, (600-60)/2+180, 3, &pHome);
         if(PHome.draw(window)==3) return IdGame;
     }
-    {///Esci
+    {///Rules
         static bool pHome=0;
         Pulsante PHome(scritta[8], (1200-180)/2, (600-60)/2+240, 3, &pHome);
+        if(PHome.draw(window)==3) return IdRules;
+    }
+    {///Exit
+        static bool pHome=0;
+        Pulsante PHome(L"X", ScreenSize.x/prop.x-68, 8, 1, &pHome);
         if(PHome.draw(window)==3)
-        {
+		{
             window->close();
             settings.salva();
             return -1;
@@ -786,10 +704,10 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
         Pulsante PLibro(Str2Wstr(titolo[j]), (1200-240)/2, 2*MarginSize.y+60*j, 4, &pLibro);
         if(PLibro.draw(window)==3)
         {
-			partita.newGame(titolo[j]);
+			game.newGame(titolo[j]);
             testo=caricaLibro(titolo[j]);        
 			nPagine=dividiInPagine(pagina, nomePagina, testo);
-        	nSez=disseziona(pagina[partita.indPagina], sezione);
+        	nSez=disseziona(pagina[game.indPagina], sezione);
             return IdPlay;
         }
     }
@@ -825,6 +743,79 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
     return IdGame;
 }
 
+int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
+{
+	ifstream fin("rules/"+settings.language+".txt");
+	string text="";
+	while(!fin.eof())
+	{
+		string tmp;
+		getline(fin, tmp);
+		text+=tmp+"\n";
+	}
+	
+	Sezione sezione[500];
+	int nSez=disseziona(text, sezione);	
+    float lC[256];
+	initLC(lC);
+    sf::Text testoPagina;
+    testoPagina.setFont(settings.font);
+    testoPagina.setCharacterSize(settings.AltezzaCarattere);
+    testoPagina.setStyle(sf::Text::Regular);
+  
+	for(int i=0; i<nSez; i++)
+    {
+        float c=0;
+        testoPagina.setFillColor(settings.colore[sezione[i].colore]);
+        testoPagina.setStyle(sezione[i].stile);
+        int contX=0;
+        for(unsigned int j=0; j<sezione[i].testo.size(); j++)
+        {
+			if(settings.language=="Esperanto")
+            {
+				if(sezione[i].testo[j]=='x' ){j++; contX++;}
+				testoPagina.setString(X2EO(sezione[i].testo).substr(j-contX, 1));
+			}
+			else
+			{
+				testoPagina.setString(sezione[i].testo.substr(j, 1));
+			}
+			cout<<sezione[i].posizione.x<<"\t"<<sezione[i].posizione.y<<"\n";
+            testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(c*settings.AltezzaCarattere, settings.AltezzaCarattere*scroll/4.f));
+            window->draw(testoPagina);
+            c+=lC[(int) sezione[i].testo[j]];
+        }
+    }
+
+
+    ///------------intreccio Sinistro
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+
+    ///-----------------Intreccio Destro
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(ScreenSize.x, 0);
+    window->draw(barraD);
+
+    ///-----------------Barra Alta-----------------
+	sf::RectangleShape barraA(sf::Vector2f(ScreenSize.x-2*MarginSize.x*prop.x, MarginSize.y*prop.y));
+    barraA.setFillColor(settings.colore[0]);
+    barraA.setPosition(MarginSize.x*prop.x, 0);
+    window->draw(barraA);
+    {///Home
+        static bool pHome=0;
+        Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+        if(PHome.draw(window)==3) return IdHome;
+    }
+
+    return IdRules;
+}
+
 void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf::Texture intreccio, string pagina[10000], string nomePagina[10000], int &nPagine, int &nSez, string &testo, int scroll)
 {
     switch(schermata)
@@ -848,6 +839,10 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf:
         case IdGame:
             schermata=visElencoGiochi(window, intreccio);
         break;
+        
+        case IdRules:
+            schermata=visRules(window, intreccio, scroll);
+        break;
     }
 }
 
@@ -866,7 +861,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                     sezione[i].stile=sf::Text::Bold;
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                     {
-                        partita.indPagina=sezione[i].arg;
+                        game.indPagina=sezione[i].arg;
                     }
                 }
                 else
@@ -886,12 +881,12 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                     {
                         bool presente=0;
-                        for(int j=0; j<partita.nNote; j++)
-                            presente=presente || (partita.nota[j]==sezione[i].arg);
+                        for(int j=0; j<game.nNote; j++)
+                            presente=presente || (game.nota[j]==sezione[i].arg);
                         if(!presente)
                         {
-                            partita.nota[partita.nNote]=sezione[i].arg;
-                            partita.nNote++;
+                            game.nota[game.nNote]=sezione[i].arg;
+                            game.nNote++;
                         }
                     }
                 }
@@ -914,7 +909,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                         if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                         {
                             premuto[i]=0;
-                            partita.sorte+=sezione[i].arg;
+                            game.sorte+=sezione[i].arg;
                         }
                     }
                     else
@@ -941,7 +936,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                         if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                         {
                             premuto[i]=0;
-                            partita.barre+=sezione[i].arg;
+                            game.barre+=sezione[i].arg;
                         }
                     }
                     else
@@ -968,7 +963,7 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
                         if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
                         {
                             premuto[i]=0;
-                            partita.barre=sezione[i].arg;
+                            game.barre=sezione[i].arg;
                         }
                     }
                     else
@@ -1016,8 +1011,8 @@ int main()
     int scroll=0;
 
     int schermata=IdHome, schermataS=IdHome;
-    sf::Vector2f dimIntrSchermata[5];
-    sf::Texture intreccioR[5];
+    sf::Vector2f dimIntrSchermata[10];
+    sf::Texture intreccioR[10];
     sf::Texture intreccio;
 	
     {
@@ -1063,7 +1058,7 @@ int main()
 		}
 		testo=caricaLibro(titolo);
         nPagine=dividiInPagine(pagina, nomePagina, testo);
-        nSez=disseziona(pagina[partita.indPagina], sezione);
+        nSez=disseziona(pagina[game.indPagina], sezione);
 		}
 		
 		
@@ -1073,6 +1068,7 @@ int main()
         dimIntrSchermata[IdSettings]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdBooks]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdGame]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
+        dimIntrSchermata[IdRules]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
 
         intreccio=disegnaIntreccio(dimIntrSchermata[IdHome]);
         barraC.setScale(2/8.f, 1);
@@ -1084,11 +1080,11 @@ int main()
             window.draw(testoCaricamento);
             window.display();
 
-        for(int i=0; i<5; i++)
+        for(int i=0; i<6; i++)
         {
             intreccioR[i]=disegnaIntreccio(dimIntrSchermata[i]);
             window.clear(settings.colore[0]);
-            barraC.setScale((i+3)/8.f, 1);
+            barraC.setScale((i+3)/9.f, 1);
             window.draw(testoCaricamento);
             window.draw(barraA);
             window.draw(barraB);
@@ -1121,18 +1117,18 @@ int main()
         {
             indCP=0;
             nCP=1;
-            partita.cronoPagine[indCP]=0;
-            nSez=disseziona(pagina[partita.indPagina], sezione);
+            game.cronoPagine[indCP]=0;
+            nSez=disseziona(pagina[game.indPagina], sezione);
         }
         bool cambioPagina=0;
-        if(partita.cronoPagine[indCP]!=partita.indPagina)
+        if(game.cronoPagine[indCP]!=game.indPagina)
         {
             cambioPagina=1;
             rilascio=0;
             indCP++;
             nCP=indCP+1;
-            partita.cronoPagine[indCP]=partita.indPagina;
-            nSez=disseziona(pagina[partita.indPagina], sezione);
+            game.cronoPagine[indCP]=game.indPagina;
+            nSez=disseziona(pagina[game.indPagina], sezione);
 
             scroll=0;
         }
@@ -1152,7 +1148,7 @@ int main()
             visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
         }
-        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(pagina[partita.indPagina], sezione);}
+        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(pagina[game.indPagina], sezione);}
     }
 
     return 0;

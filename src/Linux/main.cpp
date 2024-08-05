@@ -11,7 +11,7 @@
 
 //Paragrafo: Azzera_barre Barra X(normale) Link Colore Nota Oggetto Sorte
 
-int indCP=0, nCP=0;
+
 
 enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame, IdRules};
 
@@ -21,7 +21,9 @@ class Game{
     string libro="";
     
     int indPagina=0;
+    
     int cronoPagine[10000]={0};
+    int indCP=0;
 
     int nota[100];
     int nNote=0;
@@ -29,21 +31,91 @@ class Game{
     int sorte=0;
     int barre=0;
     
-    void newGame(string Libro)
+	void save()
+	{		
+		ofstream fout("games/"+nome+".txt");
+		fout<<sorte<<endl;
+		fout<<barre<<endl;
+		fout<<nNote<<endl;
+		fout<<indPagina<<endl;
+		fout<<indCP<<endl;
+		fout<<endl;
+		for(int i=0; i<indCP+1; i++)
+			fout<<cronoPagine[i]<<endl;
+		fout<<endl;
+		for(int i=0; i<nNote; i++)
+			fout<<nota[i]<<endl;
+	};
+	void load(string inpNome)
+	{
+		
+		if(indCP!=0)
+			save();
+			
+		nome=inpNome;
+		int limTitolo;
+		limTitolo=nome.find("-");
+		libro=nome.substr(0, limTitolo);
+		string tmp;
+		ifstream fin("games/"+nome+".txt");
+		fin>>sorte;
+		fin>>barre;
+		fin>>nNote;
+		fin>>indPagina;
+		fin>>indCP;
+		getline(fin, tmp);
+		for(int i=0; i<indCP+1; i++)
+			fin>>cronoPagine[i];
+		getline(fin, tmp);
+		for(int i=0; i<nNote; i++)
+			fin>>nota[i];
+	};
+    void newGame(string inpLibro)
     {
-		libro=Libro;
-		nome=Libro+"-"+to_string(0);
+		if(indCP!=0)
+			save();
+			
+		libro=inpLibro;
+		int indLibro=0;
+		string titolo[100];
+		int i=0;
+		
+		for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+		{
+			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
+			{
+				
+				titolo[i]=entry.path().filename();
+				titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
+				
+				int tmpLim=titolo[i].find("-");
+				string tmpTitolo=titolo[i].substr(0, tmpLim);
+				int tmpInd=stoi(titolo[i].substr(tmpLim+1, titolo[i].size()-tmpLim));
+				if(tmpTitolo==libro)	indLibro=max(indLibro, tmpInd+1);
+				i++;
+			}
+		}
+		
+		nome=inpLibro+"-"+to_string(indLibro);
+		
+		
 		sorte=0;
 		barre=0;
 		indPagina=0;
 		cronoPagine[0]=0;
+		indCP=0;
 		nNote=0;
 	};
 }game;
 
 wstring scritta[100];
 
-
+void exit(sf::RenderWindow* window)
+{
+	window->close();
+	settings.salva();
+	game.save();
+}
 
 wstring X2EO(string X){
     wstring C = L"";
@@ -412,8 +484,8 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         Pulsante PHome(L"<<", MarginSize.x, ScreenSize.y/prop.y-(MarginSize.y+60.f)/2, 1, &pHome);
         if(PHome.draw(window)==3)
         {
-            game.indPagina=game.cronoPagine[indCP-1];
-            indCP-=2;
+            game.indPagina=game.cronoPagine[game.indCP-1];
+            game.indCP-=2;
         }
     }
 
@@ -517,8 +589,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         Pulsante PHome(L"X", ScreenSize.x/prop.x-68, 8, 1, &pHome);
         if(PHome.draw(window)==3)
 		{
-            window->close();
-            settings.salva();
+            exit(window);
             return -1;
         }
     }
@@ -714,7 +785,7 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
     return IdBooks;
 }
 
-int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
+int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
 {
 
     sf::Sprite barraS;
@@ -728,13 +799,31 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(ScreenSize.x, 0);
     window->draw(barraD);
 
-    sf::Text WIP;
-    WIP.setFont(settings.font);
-    WIP.setString("WORK IN PROGRESS");
-    WIP.setFillColor(settings.colore[1]);
-    WIP.setCharacterSize(settings.AltezzaCarattere+5);
-    WIP.setPosition((ScreenSize.x-WIP.getGlobalBounds().width)/2.f, ScreenSize.y/3.f);
-    window->draw(WIP);
+    string titolo[100];
+    int i=0;
+    for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+    {
+		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
+        {
+            titolo[i]=entry.path().filename();
+            titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
+            i++;
+        }
+    }
+    ///visualizza
+    for(int j=0; j<i; j++)
+    {
+        static bool pLibro=0;
+        Pulsante PLibro(Str2Wstr(titolo[j]), (1200-240)/2, 2*MarginSize.y+60*j, 4, &pLibro);
+        if(PLibro.draw(window)==3)
+        {
+			game.load(titolo[j]);
+            testo=caricaLibro(game.libro);        
+			nPagine=dividiInPagine(pagina, nomePagina, testo);
+        	nSez=disseziona(pagina[game.indPagina], sezione);
+            return IdPlay;
+        }
+    }
 
     static bool pHome=0;
     Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
@@ -780,7 +869,6 @@ int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
 			{
 				testoPagina.setString(sezione[i].testo.substr(j, 1));
 			}
-			cout<<sezione[i].posizione.x<<"\t"<<sezione[i].posizione.y<<"\n";
             testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(c*settings.AltezzaCarattere, settings.AltezzaCarattere*scroll/4.f));
             window->draw(testoPagina);
             c+=lC[(int) sezione[i].testo[j]];
@@ -837,7 +925,7 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf:
         break;
 
         case IdGame:
-            schermata=visElencoGiochi(window, intreccio);
+            schermata=visElencoGiochi(window, intreccio, pagina, nomePagina, sezione, nPagine, nSez, testo);
         break;
         
         case IdRules:
@@ -991,7 +1079,6 @@ int main()
 		
 		prop=sf::Vector2f(ScreenSize.x/1200.f, ScreenSize.y/600.f);
 		LarghezzaPagina=(1200.f-2*MarginSize.x)*prop.x;
-		settings.AltezzaCarattere*=prop.x;
 	}//*/
 	
     settings.scarica();
@@ -1103,8 +1190,7 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
-                window.close();
-                settings.salva();
+                exit(&window);
             }
 
             else if (event.type == sf::Event::MouseWheelScrolled)
@@ -1113,21 +1199,19 @@ int main()
             }
         }
         window.clear(settings.colore[0]);
-        if(indCP<0)
+        if(game.indCP<0)
         {
-            indCP=0;
-            nCP=1;
-            game.cronoPagine[indCP]=0;
+            game.indCP=0;
+            game.cronoPagine[game.indCP]=0;
             nSez=disseziona(pagina[game.indPagina], sezione);
         }
         bool cambioPagina=0;
-        if(game.cronoPagine[indCP]!=game.indPagina)
+        if(game.cronoPagine[game.indCP]!=game.indPagina)
         {
             cambioPagina=1;
             rilascio=0;
-            indCP++;
-            nCP=indCP+1;
-            game.cronoPagine[indCP]=game.indPagina;
+            game.indCP++;
+            game.cronoPagine[game.indCP]=game.indPagina;
             nSez=disseziona(pagina[game.indPagina], sezione);
 
             scroll=0;

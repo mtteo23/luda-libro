@@ -6,7 +6,7 @@ Continue
 Settings
 New game
 Old games
-Exit
+Rules
 Fate
 Notes
 see

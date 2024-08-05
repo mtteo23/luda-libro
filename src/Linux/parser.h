@@ -54,8 +54,10 @@ int disseziona(string testo, Sezione sezione[])
     {
         if(testo[i]=='/' || testo[i]=='#')
         {
-            if(sezione[indSez].lung>0 || sezione[indSez].tipo!='x')
-                indSez++;
+            if(sezione[indSez].lung>0)
+            {
+				indSez++;
+			}
             if(testo[i]=='/')
             {
                 i++;
@@ -160,7 +162,10 @@ int dividiInPagine(string pagina[], string nomePagina[], string testo)
       	fine=testo.find("#"+to_string(i+1)+" ");
         if(fine==np)  fine=testo.size()-1;
         lunghezza=fine-inizio;
-        nomePagina[i]=testo.substr(inizio).substr(testo.find(" ")+2, testo.substr(inizio).find("/")-4);
+        string tmpText=testo.substr(inizio);
+        tmpText=tmpText.substr(tmpText.find(" ")+1);
+        tmpText=tmpText.substr(0, tmpText.find("/"));
+        nomePagina[i]=tmpText;
         pagina[i]=linguaLibro+testo.substr(inizio, lunghezza);
 		nPagine=i+1;
 	}

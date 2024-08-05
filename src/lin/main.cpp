@@ -14,6 +14,15 @@
 
 
 enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame, IdRules};
+bool isNum(string s)
+{
+		for(int i=0; i<s.size(); i++)
+		{
+			if(!(s[i]<='9' && s[i]>='0'))	
+				return 0;
+		}
+		return 1;
+}
 
 class Game{
     public:
@@ -74,7 +83,7 @@ class Game{
     {
 		if(indCP!=0)
 			save();
-			
+		
 		libro=inpLibro;
 		int indLibro=0;
 		string titolo[100];
@@ -82,23 +91,34 @@ class Game{
 		
 		for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
 		{
-			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
+			if (entry.is_regular_file() && entry.path().extension()==".txt") 
 			{
 				
 				titolo[i]=entry.path().filename();
 				titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
-				
+				int tmpInd=0;
 				int tmpLim=titolo[i].find("-");
-				string tmpTitolo=titolo[i].substr(0, tmpLim);
-				int tmpInd=stoi(titolo[i].substr(tmpLim+1, titolo[i].size()-tmpLim));
-				if(tmpTitolo==libro)	indLibro=max(indLibro, tmpInd+1);
+				string tmpTitolo=titolo[i];
+				
+				if(tmpLim!=string::npos)
+				{
+					tmpTitolo=titolo[i].substr(0, tmpLim);
+					string tmpInt=titolo[i].substr(tmpLim+1, titolo[i].size()-tmpLim);
+					
+					if(isNum(tmpInt))
+						tmpInd=stoi(tmpInt);
+					else 
+						tmpTitolo=titolo[i];	
+				}
+				cout<<tmpTitolo<<endl;
+				if(tmpTitolo==libro)	
+					indLibro=max(indLibro, tmpInd+1);
 				i++;
 			}
 		}
 		
 		nome=inpLibro+"-"+to_string(indLibro);
-		
-		
+		cout<<endl<<nome<<endl;
 		sorte=0;
 		barre=0;
 		indPagina=0;

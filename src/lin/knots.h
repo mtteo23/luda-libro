@@ -6,11 +6,13 @@ int collassa(unsigned char poss)
     if(c==1)    for(int i=0; i<8; i++)  if(poss>>i&1) return i+1;
     return -1;
 }
+
 void caricaTabAdatto(bool adatto[8][4][8])
 {
     bool caratt[8][4]={{1, 0, 1, 0}, {0, 1, 0, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 0, 0}, {1, 0, 0, 1}, {0, 1, 1, 0}, {0, 0, 1, 1}};
     for(int i=0; i<8; i++)  for(int j=0; j<4; j++)  for(int k=0; k<8; k++)  adatto[i][j][k]=(caratt[i][j]==caratt[k][(j+2)%4]);
 }
+
 bool riduci(unsigned char poss[100][100], int r, int c, int x, int y, bool adatto[8][4][8], bool first)
 {
     bool camb=0;
@@ -79,6 +81,7 @@ bool riduci(unsigned char poss[100][100], int r, int c, int x, int y, bool adatt
     }
     return errore;
 }
+
 void inizializza(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8])
 {
     for(int i=0; i<r; i++)  for(int j=0; j<c; j++)  poss[i][j]=255;
@@ -111,12 +114,14 @@ void inizializza(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8
     poss[r-1][c-1]=32;
     riduci(poss, r, c, c-1, r-1, adatto, 1);
 }
+
 bool fine(unsigned char poss[100][100], int r, int c)
 {
     bool ret=1;
     for(int i=0; i<r; i++)  for(int j=0; j<c; j++)  ret=ret&&(collassa(poss[i][j])!=0);
     return ret;
 }
+
 bool randCollassa(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8])
 {
     int contMin=8;
@@ -156,16 +161,35 @@ bool randCollassa(unsigned char poss[100][100], int r, int c, bool adatto[8][4][
     poss[y][x]=1<<elPoss[rand()%nPoss];
     return riduci(poss, r, c, x, y, adatto, 1);
 }
+
 bool risolvi(unsigned char poss[100][100], int r, int c, bool adatto[8][4][8])
 {
     while(!fine(poss, r, c)){if(randCollassa(poss, r, c, adatto)) {return 0;cout<<"\nErrore";}}
     return 1;
 }
-sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
+
+void calcolaIntreccio(sf::Vector2f dimIntrSchermata,int tile[100][100])
 {
+	#define LargTile 8
+    int r=dimIntrSchermata.y/LargTile/2+4;
+    int c=dimIntrSchermata.x/LargTile+2;
+    unsigned char poss[100][100];
+    bool adatto[8][4][8];//tileA, dir, tileB
+    srand(time(0));
+    caricaTabAdatto(adatto);
+
+    do{inizializza(poss, r, c, adatto);}while(!risolvi(poss, r, c, adatto));
+    for(int i=0; i<r; i++)  for(int j=0; j<c; j++)  tile[i][j]=collassa(poss[i][j]);
+}
+
+sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata, int tile[100][100])
+{
+	
     #define LargTile 8
     int r=dimIntrSchermata.y/LargTile/2+4;
     int c=dimIntrSchermata.x/LargTile+2;
+    
+    /*
     unsigned char poss[100][100];
     bool adatto[8][4][8];//tileA, dir, tileB
     int tile[100][100];
@@ -174,7 +198,9 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
 
     do{inizializza(poss, r, c, adatto);}while(!risolvi(poss, r, c, adatto));
     for(int i=0; i<r; i++)  for(int j=0; j<c; j++)  tile[i][j]=collassa(poss[i][j]);
-
+	*/
+	
+	
     sf::RenderTexture tavola;
     tavola.create((unsigned int) c*LargTile, (unsigned int) (r-2)*2*LargTile);
     tavola.clear(settings.colore[0]);
@@ -306,9 +332,6 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
     }
 
 
-
-
-
     sf::Sprite barraD;
     barraD.setTexture(tavola.getTexture());
     barraD.setTextureRect(sf::IntRect(0, r*LargTile, c*LargTile, r*LargTile));
@@ -322,4 +345,3 @@ sf::Texture disegnaIntreccio(sf::Vector2f dimIntrSchermata)
 
     return tavola.getTexture();
 }
-

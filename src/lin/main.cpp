@@ -1119,7 +1119,7 @@ int main()
 
     int schermata=IdHome, schermataS=IdHome;
     sf::Vector2f dimIntrSchermata[10];
-    sf::Texture intreccioR[10];
+    int tile[10][100][100];
     sf::Texture intreccio;
 	
     {
@@ -1177,7 +1177,9 @@ int main()
         dimIntrSchermata[IdGame]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdRules]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
 
-        intreccio=disegnaIntreccio(dimIntrSchermata[IdHome]);
+		calcolaIntreccio(dimIntrSchermata[IdHome], tile[IdHome]);
+        intreccio=disegnaIntreccio(dimIntrSchermata[IdHome], tile[0]);
+        
         barraC.setScale(2/8.f, 1);
         window.clear(settings.colore[0]);
             window.draw(testoCaricamento);
@@ -1189,7 +1191,8 @@ int main()
 
         for(int i=0; i<6; i++)
         {
-            intreccioR[i]=disegnaIntreccio(dimIntrSchermata[i]);
+			calcolaIntreccio(dimIntrSchermata[i], tile[i+1]);
+            
             window.clear(settings.colore[0]);
             barraC.setScale((i+3)/9.f, 1);
             window.draw(testoCaricamento);
@@ -1219,6 +1222,8 @@ int main()
             }
         }
         window.clear(settings.colore[0]);
+        intreccio=disegnaIntreccio(dimIntrSchermata[schermata], tile[0]);
+        
         if(game.indCP<0)
         {
             game.indCP=0;
@@ -1240,11 +1245,21 @@ int main()
         if(cambioPagina || schermata!=schermataS)
         {
             schermataS=schermata;
-            intreccio=intreccioR[schermata];
+            
+            for(int i=0; i<100; i++)
+            {
+				for(int j=0; j<100; j++)
+				{
+					tile[0][i][j]=tile[schermata+1][i][j];
+				}		
+			}
+            intreccio=disegnaIntreccio(dimIntrSchermata[schermata], tile[0]);
+            
             if(rilascio) azionaIpertesto(sezione, nSez, &window, scroll);
             visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
-            intreccioR[schermata]=disegnaIntreccio(dimIntrSchermata[schermata]);
+            
+            calcolaIntreccio(dimIntrSchermata[schermata], tile[schermata+1]);
         }
         else
         {

@@ -47,7 +47,7 @@ class Impostazioni{
     {sf::Color::Black, sf::Color::White, sf::Color::Red};
     sf::Font font;
     
-    int mainCharSize=24;
+    int mainCharSize=23;
     int labelCharSize=30;
 
     void scarica()

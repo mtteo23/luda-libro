@@ -14,6 +14,8 @@
 
 
 enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame, IdRules};
+
+
 bool isNum(string s)
 {
 		for(int i=0; i<s.size(); i++)
@@ -559,6 +561,79 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
         Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
         if(PHome.draw(window)==3) return IdHome;
     }
+
+	
+	{///char size
+
+        sf::Text titolo;
+        titolo.setFont(settings.font);
+        titolo.setString(scritta[18]+L"  "+Str2Wstr(to_string(settings.mainCharSize))+L" ");
+        titolo.setFillColor(settings.colore[1]);
+        titolo.setPosition(sf::Vector2f(MarginSize.x*2, (MarginSize.y-60)/2)*prop);
+        titolo.setCharacterSize(settings.labelCharSize);
+        window->draw(titolo);
+
+        sf::Text plus;
+        plus.setFont(settings.font);
+        plus.setString(" + ");
+        plus.setFillColor(settings.colore[2]);
+        plus.setPosition(sf::Vector2f(titolo.getGlobalBounds().left+titolo.getGlobalBounds().width, (MarginSize.y-60)/2*prop.y));
+        plus.setCharacterSize(settings.labelCharSize);
+        static bool premutoP=0;
+        if(plus.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+		{
+			plus.setFillColor(settings.colore[1]);
+			if(premutoP)
+			{
+				if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+				{
+					premutoP=0;
+					settings.mainCharSize=max(0, settings.mainCharSize+1);
+				}
+			}
+			else    
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) 
+					premutoP=1;
+		}
+		else
+		{
+			plus.setFillColor(settings.colore[2]);
+			premutoP=0;
+		}	
+        window->draw(plus);
+
+        sf::Text minus;
+        minus.setFont(settings.font);
+        minus.setString(" - ");
+        minus.setFillColor(settings.colore[2]);
+        minus.setPosition(sf::Vector2f(plus.getGlobalBounds().left+plus.getGlobalBounds().width, (MarginSize.y-60)/2*prop.y));
+        minus.setCharacterSize(settings.labelCharSize);
+        static bool premutoM=0;
+        if(minus.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
+		{
+			minus.setFillColor(settings.colore[1]);
+			if(premutoM)
+			{
+				if(!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+				{
+					premutoM=0;
+					settings.mainCharSize=max(0, settings.mainCharSize-1);
+				}
+			}
+			else    
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) 
+					premutoM=1;
+		}
+		else
+		{
+			minus.setFillColor(settings.colore[2]);
+			premutoM=0;
+		}
+        window->draw(minus);
+        
+    }
+    
+
 
     return IdPlay;
 }

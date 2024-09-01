@@ -16,3 +16,4 @@ Language
 Volume
 Reset
 Font
+Size

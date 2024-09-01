@@ -16,3 +16,4 @@ Lingua
 Volume
 Resetta
 Font
+Dimensione

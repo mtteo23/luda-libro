@@ -67,7 +67,7 @@ int disseziona(string testo, Sezione sezione[])
                     sezione[indSez].tipo='x';
                     sezione[indSez].arg=0;
                     sezione[indSez].colore=1;
-                    sezione[indSez].posizione=sf::Vector2f(c*settings.AltezzaCarattere+MarginSize.x*prop.x, r*settings.AltezzaCarattere+MarginSize.y*prop.y);
+                    sezione[indSez].posizione=sf::Vector2f(c*settings.mainCharSize+MarginSize.x*prop.x, r*settings.mainCharSize+MarginSize.y*prop.y);
                     i--;
                 }
                 else//speciale
@@ -78,7 +78,7 @@ int disseziona(string testo, Sezione sezione[])
                     int k=testo.substr(i).find(" ");
                     sezione[indSez].arg=stoi(testo.substr(i, k));
                     i+=k;
-                    sezione[indSez].posizione=sf::Vector2f(c*settings.AltezzaCarattere+MarginSize.x*prop.x, r*settings.AltezzaCarattere+MarginSize.y*prop.y);
+                    sezione[indSez].posizione=sf::Vector2f(c*settings.mainCharSize+MarginSize.x*prop.x, r*settings.mainCharSize+MarginSize.y*prop.y);
                     sezione[indSez].colore=2;
                 }
             }
@@ -92,13 +92,13 @@ int disseziona(string testo, Sezione sezione[])
                 sezione[indSez].testo+=to_string(sezione[indSez].arg)+" - ";
                 i+=k;
                 sezione[indSez].colore=1;
-                sezione[indSez].posizione=sf::Vector2f(c*settings.AltezzaCarattere+MarginSize.x*prop.x, r*settings.AltezzaCarattere+MarginSize.y*prop.y);
+                sezione[indSez].posizione=sf::Vector2f(c*settings.mainCharSize+MarginSize.x*prop.x, r*settings.mainCharSize+MarginSize.y*prop.y);
             }
         }
         else
         {
             int lungProsParola=testo.substr(i+1).find(" ");
-            if(testo[i]=='\n' || (c+lungProsParola)*settings.AltezzaCarattere>LarghezzaPagina)
+            if(testo[i]=='\n' || (c+lungProsParola)*settings.mainCharSize>LarghezzaPagina)
             {
                 c=0;
                 r++;
@@ -109,7 +109,7 @@ int disseziona(string testo, Sezione sezione[])
                     sezione[indSez].tipo=sezione[indSez-1].tipo;
                     sezione[indSez].arg=sezione[indSez-1].arg;
                     sezione[indSez].colore=sezione[indSez-1].colore;
-                    sezione[indSez].posizione=sf::Vector2f(c*settings.AltezzaCarattere+MarginSize.x*prop.x, r*settings.AltezzaCarattere+MarginSize.y*prop.y);
+                    sezione[indSez].posizione=sf::Vector2f(c*settings.mainCharSize+MarginSize.x*prop.x, r*settings.mainCharSize+MarginSize.y*prop.y);
                 }
                 else
                 {

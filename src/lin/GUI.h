@@ -46,7 +46,9 @@ class Impostazioni{
     sf::Color colore[3]=
     {sf::Color::Black, sf::Color::White, sf::Color::Red};
     sf::Font font;
-    int AltezzaCarattere=24;
+    
+    int mainCharSize=24;
+    int labelCharSize=30;
 
     void scarica()
     {
@@ -153,7 +155,7 @@ class Pulsante
         Layer3.setPosition(pos+2.f*diff);
 
         etichetta.setFont(settings.font);
-        etichetta.setCharacterSize(settings.AltezzaCarattere+5);
+        etichetta.setCharacterSize(settings.labelCharSize);
         etichetta.setString(etic);
         sf::Vector2f posLabel=pos+4.f*diff;
         {float width=etichetta.getGlobalBounds().width; posLabel.x+=(larg.x-8.f*diff.x-width)/2.f;}
@@ -270,7 +272,7 @@ class Barra
 
         etichetta.setFont(settings.font);
         etichetta.setPosition(pos+4.f*diff);
-        etichetta.setCharacterSize(settings.AltezzaCarattere+5);
+        etichetta.setCharacterSize(settings.labelCharSize);
 
         Layer1.setFillColor(settings.colore[1]);
         Layer2.setFillColor(settings.colore[0]);

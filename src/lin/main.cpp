@@ -112,7 +112,6 @@ class Game{
 					else 
 						tmpTitolo=titolo[i];	
 				}
-				cout<<tmpTitolo<<endl;
 				if(tmpTitolo==libro)	
 					indLibro=max(indLibro, tmpInd+1);
 				i++;
@@ -120,7 +119,6 @@ class Game{
 		}
 		
 		nome=inpLibro+"-"+to_string(indLibro);
-		cout<<endl<<nome<<endl;
 		sorte=0;
 		barre=0;
 		indPagina=0;
@@ -815,8 +813,8 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
         Pulsante PHome(scritta[16], MarginSize.x*20.f/9.f, 460.f, 3, &pHome);
         if(PHome.draw(window)==3)
         {
-            Impostazioni i;
-            i.salva();
+            Settings s;
+            s.salva();
             settings.scarica();
         }
     }
@@ -1010,13 +1008,15 @@ int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
 	
 	Sezione sezione[500];
 	int nSez=disseziona(text, sezione);	
+	
     float lC[256];
 	initLC(lC);
+	
     sf::Text testoPagina;
     testoPagina.setFont(settings.font);
     testoPagina.setCharacterSize(settings.mainCharSize);
     testoPagina.setStyle(sf::Text::Regular);
-  
+	
 	for(int i=0; i<nSez; i++)
     {
         float c=0;
@@ -1039,7 +1039,6 @@ int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
             c+=lC[(int) sezione[i].testo[j]];
         }
     }
-
 
     ///------------intreccio Sinistro
     sf::Sprite barraS;
@@ -1391,7 +1390,7 @@ int main()
         {
             schermataS=schermata;
             
-            for(int i=0; i<100; i++)
+            for(int i=0; i<100; i++) //intreccio
             {
 				for(int j=0; j<100; j++)
 				{
@@ -1411,6 +1410,7 @@ int main()
             if(rilascio) azionaIpertesto(sezione, nSez, &window, scroll);
             visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
             window.display();
+            sf::sleep(sf::milliseconds(40));
         }
         if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(pagina[game.indPagina], sezione);}
     }

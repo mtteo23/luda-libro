@@ -1,0 +1,25 @@
+#Problem!!! 
+What you have before you is a gamebook in digital format (I'm still working on publishing it in paper format). During the adventure, you'll often need to put yourself in the protagonist's shoes and choose how to continue the story. In these cases, you can click on the page number you want to go to, or enter it in the "_ _ _" box at the bottom.
+
+The Slashes
+During your adventure, you may need to mark some slashes. What the slashes indicate can vary: it could represent the passage of time, the money in your pocket, or anything else. It’s not strictly necessary for you to understand what they represent each time, but it's usually quite easy to figure out. 
+You can view and manually adjust the marked slashes behind the left interlacing.
+
+Fate 
+Fate represents your luck, your destiny, and essentially your "plot armor." 
+A high fate score will protect you from deadly situations and unfortunate circumstances. But be careful! Every time you use fate to save yourself from certain death, it will decrease! Don’t let it reach 0 if you want to travel safely. 
+Also, keep in mind that usually, when you're saved by using fate, you reach areas of the book that would otherwise be inaccessible. Here, it's not uncommon to find powerful items, knowledge, and companions. 
+You can view your fate behind the left interlacing.
+
+Notes 
+The weapons you have, the people who accompany you, physical and mental injuries, valuable knowledge, and much more: everything relevant that happens to you is recorded as a note. 
+You can read additional information about each note by going to the associated page. 
+Sometimes the book will ask if you have a note and will tell you which paragraph to go to if you’ve marked it. Additionally, if you find yourself in a situation where you think a note might be useful, add the page number you're on to the number associated with the note. If the text makes sense, continue; otherwise, return to the page you came from (you can use the "<<" button at the bottom left). 
+If you think you should be able to use a note in a certain situation, but the book doesn’t allow it, don’t hesitate to write to me! You can find my email at the end of the rules. 
+You can see your notes behind the right interlacing.
+
+You should now know everything you need, start reading from page 0. Good luck!
+
+In case you want to contact me for any issues with the book, to contribute in some way, or for any other reason (reviews are always appreciated ;-) ), you'll find my email below. 
+
+matteo.pascali06@gmail.com

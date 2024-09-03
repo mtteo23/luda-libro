@@ -33,7 +33,7 @@ wstring Str2Wstr(const string& str)
     return converter.from_bytes(str);
 }
 
-class Impostazioni{
+class Settings{
     public:
     
     string language="English";

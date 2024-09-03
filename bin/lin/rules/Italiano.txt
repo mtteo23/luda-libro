@@ -1,6 +1,24 @@
 #Problema!!!
-Regole:
--1 Gabibbo
--2 /c2 Splash/
--3 Papere
+Quello che hai davanti e' un librogioco in formato digitale (per pubblicarlo in formato cartaceo ci sto ancora lavorando). Durante l'avventura spesso ti capitera' di doverti immedesimare nel protagonista e scegliere come continuare la storia, in questi casi puoi cliccare sul numero di pagina a cui vuoi andare, oppure inserirlo nella sezione "_ _ _" in basso.
 
+Le barre
+Durante la tua avventura potresti dover segnare delle barre, cosa indicano le barre varia di volta in volta: potrebbe essere lo scorrere del tempo, il denaro che hai in tasca o qualsiasi altra cosa, non e' strettamente necessario che tu capisca cosa rappresentino ogni volta ma in genere e' abbastanza facile da intuire.
+Puoi vedere le barre segnate e modificarle manualmente dietro l'intreccio sinistro.
+
+Il Fato
+Il fato rappresenta la tua fortuna, il tuo destino ed in sostanza la tua "armatura del protagonista".
+Un alto punteggio di fato ti proteggera' da situazioni mortali e circostanze sfortunate. Ma attento! Ogni volta che usi il fato per salvarti da morte certa esso diminuira'! Non arrivare a 0 se vuoi viaggiare tranquillo.
+Considera anche che in genere, quando vieni salvato dall'utilizzo del fato, raggiungi delle aree del libro inaccessibili altrimenti. Qui non e' raro trovare oggetti, conoscenze e compagni molto potenti.
+Puoi vedere il tuo fato dietro l'intreccio sinistro.
+
+Le note
+Le armi che hai a disposizione, le persone che ti accompagnano, ferite fisiche e mentali, preziose conoscenze e molto altro: tutto quello di rilevante che ti accade viene segnato sotto forma di nota. 
+Puoi leggere informazioni aggiuntive su ciascuna nota andando alla pagina associata, a volte il libro ti chiedera' se possiedi una nota e ti dira' a quale paragrafo andare nel caso tu l'abbia segnata.
+In piu' se ti trovi in una situazione in cui credi che una tua nota possa tornarti utile somma il numero di pagina a cui ti trovi, al numero associato alla nota. Se il testo ha senso continua, altrimenti torna alla pagina da cui sei venuto (puoi usare il tasto "<<" in basso a sinistra).
+Se credi che in una certa situazione dovresti poter usare una nota ma in libro non te lo consente non esitare a scrivermi! Trovi la mia mail alla fine delle regole.
+Puoi vedere le tue note dietro l'intreccio destro.
+
+Dovresti sapere tutto cio' che ti serve, inizia a leggere dalla pagina 0, buona fortuna!
+
+Nel caso tu voglia contattarmi per problemi con libro da risolvere, perche' tu voglia in qualche modo contribuire o per qualsiasi altro motivo (le recensioni fanno sempre piacere ;-) ) trovi qui sotto la mia mail.
+matteo.pascali06@gmail.com

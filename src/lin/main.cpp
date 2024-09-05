@@ -502,6 +502,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     {///Paragrafo precedente
         static bool pHome=0;
         Pulsante PHome(L"<<", MarginSize.x, ScreenSize.y/prop.y-(MarginSize.y+60.f)/2, 1, &pHome);
+        if(game.indPagina==0) PHome.stato=-1;
         if(PHome.draw(window)==3)
         {
             game.indPagina=game.cronoPagine[game.indCP-1];
@@ -963,6 +964,7 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagi
     window->draw(barraD);
 
     string titolo[100];
+    static int ind=-1;
     int i=0;
     for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
     {
@@ -978,15 +980,75 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagi
     {
         static bool pLibro=0;
         Pulsante PLibro(Str2Wstr(titolo[j]), (1200-240)/2, 2*MarginSize.y+60*j, 4, &pLibro);
-        if(PLibro.draw(window)==3)
+        int s=PLibro.draw(window);
+        if(s==3)
         {
-			game.load(titolo[j]);
-            testo=caricaLibro(game.libro);        
-			nPagine=dividiInPagine(pagina, nomePagina, testo);
-        	nSez=disseziona(pagina[game.indPagina], sezione);
-            return IdPlay;
+			ind=j;
+        }
+        if(s==0 && j==ind)
+        {
+			PLibro.stato=1;
+			PLibro.drawManual(window);
         }
     }
+	static bool pPlay=0;
+    Pulsante PPlay(L"Play", MarginSize.x, (ScreenSize.y-MarginSize.y*2), 3, &pPlay);
+    if(ind==-1) PPlay.stato=-1;
+    if(PPlay.draw(window)==3)
+    {
+		game.load(titolo[ind]);
+        testo=caricaLibro(game.libro);        
+		nPagine=dividiInPagine(pagina, nomePagina, testo);
+        nSez=disseziona(pagina[game.indPagina], sezione);
+        return IdPlay;
+	}
+	
+	static bool pRename=0;//da sistemare
+    Pulsante PRename(L"Rename", MarginSize.x+60*3, (ScreenSize.y-MarginSize.y*2), 3, &pRename);
+    if(ind==-1) PRename.stato=-1;
+    if(PRename.draw(window)==3)
+    {
+		string titoloScelto=titolo[ind];
+		
+		{//scegli nome
+			cout<<"\nScegli il nome per la partita: ";
+			//cin>>titoloScelto;
+			titoloScelto=titoloScelto;
+			
+			{//sfondo window
+					sf::RectangleShape sfondo(ScreenSize/2.f);
+					sfondo.setFillColor(settings.colore[0]);
+					sfondo.setPosition(ScreenSize/4.f);
+					window->draw(sfondo);
+			}
+		}
+		
+		{//copia			
+		std::ifstream  src("games/"+titolo[ind]+".txt", std::ios::binary);
+		std::ofstream  dst("games/"+titoloScelto+".txt",   std::ios::binary);
+		dst << src.rdbuf();
+		
+		string path="games/"+titolo[ind]+".txt";
+		const char* tit="";
+		tit=path.c_str();
+		remove(tit);
+		}
+	
+		//ind=-1;
+	}
+	
+	static bool pRemove=0;
+    Pulsante PRemove(L"Remove", MarginSize.x+120*3, (ScreenSize.y-MarginSize.y*2), 3, &pRemove);
+    if(ind==-1) PRemove.stato=-1;
+    if(PRemove.draw(window)==3)
+	{
+		string path="games/"+titolo[ind]+".txt";
+		const char* tit="";
+		tit=path.c_str();
+		remove(tit);
+		ind=-1;
+	}
+
 
     static bool pHome=0;
     Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);

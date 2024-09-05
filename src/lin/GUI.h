@@ -164,6 +164,7 @@ class Pulsante
 
     int state(sf::RenderWindow* window) //0 normale, 1 puntatore mouse, 2 premuto, 3 rilasciato
     {
+		if(stato==-1) return -1;
         if(Layer1.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         {
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
@@ -187,6 +188,56 @@ class Pulsante
     int draw(sf::RenderWindow* window)
     {
         stato=state(window);
+        switch(stato)
+        {
+			
+            case -1:
+				
+                Layer1.setFillColor(settings.colore[0]-sf::Color(0, 0, 0, 128));
+                Layer2.setFillColor(settings.colore[1]-sf::Color(0, 0, 0, 128));
+                Layer3.setFillColor(settings.colore[0]);
+                etichetta.setFillColor(settings.colore[1]-sf::Color(0, 0, 0, 128));
+            break;
+
+            case 0:
+                Layer1.setFillColor(settings.colore[0]);
+                Layer2.setFillColor(settings.colore[1]);
+                Layer3.setFillColor(settings.colore[0]);
+                etichetta.setFillColor(settings.colore[1]);
+            break;
+
+            case 1:
+                Layer1.setFillColor(settings.colore[1]);
+                Layer2.setFillColor(settings.colore[0]);
+                Layer3.setFillColor(settings.colore[1]);
+                etichetta.setFillColor(settings.colore[0]);
+            break;
+
+            case 2:
+                Layer1.setFillColor(settings.colore[1]);
+                Layer2.setFillColor(settings.colore[0]);
+                Layer3.setFillColor(settings.colore[1]);
+                etichetta.setFillColor(settings.colore[0]);
+            break;
+
+            case 3:
+                Layer1.setFillColor(settings.colore[0]);
+                Layer2.setFillColor(settings.colore[1]);
+                Layer3.setFillColor(settings.colore[0]);
+                etichetta.setFillColor(settings.colore[1]);
+            break;
+        }
+        window->draw(Layer1);
+        window->draw(Layer2);
+        window->draw(Layer3);
+        etichetta.setString(etic);
+        window->draw(etichetta);
+		
+        return stato;
+    }
+    
+    void drawManual(sf::RenderWindow* window)
+    {
         switch(stato)
         {
             case 0:
@@ -222,8 +273,6 @@ class Pulsante
         window->draw(Layer3);
         etichetta.setString(etic);
         window->draw(etichetta);
-
-        return stato;
     }
 };
 

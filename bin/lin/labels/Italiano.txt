@@ -17,3 +17,6 @@ Volume
 Resetta
 Font
 Dimensione
+Gioca
+Rinomina
+Elimina

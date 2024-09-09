@@ -17,3 +17,6 @@ Volume
 Reset
 Font
 Size
+Play
+Rename
+Remove

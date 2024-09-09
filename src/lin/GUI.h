@@ -39,7 +39,7 @@ class Settings{
     string language="English";
     string availableLang[50]={};
     
-    string fontName="arial.ttf";
+    string fontName="FreeSerif.otf";
     string availableFont[50]={};
     
     int volume=50;

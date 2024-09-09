@@ -32,6 +32,7 @@ class Game{
     string libro="";
     
     int indPagina=0;
+    int nPagine=0;
     
     int cronoPagine[10000]={0};
     int indCP=0;
@@ -42,14 +43,19 @@ class Game{
     int sorte=0;
     int barre=0;
     
+    string testo;
+    string nomePagina[1000];
+    string pagina[1000];
+    
 	void save()
 	{		
 		ofstream fout("games/"+nome+".txt");
+		fout<<libro<<endl;
+		fout<<indPagina<<endl;
+		fout<<indCP<<endl;
 		fout<<sorte<<endl;
 		fout<<barre<<endl;
 		fout<<nNote<<endl;
-		fout<<indPagina<<endl;
-		fout<<indCP<<endl;
 		fout<<endl;
 		for(int i=0; i<indCP+1; i++)
 			fout<<cronoPagine[i]<<endl;
@@ -64,19 +70,20 @@ class Game{
 			save();
 			
 		nome=inpNome;
-		int limTitolo;
-		limTitolo=nome.find("-");
-		libro=nome.substr(0, limTitolo);
-		string tmp;
 		ifstream fin("games/"+nome+".txt");
+		
+		fin>>libro;
+		fin>>indPagina;
+		fin>>indCP;
 		fin>>sorte;
 		fin>>barre;
 		fin>>nNote;
-		fin>>indPagina;
-		fin>>indCP;
+		
+		string tmp;
 		getline(fin, tmp);
 		for(int i=0; i<indCP+1; i++)
 			fin>>cronoPagine[i];
+			
 		getline(fin, tmp);
 		for(int i=0; i<nNote; i++)
 			fin>>nota[i];
@@ -126,15 +133,36 @@ class Game{
 		indCP=0;
 		nNote=0;
 	};
+
+	void loadLastGame()
+	{
+		for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+		{
+			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
+			{
+				string tmp=entry.path().filename();
+				load(tmp.substr(0, tmp.size()-4));
+				testo=caricaLibro(libro);
+				nPagine=dividiInPagine(pagina, nomePagina, testo);
+				break;
+			}
+		}
+	}
 }game;
 
 wstring scritta[100];
 
+void automaticSave()
+{
+	settings.salva();
+	if(game.indCP>0)
+		game.save();
+}
+
 void exit(sf::RenderWindow* window)
 {
+	automaticSave();
 	window->close();
-	settings.salva();
-	game.save();
 }
 
 wstring X2EO(string X){
@@ -189,7 +217,9 @@ void caricaLingua()
     }
 }
 
-int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture intreccio, string nomePagina[10000], int scroll)
+
+
+int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture intreccio, int scroll)
 {
 	string linguaLibro="";
     float lC[256]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.1, 1.1, 2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.2, 1.5, 1.4, 0.5, 1, 1.3, 1.1, 1.6, 1.4, 1.5, 1.2, 1.5, 1.4, 1.3, 1.2, 1.5, 1.3, 1.9, 1.3, 1.3, 1.2, 0.5, 0.5, 0.5, 0.9, 1.1, 0.7, 1, 1, 1, 1.1, 1.1, 0.6, 1.1, 1.1, 0.4, 0.4, 1, 0.4, 1.6, 1.1, 1.1, 1.1, 1, 0.7, 0.9, 0.6, 1.1, 1, 1.4, 1, 1, 1, 0.7, 0.5, 0.6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -386,7 +416,7 @@ int visGioca(sf::RenderWindow* window, Sezione sezione[], int nSez, sf::Texture 
     for(int i=0; i<game.nNote; i++)
     {
         testoNote.setFillColor(settings.colore[2]);
-        testoNote.setString(nomePagina[game.nota[i]]+" ["+to_string(game.nota[i])+"]");
+        testoNote.setString(game.nomePagina[game.nota[i]]+" ["+to_string(game.nota[i])+"]");
         testoNote.setPosition(sf::Vector2f(ScreenSize.x-MarginSize.x*4/5*prop.x, MarginSize.y*prop.y+(i+(notaAperta<i))*settings.mainCharSize));
         if(testoNote.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*window))))
         {
@@ -650,10 +680,21 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
     barraD.setPosition(ScreenSize.x, 0);
     window->draw(barraD);
 
-    {///Gioca
+    {///Continua
         static bool pHome=0;
         Pulsante PHome(scritta[4], (1200-180)/2, (600-60)/2, 3, &pHome);
-        if(PHome.draw(window)==3) return IdPlay;
+        if(game.testo=="") 
+			PHome.stato=-1;
+		else 
+		{
+			if(PHome.stato=-1)
+				PHome.stato=0;
+		}
+        if(PHome.draw(window)==3) 
+		{
+			//TODO
+			return IdPlay;
+		}
     }
 
     {///Impostazioni
@@ -662,13 +703,13 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
         if(PHome.draw(window)==3) return IdSettings;
     }
 
-    {///Elenco Libri
+    {///Nuova partita
         static bool pHome=0;
         Pulsante PHome(scritta[6], (1200-180)/2, (600-60)/2+120, 3, &pHome);
         if(PHome.draw(window)==3) return IdBooks;
     }
 
-    {///Elenco Giochi
+    {///Vecchie partite
         static bool pHome=0;
         Pulsante PHome(scritta[7], (1200-180)/2, (600-60)/2+180, 3, &pHome);
         if(PHome.draw(window)==3) return IdGame;
@@ -901,7 +942,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
     return IdSettings;
 }
 
-int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
+int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, Sezione sezione[100], int &nSez)
 {
     sf::Sprite barraS;
     barraS.setTexture(intreccio);
@@ -940,16 +981,16 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, string pagin
         if(PLibro.draw(window)==3)
         {
 			game.newGame(titolo[j]);
-            testo=caricaLibro(titolo[j]);        
-			nPagine=dividiInPagine(pagina, nomePagina, testo);
-        	nSez=disseziona(pagina[game.indPagina], sezione);
+            game.testo=caricaLibro(titolo[j]);        
+			game.nPagine=dividiInPagine(game.pagina, game.nomePagina, game.testo);
+        	nSez=disseziona(game.pagina[game.indPagina], sezione);
             return IdPlay;
         }
     }
     return IdBooks;
 }
 
-int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagina[10000], string nomePagina[10000], Sezione sezione[100], int &nPagine, int &nSez, string &testo)
+int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sezione[100], int &nSez)
 {
 
     sf::Sprite barraS;
@@ -992,20 +1033,21 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagi
         }
     }
 	static bool pPlay=0;
-    Pulsante PPlay(L"Play", MarginSize.x, (ScreenSize.y-MarginSize.y*2), 3, &pPlay);
+    Pulsante PPlay(scritta[19], MarginSize.x, (ScreenSize.y-MarginSize.y*2), 3, &pPlay);
     if(ind==-1) PPlay.stato=-1;
     if(PPlay.draw(window)==3)
     {
 		game.load(titolo[ind]);
-        testo=caricaLibro(game.libro);        
-		nPagine=dividiInPagine(pagina, nomePagina, testo);
-        nSez=disseziona(pagina[game.indPagina], sezione);
+        game.testo=caricaLibro(game.libro);        
+		game.nPagine=dividiInPagine(game.pagina, game.nomePagina, game.testo);
+        nSez=disseziona(game.pagina[game.indPagina], sezione);
         return IdPlay;
 	}
 	
 	static bool pRename=0;//da sistemare
-    Pulsante PRename(L"Rename", MarginSize.x+60*3, (ScreenSize.y-MarginSize.y*2), 3, &pRename);
-    if(ind==-1) PRename.stato=-1;
+    Pulsante PRename(scritta[20], MarginSize.x+60*3, (ScreenSize.y-MarginSize.y*2), 3, &pRename);
+    //if(ind==-1) non è un errore, rename non è pronto
+		PRename.stato=-1;
     if(PRename.draw(window)==3)
     {
 		string titoloScelto=titolo[ind];
@@ -1038,10 +1080,11 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, string pagi
 	}
 	
 	static bool pRemove=0;
-    Pulsante PRemove(L"Remove", MarginSize.x+120*3, (ScreenSize.y-MarginSize.y*2), 3, &pRemove);
+    Pulsante PRemove(scritta[21], MarginSize.x+120*3, (ScreenSize.y-MarginSize.y*2), 3, &pRemove);
     if(ind==-1) PRemove.stato=-1;
     if(PRemove.draw(window)==3)
 	{
+		game.indCP=0;//evita subito il respawn
 		string path="games/"+titolo[ind]+".txt";
 		const char* tit="";
 		tit=path.c_str();
@@ -1130,7 +1173,7 @@ int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
     return IdRules;
 }
 
-void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf::Texture intreccio, string pagina[10000], string nomePagina[10000], int &nPagine, int &nSez, string &testo, int scroll)
+void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf::Texture intreccio, int &nSez, int scroll)
 {
     switch(schermata)
     {
@@ -1139,7 +1182,7 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf:
         break;
 
         case IdPlay:
-            schermata=visGioca(window, sezione, nSez, intreccio, nomePagina, scroll);
+            schermata=visGioca(window, sezione, nSez, intreccio, scroll);
         break;
 
         case IdSettings:
@@ -1147,11 +1190,11 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf:
         break;
 
         case IdBooks:
-            schermata=visElencoLibri(window, intreccio, pagina, nomePagina, sezione, nPagine, nSez, testo);
+            schermata=visElencoLibri(window, intreccio, sezione, nSez);
         break;
 
         case IdGame:
-            schermata=visElencoGiochi(window, intreccio, pagina, nomePagina, sezione, nPagine, nSez, testo);
+            schermata=visElencoGiochi(window, intreccio, sezione, nSez);
         break;
         
         case IdRules:
@@ -1310,17 +1353,11 @@ int main()
     settings.scarica();
     caricaLingua();
 
-
-    sf::RenderWindow window(sf::VideoMode(ScreenSize.x, ScreenSize.y), "Display");
-    string testo="#0 Nessun libro caricato/";
+    sf::RenderWindow window(sf::VideoMode(ScreenSize.x, ScreenSize.y), "Ludlibrilo");
 
     Sezione sezione[100];
     int nSez=0;
-
-    string nomePagina[1000];
-    string pagina[1000];
-    int nPagine=0;
-
+	
     int scroll=0;
 
     int schermata=IdHome, schermataS=IdHome;
@@ -1358,22 +1395,8 @@ int main()
         window.display();
 		
 		
-		{
-		string titolo;
-		for (const auto& entry : filesystem::directory_iterator("./books")) //portability issue
-		{
-			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
-			{
-				titolo=entry.path().filename();
-				titolo=titolo.substr(0, titolo.size()-4);
-				break;
-			}
-		}
-		testo=caricaLibro(titolo);
-        nPagine=dividiInPagine(pagina, nomePagina, testo);
-        nSez=disseziona(pagina[game.indPagina], sezione);
-		}
-		
+		game.loadLastGame();
+		if(game.testo!="")	nSez=disseziona(game.pagina[game.indPagina], sezione);
 		
 		
         dimIntrSchermata[IdHome]=sf::Vector2f(MarginSize.x*14/10*prop.x, ScreenSize.y);
@@ -1434,7 +1457,7 @@ int main()
         {
             game.indCP=0;
             game.cronoPagine[game.indCP]=0;
-            nSez=disseziona(pagina[game.indPagina], sezione);
+            nSez=disseziona(game.pagina[game.indPagina], sezione);
         }
         bool cambioPagina=0;
         if(game.cronoPagine[game.indCP]!=game.indPagina)
@@ -1443,7 +1466,7 @@ int main()
             rilascio=0;
             game.indCP++;
             game.cronoPagine[game.indCP]=game.indPagina;
-            nSez=disseziona(pagina[game.indPagina], sezione);
+            nSez=disseziona(game.pagina[game.indPagina], sezione);
 
             scroll=0;
         }
@@ -1462,7 +1485,7 @@ int main()
             intreccio=disegnaIntreccio(dimIntrSchermata[schermata], tile[0]);
             
             if(rilascio) azionaIpertesto(sezione, nSez, &window, scroll);
-            visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
+            visualizza(&window, schermata, sezione, intreccio, nSez, scroll);
             window.display();
             
             calcolaIntreccio(dimIntrSchermata[schermata], tile[schermata+1]);
@@ -1470,11 +1493,11 @@ int main()
         else
         {
             if(rilascio) azionaIpertesto(sezione, nSez, &window, scroll);
-            visualizza(&window, schermata, sezione, intreccio, pagina, nomePagina, nPagine, nSez, testo, scroll);
+            visualizza(&window, schermata, sezione, intreccio, nSez, scroll);
             window.display();
             sf::sleep(sf::milliseconds(40));
         }
-        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(pagina[game.indPagina], sezione);}
+        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(game.pagina[game.indPagina], sezione); automaticSave();}
     }
 
     return 0;

@@ -10,7 +10,7 @@
 #include <string>
 
 
-#include "Linux.h"
+#include "specific.h"
 
 sf::Vector2f operator*(const sf::Vector2f& left, const sf::Vector2f& right) {
     return sf::Vector2f(left.x * right.x, left.y * right.y);

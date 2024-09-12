@@ -138,7 +138,8 @@ int disseziona(string testo, Sezione sezione[])
 
 string caricaLibro(string titolo)
 {
-    ifstream fin("books/"+titolo+".txt");
+    ifstream fin(pBOOKS+titolo+".txt");
+    cout<<pBOOKS+titolo+".txt\n";
 	string ret="";
     while(!fin.eof())
     {

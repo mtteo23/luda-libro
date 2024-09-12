@@ -10,6 +10,7 @@
 #include <string>
 
 #include <filesystem>
+#include "Linux.h"
 
 sf::Vector2f operator*(const sf::Vector2f& left, const sf::Vector2f& right) {
     return sf::Vector2f(left.x * right.x, left.y * right.y);
@@ -35,24 +36,24 @@ wstring Str2Wstr(const string& str)
 
 class Settings{
     public:
-    
-    string language="English";
+
+    string language="Esperanto";
     string availableLang[50]={};
-    
+
     string fontName="FreeSerif.otf";
     string availableFont[50]={};
-    
+
     int volume=50;
     sf::Color colore[3]=
     {sf::Color::Black, sf::Color::White, sf::Color::Red};
     sf::Font font;
-    
+
     int mainCharSize=23;
     int labelCharSize=30;
 
     void scarica()
     {
-        ifstream fin("settings.txt");
+        ifstream fin(pSETTINGS);
 
         getline(fin, language);
         getline(fin, fontName);
@@ -66,12 +67,12 @@ class Settings{
             colore[i]=sf::Color(a, b, c);
         }
         fin.close();
-        
+
         int i=0;
         bool tl=0;
-		for (const auto& entry : filesystem::directory_iterator("./labels")) //portability issue
+		for (const auto& entry : filesystem::directory_iterator(pLABELS))
 		{
-			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
+			if (entry.is_regular_file() && entry.path().extension() == ".txt")
 			{
 				availableLang[i]=entry.path().filename();
 				availableLang[i]=availableLang[i].substr(0, availableLang[i].size()-4);
@@ -80,12 +81,12 @@ class Settings{
 			}
 		}
 		if(!tl) language=availableLang[0];
-		
+
 		i=0;
 		bool tF=0;
-		for (const auto& entry : filesystem::directory_iterator("./fonts")) //portability issue
+		for (const auto& entry : filesystem::directory_iterator(pFONTS))
 		{
-			if (entry.is_regular_file()) 
+			if (entry.is_regular_file())
 			{
 				availableFont[i]=entry.path().filename();
 				tF=tF||availableFont[i]==fontName;
@@ -93,13 +94,13 @@ class Settings{
 			}
 		}
 		if(!tF) fontName=availableFont[0];
-		
-        font.loadFromFile("fonts/"+fontName);//portability issue
+
+        font.loadFromFile(pFONTS+fontName);
     }
 
     void salva()
     {
-        ofstream fout("settings.txt");
+        ofstream fout(pSETTINGS);
 
         fout<<language<<endl;
         fout<<fontName<<endl;
@@ -190,9 +191,9 @@ class Pulsante
         stato=state(window);
         switch(stato)
         {
-			
+
             case -1:
-				
+
                 Layer1.setFillColor(settings.colore[0]-sf::Color(0, 0, 0, 128));
                 Layer2.setFillColor(settings.colore[1]-sf::Color(0, 0, 0, 128));
                 Layer3.setFillColor(settings.colore[0]);
@@ -232,10 +233,10 @@ class Pulsante
         window->draw(Layer3);
         etichetta.setString(etic);
         window->draw(etichetta);
-		
+
         return stato;
     }
-    
+
     void drawManual(sf::RenderWindow* window)
     {
         switch(stato)
@@ -305,7 +306,7 @@ class Barra
 
         k=K;
 
-		
+
         pos=sf::Vector2f(x, y)*prop;
         larg=sf::Vector2f(larg.y*k, larg.y)*prop;
         diff=diff*prop;

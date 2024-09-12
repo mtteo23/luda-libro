@@ -5,8 +5,6 @@
 #include "knots.h"
 #include "parser.h"
 
-#include <X11/Xlib.h>//portability issue
-
 
 
 //Paragrafo: Azzera_barre Barra X(normale) Link Colore Nota Oggetto Sorte
@@ -70,7 +68,7 @@ class Game{
 			save();
 			
 		nome=inpNome;
-		ifstream fin("games/"+nome+".txt");
+		ifstream fin(pGAMES+nome+".txt");
 		
 		fin>>libro;
 		fin>>indPagina;
@@ -98,7 +96,7 @@ class Game{
 		string titolo[100];
 		int i=0;
 		
-		for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+		for (const auto& entry : filesystem::directory_iterator(pGAMES))
 		{
 			if (entry.is_regular_file() && entry.path().extension()==".txt") 
 			{
@@ -136,7 +134,7 @@ class Game{
 
 	void loadLastGame()
 	{
-		for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+		for (const auto& entry : filesystem::directory_iterator(pGAMES))
 		{
 			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
 			{
@@ -144,7 +142,7 @@ class Game{
 				load(tmp.substr(0, tmp.size()-4));
 				testo=caricaLibro(libro);
 				nPagine=dividiInPagine(pagina, nomePagina, testo);
-				break;
+				return;
 			}
 		}
 	}
@@ -200,7 +198,7 @@ wstring X2EO(string X){
 
 void caricaLingua()
 {
-    ifstream fin("labels/"+settings.language+".txt");//portability issue
+    ifstream fin(pLABELS+settings.language+".txt");
     
     for(int i=0; i<100 && !fin.eof(); i++)
     {
@@ -786,7 +784,7 @@ int visImpostazioni(sf::RenderWindow* window, sf::Texture intreccio)
                 if(settings.availableFont[i]==settings.fontName)
                     I=i;
             settings.fontName=settings.availableFont[(I+1)%i];
-            settings.font.loadFromFile("fonts/"+settings.fontName);//portability issue
+            settings.font.loadFromFile(pFONTS+settings.fontName);
         }
     }
 	/*
@@ -964,7 +962,7 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, Sezione sezi
 
     string titolo[100];
     int i=0;
-    for (const auto& entry : filesystem::directory_iterator("./books")) //portability issue
+    for (const auto& entry : filesystem::directory_iterator(pBOOKS))
     {
 		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
         {
@@ -1007,7 +1005,7 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sez
     string titolo[100];
     static int ind=-1;
     int i=0;
-    for (const auto& entry : filesystem::directory_iterator("./games")) //portability issue
+    for (const auto& entry : filesystem::directory_iterator(pGAMES)) 
     {
 		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
         {
@@ -1341,15 +1339,9 @@ void azionaIpertesto(Sezione sezione[], int nSez, sf::RenderWindow* window, int 
 
 int main()
 { 
-    {
-		Display* d = XOpenDisplay(NULL); //portability issue
-		Screen*  s = DefaultScreenOfDisplay(d);//portability issue
-		ScreenSize=sf::Vector2f(s->width, s->height-60);
-		
-		prop=sf::Vector2f(ScreenSize.x/1200.f, ScreenSize.y/600.f);
-		LarghezzaPagina=(1200.f-2*MarginSize.x)*prop.x;
-	}//*/
-	
+	prop=getProportions();	
+	LarghezzaPagina=(1200.f-2*MarginSize.x)*prop.x;
+	ScreenSize=ScreenSize*prop;
     settings.scarica();
     caricaLingua();
 
@@ -1376,7 +1368,6 @@ int main()
         testoCaricamento.setPosition((ScreenSize.x-testoCaricamento.getGlobalBounds().width)/2, (ScreenSize.y-testoCaricamento.getGlobalBounds().height)/2);
         window.draw(testoCaricamento);
 
-
         sf::RectangleShape barraA(sf::Vector2f(ScreenSize.x/3.f, ScreenSize.y/15.f));
         barraA.setFillColor(settings.colore[1]);
         barraA.setPosition(ScreenSize.x/3.f, ScreenSize.y*12/15.f);
@@ -1394,8 +1385,9 @@ int main()
         window.draw(barraC);
         window.display();
 		
-		
+		cout<<"A\n";
 		game.loadLastGame();
+		cout<<"B\n";
 		if(game.testo!="")	nSez=disseziona(game.pagina[game.indPagina], sezione);
 		
 		

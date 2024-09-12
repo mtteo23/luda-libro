@@ -9,7 +9,7 @@
 #include <codecvt>
 #include <string>
 
-#include <filesystem>
+
 #include "Linux.h"
 
 sf::Vector2f operator*(const sf::Vector2f& left, const sf::Vector2f& right) {
@@ -68,33 +68,10 @@ class Settings{
         }
         fin.close();
 
-        int i=0;
-        bool tl=0;
-		for (const auto& entry : filesystem::directory_iterator(pLABELS))
-		{
-			if (entry.is_regular_file() && entry.path().extension() == ".txt")
-			{
-				availableLang[i]=entry.path().filename();
-				availableLang[i]=availableLang[i].substr(0, availableLang[i].size()-4);
-				tl=tl||availableLang[i]==language;
-				i++;
-			}
-		}
-		if(!tl) language=availableLang[0];
-
-		i=0;
-		bool tF=0;
-		for (const auto& entry : filesystem::directory_iterator(pFONTS))
-		{
-			if (entry.is_regular_file())
-			{
-				availableFont[i]=entry.path().filename();
-				tF=tF||availableFont[i]==fontName;
-				i++;
-			}
-		}
-		if(!tF) fontName=availableFont[0];
-
+        
+        loadAvailable(pLABELS, ".txt", availableLang, language);
+        
+        loadAvailable(pFONTS, "", availableFont, fontName);
         font.loadFromFile(pFONTS+fontName);
     }
 

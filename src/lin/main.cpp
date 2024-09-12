@@ -47,7 +47,7 @@ class Game{
     
 	void save()
 	{		
-		ofstream fout("games/"+nome+".txt");
+		ofstream fout(pGAMES+nome+".txt");
 		fout<<libro<<endl;
 		fout<<indPagina<<endl;
 		fout<<indCP<<endl;
@@ -95,34 +95,28 @@ class Game{
 		int indLibro=0;
 		string titolo[100];
 		int i=0;
-		
-		for (const auto& entry : filesystem::directory_iterator(pGAMES))
+		string junk;
+		int n=loadAvailable(pGAMES, ".txt", titolo, junk);
+		for(int i=0; i<n; i++)
 		{
-			if (entry.is_regular_file() && entry.path().extension()==".txt") 
+			int tmpInd=0;
+			int tmpLim=titolo[i].find("-");
+			string tmpTitolo=titolo[i];
+			
+			if(tmpLim!=string::npos)
 			{
+				tmpTitolo=titolo[i].substr(0, tmpLim);
+				string tmpInt=titolo[i].substr(tmpLim+1, titolo[i].size()-tmpLim);
 				
-				titolo[i]=entry.path().filename();
-				titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
-				int tmpInd=0;
-				int tmpLim=titolo[i].find("-");
-				string tmpTitolo=titolo[i];
-				
-				if(tmpLim!=string::npos)
-				{
-					tmpTitolo=titolo[i].substr(0, tmpLim);
-					string tmpInt=titolo[i].substr(tmpLim+1, titolo[i].size()-tmpLim);
-					
-					if(isNum(tmpInt))
-						tmpInd=stoi(tmpInt);
-					else 
-						tmpTitolo=titolo[i];	
-				}
-				if(tmpTitolo==libro)	
-					indLibro=max(indLibro, tmpInd+1);
-				i++;
+				if(isNum(tmpInt))
+					tmpInd=stoi(tmpInt);
+				else 
+					tmpTitolo=titolo[i];	
 			}
+			if(tmpTitolo==libro)	
+				indLibro=max(indLibro, tmpInd+1);
 		}
-		
+
 		nome=inpLibro+"-"+to_string(indLibro);
 		sorte=0;
 		barre=0;
@@ -134,16 +128,13 @@ class Game{
 
 	void loadLastGame()
 	{
-		for (const auto& entry : filesystem::directory_iterator(pGAMES))
-		{
-			if (entry.is_regular_file() && entry.path().extension() == ".txt") 
-			{
-				string tmp=entry.path().filename();
-				load(tmp.substr(0, tmp.size()-4));
-				testo=caricaLibro(libro);
-				nPagine=dividiInPagine(pagina, nomePagina, testo);
-				return;
-			}
+		string titolo[100];
+		string junk;
+		if(loadAvailable(pGAMES, ".txt", titolo, junk)>0)
+		{	
+			load(titolo[0]);
+			testo=caricaLibro(libro);
+			nPagine=dividiInPagine(pagina, nomePagina, testo);
 		}
 	}
 }game;
@@ -961,16 +952,7 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, Sezione sezi
 
 
     string titolo[100];
-    int i=0;
-    for (const auto& entry : filesystem::directory_iterator(pBOOKS))
-    {
-		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
-        {
-            titolo[i]=entry.path().filename();
-            titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
-            i++;
-        }
-    }
+    int i=readTitles(titolo);
     ///visualizza
     for(int j=0; j<i; j++)
     {
@@ -1004,16 +986,8 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sez
 
     string titolo[100];
     static int ind=-1;
-    int i=0;
-    for (const auto& entry : filesystem::directory_iterator(pGAMES)) 
-    {
-		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
-        {
-            titolo[i]=entry.path().filename();
-            titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
-            i++;
-        }
-    }
+    string tmp;
+    int i=loadAvailable(pGAMES, ".txt", titolo, tmp);
     ///visualizza
     for(int j=0; j<i; j++)
     {
@@ -1385,9 +1359,8 @@ int main()
         window.draw(barraC);
         window.display();
 		
-		cout<<"A\n";
 		game.loadLastGame();
-		cout<<"B\n";
+		
 		if(game.testo!="")	nSez=disseziona(game.pagina[game.indPagina], sezione);
 		
 		

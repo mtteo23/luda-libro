@@ -952,7 +952,8 @@ int visElencoLibri(sf::RenderWindow* window, sf::Texture intreccio, Sezione sezi
 
 
     string titolo[100];
-    int i=readTitles(titolo);
+    string junk;
+    int i=loadAvailable(pBOOKS, ".txt", titolo, junk);
     ///visualizza
     for(int j=0; j<i; j++)
     {

@@ -17,21 +17,6 @@ sf::Vector2f getProportions()
 
 #include <filesystem>
 
-int readTitles(std::string titolo[])
-{
-	int i=0;
-	for (const auto& entry : std::filesystem::directory_iterator(pBOOKS))
-    {
-		if (entry.is_regular_file() && entry.path().extension() == ".txt") 
-        {
-            titolo[i]=entry.path().filename();
-            titolo[i]=titolo[i].substr(0, titolo[i].size()-4);
-            i++;
-        }
-    }
-    return i;
-}
-
 int loadAvailable(std::string dir, std::string ext, std::string available[], std::string &name)
 {
 	int i=0;

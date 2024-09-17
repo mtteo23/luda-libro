@@ -1,6 +1,8 @@
 aaaa=0
 aaab=1
 aaac=-1
+aaax=10
+aabb=20
 aabm=aabb+20
 aabn=aabd+20
 aabo=aabe+20
@@ -9,12 +11,13 @@ aabq=aabg+20
 aabr=aabh+20
 aabt=aabl+20
 aadh=aadf+aadx
+aadi=aadf+aadk
 aaaf=aaae+aaax
 aafa=aabc+aaax
 aafb=aabc+aabx
 aabi=aabg+aaax
-aaax=10
-aabb=20
+aael=aaeb+aaax
+aaem=aaeb+aadk
 
 
 #<aaaa> Antaux parolo/
@@ -64,10 +67,9 @@ Iru cxe /l<aaba> <aaba>/.
 Ci malantaux rigardas, ciaj gefratoj estas tro lacegataj, ci devos solvi la aferon sen ilia helpo.
 
 Antaux la sxtormo ecx malbonigxas, ci kuras al la velo kaj provas rapide malligi la snuron.
-Feke gxi estas tro strecxita, tro da secundoj pasas antaux ci sukcese malligas gxin!
+Feke gxi estas tro strecxita, ci pasantas tro da tempo provante malligi gxin.
 
-Grandega ondo frapas la Glenkoron kiu kvazaux renversigxas, ci estas jxetita ekstere, en la maro.
-Dauxru cxe /l<aaag> <aaag>/.
+Por dauxri iru cxe /l<aaaq> <aaaq>/.
 
 #<aaaf> Sana reeno/
 
@@ -183,6 +185,13 @@ Ci vekigxas cxius kaj vi komencas repari la grandan velon per viaj vestajxoj.
 Visxu la noton /c2 rompita velo/ kaj kreu la noton /n<aaak> nuda sxipistaro [<aaak>]/.
 
 Por daurxrigi iru cxe /l<aaac> <aaac>/.
+
+#<aaaq> volante surmare/
+
+Ci fine sukcesas malligi la nodon kaj rekuras al la pordo, al la salveco, sed ci tro malfruas.
+Grandega ondo frapas la Glenkoron kiu kvazaux renversigxas, ci estas jxetita ekstere, en la malvarma kaj malvivinta maro.
+
+Dauxru cxe /l<aaag> <aaag>/.
 
 #<aaaw> rompita velo/
 
@@ -379,102 +388,144 @@ alie vi fine povas reparti al Roko, iru cxe /l<aaac> <aaac>/.
 
 #<aaca> Nelogxita insulo/
 
-Ci vekigxas sur plagxo, la suno kalde brilas kaj ci tre soifas. Ci levigxas cin por kompreni kie ci estis forsendita.
+Ci vekigxas sur plagxo, la suno kalde brilas kaj ci ne trinkas aux mangxas ekde unu tago, kreu la noton /n<aacx> soifa kaj malsata [<aacx>]/.
+Ci levigxas cin por kompreni kie ci estis forsendita.
 Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. 
 Alieflanke la plagxo tuj finas antaux densa pina arbaro, oni videblas birdojn kaj grandajn porkojn. 
 Cxi tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj, precipe ci ne vidas ciajn gefratojn kaj cian sxipo, espereble ili estas sane alvenita al Roko.
 
-/a0 visxu cxiun streketon/
+/a0 Visxu cxiun streketon/.
+
+Ci devas tuj trovi akvon kaj posto kie dormi.
 
 Iru cxe /l<aacb> <aacb>/.
 
 #<aacb> Plagxo/
+
 Ci estas sur la plagxo kie ci vekigxis.
-La suno mallevigxas kaj sian kaldo malrapide foriras sed ci tro soifas kreu la noton /n<aacx> soifa kaj malsata [<aacx>]/.
-Ci devas tuj trovi akvon, ci povas sercxi en la densa arbaro sed sxajnas malfacile trairi gxin kaj ci puvus perdigxi cin ene.
+La suno mallevigxas kaj sian kaldo malrapide foriras. 
+Antaux cin estas densa arbaro sed sxajnas malfacile trairi gxin kaj ci puvus perdigxi cin ene.
 Alie ci povas provi cxirkauxiri la insulo restante sur la plagxo, ci certe irus pli rapide.
+
 Se ci volas eniri en la arbaro iru cxe /l<aacc> <aacc>/, 
 alie, iru cxe /l<aacd> <aacd>/.
 
 #<aacc> arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketo/.
+
 El cxi tie ci povas iri al /l<aace> <aace>/, /l<aacf> <aacf>/ aux /l<aacg> <aacg>/.
 
 #<aacd> reene arbaren/
+
 Ci reenas arbaren kaj la tempo fluas: /b1 aldonu unu streketon/.
 El cxi tie ci povas iri al /l<aaci> <aaci>/, /l<aacl> <aacl>/ aux /l<aacg> <aacg>/.
 
 #<aace> arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 El cxi tie ci povas iri al /l<aacf> <aacf>/, /l<aacl> <aacl>/ aux /l<aacm> <aacm>/.
 
 #<aacf> fonto/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 Poste longa marsxado ci fine trovas fonton! Ci avide trinkas la akvon, visxu la noton /c2 soifa kaj malsata/.
 Nun ci povas provi trovi kielo per kiu eliri el cxi tiu insulo kaj renkontigxi ciajn gefratoj al Roko.
+
 El cxi tie ci povas iri al /l<aach> <aach>/ aux al /l<aacl> <aacl>/.
 
 #<aacg> arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 El cxi tie ci povas iri al /l<aace> <aace>/, /l<aach> <aach>/ aux /l<aaci> <aaci>/.
 
 #<aach> arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-El cxi tie ci povas iri al /l<aace> <aace>/, /l<aada> <aada>/ aux /l<aacg> <aacg>/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+El cxi tie ci povas iri al /l<aace> <aace>/ aux /l<aacg> <aacg>/.
 
 #<aaci> arbara strateto/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Eke ci trovas cin super mallargxa kaj malrekta strateto.
-Tio miras cin cxar ci kredis ka le insulo ne estis logxita.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Eke ci trovas cin sur mallargxa kaj malrekta strateto.
+
+Se ci havas la noton /c2 mordita kruro/ iru tuj cxe /l<> <>/
+
+La strateto miras cin cxar ci kredis ka le insulo ne estis logxita.
 Espero plenas cin: se estas homoj sur la insulo eble estas sxipoj kaj kieloj por alveni al Roko al ciajn gefratoj!
-Sed iom post iom ci memoras pri rakontoj kiun ci auxdis kiam ci estis knabo. Rakontoj pri sovagxuloj, kiu mangxas homviando en noktaj festoj kaj logxas en nekonataj kaj malproksimaj insuloj.
-Rakontoj pri stultaj marvojagxistoj kiu lasis sin kapti el la hombestoj kaj mortis for de hejme.
+Sed iom post iom ci memoras pri rakontoj kiun ci auxdis kiam ci estis knabo. Rakontoj pri sovagxuloj, kiu mangxas homviando en noktaj festoj kaj logxas en nekonataj kaj malproksimaj insuloj. Rakontoj pri stultaj marvojagxistoj kiu lasis sin kapti el la hombestoj kaj mortis for de hejme.
 Certe dauxri sur la strateto estas la vojo pli rapida por alveni al Roko, aux al la mortejo.
+
 Se ci volas sekvi la strateto iru cxe /l<aada> <aada>/,
 alie, se ci volas dauxri en la arbaro iru cxe /l<aacm> <aacm>/.
 
 #<aacl> porkidoj/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 Tra la arboj ci vidas tri porkidoj, ili sxajnas bongustaj kaj ci tre malsatas.
-Se ci volas provi kapti unu porkido aux ci havas la noton /c2 soifa kaj malsata/ iru cxe /l<aaea> <aaea>/,
-se ci timas ke la patrino de la porkidoj alvenos kaj ci ne havas la noton /c2 soifa kaj malsata/ iru cxe /l<aacn> <aacn>/.
+
+Se ci havas la noton /c2 mordita kruro/ ci ne povas ecx pensi kasxi porkidon, iru cxe /l<aacn> <aacn>/,
+se havas la noton /c2 soifa kaj malsata/ aux ci volas provi kapti unu porkido iru cxe /l<aaea> <aaea>/,
+se ci ne havas la noton /c2 soifa kaj malsata/ kaj ne volas perdi tempon iru cxe /l<aacn> <aacn>/.
 
 #<aacm> eliro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 Poste iom da tempo la arbaro finas. Ci estas antaux la maro, malantauxe cin estas la arbaro.
-Ci ankoraux necesas trovi ejo por dormi kaj eble iom por mangxi kaj trinki,
-se ci volas sercxi tion sekvante la plagxon dauxru cxe /l<aaco> <aaco>/,
+Ci ankoraux necesas trovi ejo por dormi kaj eble iom por mangxi kaj trinki.
+
+Se ci volas sercxi tion sekvante la plagxon dauxru cxe /l<aaco> <aaco>/,
 se ci vola reeni arbaren iru cxe /l<aacd> <aacd>/.
 
 #<aacn> eliro el la arbaro/
+
 Ci rapide foriras kaj dauxras cian sercxo, la suno mallevos en kalkajn horon kaj ci ne povas perdi tempon.
+
 Rapide la arbaro finas kaj ci alvenas al alia plagxo. La suno malrapide mallevas antauxe cin kaj la ombroj plilongigxas.
 Se ci ne trovintus kiel eliri el la insulo cxi tiu estus grava problemo, sed tio ne estas problemo nun: antauxe cin estas la Glenkoro kaj cxiujn ciajn gefratojn.
+
 Iru cxe /l<aaee> <aaee>/.
 
 #<aaco> rokplagxo/
+
 Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
+
 Ci trovas nenion tie, nur tro kaldan sunon, se ci volas daurxi pasxi sur la sablo iru cxe /l<aacp> <aacp>/,
 alie se ci volas reeni en la arbaro iru cxe /l<aacd> <aacd>/.
 
 #<aacp> tro granda rompita sxipo/
+
 Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
-Eke ci vidas etan kaj malproksiman ajxo sur la plagxo.
-Ju plue ci alproksimigxas des pli ci komprenas ke gxi estas sxipo, kaj certe ne eta sxipo.
-Kiam ci alvenas al la sxipo ci vidas ke bedaurinde ne estas sxipistoj sure kaj ke la sxipo estas fiksita sur la plagxo.
-Ne estus facila reporti gxin maren ecx se ci havas deko da helpantoj, sed ci estas nur unu kaj ne povus ecx ne veturi gxin.
+Eke ci vidas grandan kaj malproksiman ajxo sur la plagxo.
+Ju plue ci alproksimigxas des pli ci komprenas ke gxi estas sxipo.
+Kiam ci alvenas al la sxipo ci vidas ke bedaurinde ne estas sxipistoj supre kaj ke la sxipo estas fiksita sur la plagxo.
+Ne estus facila reporti gxin maren ecx se ci havas deko da helpantoj, kaj ci estas nur unu: ci ne povus ecx veturi gxin.
+
 Se ci volas esplori la sxipon kaj sercxi ion ajn utila iru cxe /l<aacq> <aacq>/,
 se ci volas dauxri sur la plagxo iru cxe /l<aacr> <aacr>/,
 se ci volas reeni en la arbaro iru cxe /l<aacd> <aacd>/.
 
 #<aacq> esploro de la sxipego/
+
 Dum ci enesploras la sxipego la suno multe mallevigxas, /b1 aldonu unu streketon/.
-Preskaux cxion ci trovas ene estas senutila, la nura ajxo ci volas preni estas /n<aabw> taglibron/.
+
+Preskaux cxion ci trovas ene estas senutila, la nura ajxo ci volas preni estas etan taglibron. 
+Kreu la noton /n<aabw> taglibron/.
+
 Dauxru cxe /l<aacp> <aacp>/.
 
 #<aacr> bonsxanca surprizo/
+
 Ci dauxras vojagxi surplagxe gxis ci vidas alian sxipon proksime. Gxi preskaux kredas esti en songxacxo sed ci rekonas ke gxin ne estas ajna sxipo.
-Gxi estas cia sxipo! La Glenkoro kaj sur gxin ci povas vidi ciajn gefratojn.
+Gxi estas la Glenkoro kaj sur gxin ci povas vidi ciajn gefratojn.
+
 Kuru cxe /l<aaee> <aaee>/.
 
 #<aacx> soifa kaj malsata/
@@ -482,53 +533,76 @@ Kuru cxe /l<aaee> <aaee>/.
 Ci ne mangxis kaj trinkis dum preskaux unu tagon. Nun ci ne havas cxion cian forton kaj volas tuj mangxi ion.
 
 #<aada> terura vidajxo/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Ci alvenas en granda senarbejo ene la arbaro. 
-Estas tri kandomoj turnitaj al la centro de la ejo, tie ci vidas teruran vidajxon.
+
+Ci trairadas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci alvenas en granda senarbejo. 
+Estas du kandomoj turnitaj al la centro de la ejo, tie ci vidas terurajxon.
 Preskaux dudek mortaj korpoj, unu aux du preskaux nur ostaroj, estas amasataj en la centro de la ejo.
 Malbonega odoro plenas la aero kaj arego de musxoj bruas super la mortitoj.
-Se ci volas rapide foriri kaj malmemori tion malbelegan vidajxon iru cxe /l<aacn> <aacn>/,
+
+Se ci volas rapide foriri kaj malmemori tion malbelegan vidajxon iru cxe /l<aace> <aace>/,
 se ci volas pli bone sercxi la kandomojn iru cxe /l<aadb> <aadb>/,
 alie, se ci volas sercxi la mortkorpojn iru cxe /l<aadc> <aadc>/.
 
 #<aadb> kandomoj malnovaj/
+
 Ci proksimigxas al la du kandomoj, unu el la du havas la tegmento truita kaj sxajnas falantas, estas neniu utila ene.
-La alia estas pli sana kaj ene estas unu ligna nekringo, se ci volas preni unu aux ambaux de gxin kreu la notojn /n<aadj> ligna nekringo [<aadj>]/ kaj /n<aadk> sxtona trancxilo [<aadk>]/.
+
+La alia estas pli sana kaj ene estas unu ligna nekringo kaj unu sxtona trancxilo, se ci volas preni unu aux ambaux de ilin kreu la notojn /n<aadj> ligna nekringo [<aadj>]/ kaj /n<aadk> sxtona trancxilo [<aadk>]/.
 Se ci volas sercxi la mortkorpojn iru cxe /l<aadc> <aadc>/,
-alie se ci volas rapide foriri el cxi tie iru cxe /l<aacn> <aacn>/.
+alie se ci volas rapide foriri el cxi tie iru cxe /l<aace> <aace>/.
 
 #<aadc> mortkorparo/
-Ci proksimigxas al la amaso de mortkorpoj, dum ci esploras la korpoj ci vidas rugxume brilanta ajxo sub unu el la korpojn.
+
+Ci proksimigxas al la amaso de mortkorpoj, dum ci esploras la korpoj ci vidas rugxume brilantan ajxon sub unu el la korpoj.
+
 Se ci volas provi preni gxin iru cxe /l<aadd> <aadd>/,
 se ci volas pli bone sercxi la kandomojn iru cxe /l<aadb> <aadb>/,
-alie se ci volas rapide foriri el tie iru cxe /l<aacn> <aacn>/.
+alie se ci volas rapide foriri el tie iru cxe /l<aace> <aace>/.
 
 #<aadd> stranga ajxo el mortejo/
+
 Ci movas korpon kaj prenas la ajxon. Gxi estas belega kupra sxildo, sur gxin estas desegnataj nodoj per argxenta fadeno.
 Kreu la noton /n<aadw> sxildo kupra [<aadw>]/.
-Se ci havas malpli ol kvar streketoj iru cxe /l<aade> <aade>/,
+
+Se ci havas malpli ol ses streketoj iru cxe /l<aade> <aade>/,
 alie iru cxe /l<aadf> <aadf>/.
 
 #<aade>  sagxa elekto/
+
 Poste preni la sxildo ci antauxsentas malagrablan situacion, ci volegas eliri el cxi tiu malgxoja kaj terura ejo.
-Iru cxe /l<aacn> <aacn>/.
+
+Iru cxe /l<aace> <aace>/.
 
 #<aadf> atakita/
-La nubo ekkovras la sunon, la senarbejo kaj la mortkorparo estigxas pli malluma kaj teruranta. 
+
+Nubo ekkovras la sunon, la senarbejo kaj la mortkorparo igxas pli malluma kaj teruranta. 
 Ci sentas malvarmegan manon preni cian kruron.
 
 Iru cxe /l<aadg> <aadg>/.
 
 #<aadg> mordo el morto/
+
 Ci provas uzi ciajn manoj por liberigi cian kruron sed la mortula premo estas tro forta.
 Antaux ci povas forkuri la mortulo mordas cian kruron, farante profunda vundon.
 Fine ci sukcesas forkuri el tie sed ci nun havas /n<aadx> mordita kruro/ kaj /n<aady> teruro de mortkorpoj/.
 Ci bandagxas la vundo per cian cxemizo, nun ci devas dauxri la esploron de la insulo.
-Iru cxe /l<aacn> <aacn>/.
+
+Iru cxe /l<aace> <aace>/.
 
 #<aadh> Vivosavanta trancxilo/
+
 Ci trancxas la mano de la mortulo kaj forkuras el tie.
-Kreu la noton /n<aady> teruro de mortkorpoj [<aady>]/ kaj iru cxe /l<aacn> <aacn>/.
+
+Kreu la noton /n<aady> teruro de mortkorpoj [<aady>]/ kaj iru cxe /l<aace> <aace>/.
+
+#<aadh> Vivosavanta trancxilo/
+
+Ci trancxas la mano de la mortulo kaj forkuras el tie.
+Bedauxrinde la sxtona trancxilo estis tiom acxa kiom gxi sxajnis kaj rompigxas.
+
+Kreu la noton /n<aady> teruro de mortkorpoj [<aady>]/ kaj iru cxe /l<aace> <aace>/.
 
 #<aadj> ligna nekringo/
 
@@ -551,72 +625,108 @@ Ci provis sxteli porkido el patrinporko, tio ne finis bone, ci ne plu povas faci
 El tiam ci estis atakita el homoj kiu ci kredis mortaj, la korpo de la mortuloj teroregigas cin.
 
 #<aaea> porkidsxtelisto/
+
 Ci prendas la plej dika porkido kaj kuras for.
-Malantaux cin ci auxdas la krion de la patrino, sxi sekvantas cin!
-Cxu ci havas pli ol /c1 kvar streketojn/?
+
+Poste malmunton da tempo cin ci auxdas la krion de la patrino malantaux cin, sxi sekvantas cin!
+
+Cxu ci havas pli ol /c2 ses streketojn/?
 Cxu jes iru cxe /l<aaeb> <aaeb>/,
 cxu ne iru cxe /l<aaec> <aaec>/.
 
 #<aaeb> kolera patrino/
+
 Forkurante ci eliras el la arbaro, antaux ol ci povas vidi kie ci trovas, timinda sono alvenas el malantaux cin.
-La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun grandaj dentegoj.
-Ci apenaux vidis sxin kiam sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
+La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun pikaj dentegoj.
+Poste ci apenaux vidis sxin, sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
+La porkidoj fugxas el ciaj brakoj sed ci havas pli gravaj problemoj.
+
 Cxu ci havas almenaux /c2 unu sorton/?
 Cxu jes iru cxe /l<aaed> <aaed>/,
 Alie ci mortas cxi tie, vivmangxita el la porkino.
 
+#<aael> tro dika hauxto/
+
+Ci rapide prenas cian snurtrancxilon kaj provas mallproksimi la porkino sed la porkina hauxto estas tiel dika ke ci ne povas fari ecx trancxeton.
+
+Revenu al /l<aaeb> <aaeb>/
+
+#<aaem> pika sxtono/
+
+Ci provas piki la prkino per la sxtona trancxilo. Bonsxance ecx se gxi sxajnas acxa gxi estas pinta kaj enas kaj restas sur la porkino. Kriante pro la doloro la porkino kuras ene la arbaro al siaj idoj.
+
+Daux al /l<aacn> <aacn>/
+
 #<aaec> pli rapida ol porkino/
+
 Ci rapidege kuras, baldaux ci ne plu sentas ion malantaux cin. La porkido provas fugxi el ciaj brakoj sed ci forte tenas gxin.
 Ci havas multege da malsato, se ci volas rapide mortigi kaj mangxi la porkidon ci povas visxi la noton /c2 soifa kaj malsata/.
 Alie kreu la noton /n<aaej> sovagxa porkido [<aaej>]/.
+
 Dauxru cxe /l<aacn> <aacn>/.
 
 #<aaed> salvanta sinjorino/
+
 Antaux la porkino povas provi mortigi cin granda krio alvenas el malantaux cin.
 El tero ci vidas alta junulino frapi remilon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
 Ci dankegas la junulino sed la mordo de la porkino estas terure profunda kaj multego da sango eliras.
 Kreu la noton /n<aadx> mordita kruro [<aadx>]/.
 La junulino rapide formetas sian cxemizo kaj uzas gxin por bandagxi cian kruron. Tamen gxi sxajnas tre malbona vundajxo.
 "Ci necesas pli bona sanigo, mi ne povas fari pli tie cxi", la junulino diras, "Mi nomas Sarino, cxu ci scias kie troveblas sxipon?".
+Tamen la junulino parolis rapide kaj agis pragmate ci vidas ke sxiaj manoj tremas kaj sxiaj okuloj rugxas pro plorado.
+
 "Mi sercxis la saman, sed sxajnas ke tiu cxi estas nelogxata insulo, ci ne logxas cxi tie, cxu ne?", ci demandas al la junulino.
 "Ne, mi alvenis cxi tio mateno sxipe, sed mi jaj mia sxipistaro estis atakitaj el la logxantoj, ni mortigis cxiujn el ili sed ili preskaux faris la saman al nin.
 Mi estas la sola supervivintino, kaj mi pensis la sola gehomo sur la insulo, antaux vidi cin, kiel ci alvenis tie cxi?".
-Ci auskultas Sarina rakonto kaj ci povas vidi sxia espero forigi kiam ci diras kiel ci alvenis sur la insulo.
+Ci auskultas Sarina rakonto kaj ci povas vidi sxia espero forigi kiam ci rakontas kiel ci alvenis sur la insulo.
 Kreu la noton /n<aaek> salvinta junulino [<aaek>]/.
+
 "Do ci ne havas sxipon? Mia rompigxis sur rokoj kiam mi alvenis, kvankam gxi estis tro granda kaj ni bezonus almenaux ok ulojn por veturi gxin. Ni devas trovi alian kielo por eliri el cxi tiu insulo".
 "Ni farigu fajron plagxen, tio alvenigos proksimajn sxipojn", ci proponas, ci ne estas la unua fojon ci perdis cian sxipo kaj restis sur nelogxata insulo, sed ci ne sxatas memori tion.
 Sarino ekkomencas pretigi la fajron, baldaux gxi bruligas kaj kreas multe da fumon.
 Pasas apenaux duonhoron kaj malgraux ne alvenas sxipoj vi auxdas fortan gxojan krion, vi vidas cian frato Toto alkuri skuante siajn brakojn.
+
 Dauxru cxe /l<aaee> <aaee>/.
 
 #<aaee> senesperata renkonto/
 "Do vi estis sur la insulo la tutan tempo!?"
-Ci ne povas kredi ciajn okulojn sed antauxe cin estas cxiujn ciajn gefratojn kaj cian sxipo, la "Glenkoro".
+Ci ne povas kredi ciajn okulojn sed antauxe cin estas cxiujn ciajn gefratojn kaj la Glenkoro.
 Ci estas felicxega! Ili cxiujn estas sanaj kaj vi povas eliri el cxi tiu nelogxata, sovagxa insulo.
+
 /a0 Visxu cxiujn streketojn/
+
 Hodiaux vi restos sur la insulo kaj morgaux matene vi dauxros vian vojagxon al Roko.
+
 Se ci havas la noto /c2 salvinta junulino/ iru cxe /l<aaef> <aaef>/,
 se ci ne havas gxin sed ci havas la noton  /c2 mordita kruro/ iru cxe /l<aaeg> <aaeg>/.
-se ci ne havas ilin sed ci havas la noton  /c2 sovaga porkido/ iru cxe /l<aaeh> <aaeh>/.
+Se ci ne havas ilin sed ci havas la noton  /c2 sovaga porkido/ iru cxe /l<aaeh> <aaeh>/.
 Se ci ne havas nek unun el la notoj dauxru cxe /l<aaei> <aaei>/.
 
 #<aaef> nova kunulino/
+
 Sarino jam komencis helpi ciajn gefratojn preti la sxipo, laux sxin sxi vojagxis sxipe ekde sxi estis eta knabinon kaj certe sxi scias kiel marvojagxi.
 En malpli ol duonhoro estas kiel sxi estis kun vin ekde jaroj.
+
 Se ci havas la noton /c2 mordita kruro/ iru cxe /l<aaeg> <aaeg>/.
 
 #<aaeg> vivdauxra vundo/
+
 Viajn gefratoj levas la cxemizon kiu kovras cian vundo, Pino rekudras gxin sed gxi estas tro grava. Sxajnas ke ci travivos sed ci ne plu povos normale pasxi, kaj certe ci ne povos kuri.
+
 Dauxru cxe /l<aaei> <aaei>/.
 
 #<aaeh>  porkido sursxipe/
+
 "Ci kunportis memorajxo el la arbaro?" petas cia frato Toto vidante la porkido, "Gxi estus bongustega, rostite".
 "Mi ankoraux ne decidis cxu mortigi gxin, gxi povus esti utila" ci respondas.
+
 Daxuru cxe /l<aaei> <aaei>/.
 
 #<aaei> nokta festo/
+
 Poste la malfacxilajxojn de la tago vi improvizas feston sur la sxipo, vi mangxas kaj drinkas, kantas gxis senvocxe kaj rakontas malnovajn kaj hodiauxajn memorojn.
 Fine vi cxiuj tre lacas, vi profunde dormas la tutan nokton kaj reekveturas al Rokon apenaux levigxas la suno.
+
 Iru cxe /l<aaac> <aaac>/.
 
 #<aaej> sovagxa porkido/
@@ -626,13 +736,18 @@ Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
 #<aaek> salvinta junulino/
 
 Ci renkontis Sarino, junulino kiu perdis sian sxipistaro kaj savis cin el patrina porkino kiu preskaux mortigis cin.
+Sxi estas pragmatema kaj multe helpas sed oni povas bone vidi ke la morto de sxia sxipistaro vundegis sxin psike.
 
 #<aafa> ankaux vela trancxilo!/
+
 Ci prenas cian /c2 snurtrancxilon/ kaj rapide ekas trancxi la velon.
+
 Iru cxe /l<aabl> <aabl>/.
 
 
 #<aafb> trancxante/
+
 Ci prenas la /c2 argentan glaveton/ kaj rapide ekas trancxi la velon.
+
 Iru cxe /l<aabl> <aabl>/.
 

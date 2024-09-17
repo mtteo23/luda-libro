@@ -1046,7 +1046,7 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sez
 		string path="games/"+titolo[ind]+".txt";
 		const char* tit="";
 		tit=path.c_str();
-		remove(tit);
+		std::remove(tit);
 		}
 	
 		//ind=-1;
@@ -1058,10 +1058,10 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sez
     if(PRemove.draw(window)==3)
 	{
 		game.indCP=0;//evita subito il respawn
-		string path="games/"+titolo[ind]+".txt";
+		string path=pGAMES+titolo[ind]+".txt";
 		const char* tit="";
 		tit=path.c_str();
-		remove(tit);
+		std::remove(tit);
 		ind=-1;
 	}
 

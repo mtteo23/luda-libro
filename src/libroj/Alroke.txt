@@ -10,7 +10,7 @@ aabp=aabf+20
 aabq=aabg+20
 aabr=aabh+20
 aabt=aabl+20
-aadh=aadf+aadx
+aadh=aadf+aaax
 aadi=aadf+aadk
 aaaf=aaae+aaax
 aafa=aabc+aaax
@@ -95,15 +95,13 @@ Ci perdas /s-1 unun sorton/.
 
 Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin.
 Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: 
-"Ci estas for de hejmo etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al min obeadon mi salvos cin kaj ciajn gefratojn. 
-Mi ne estas avara ne bezonos gxin gxis cian morton, poste la plenumo de unu, eta misio mi cin liberos de la jxuron.
+
+"Ci estas for de hejmo, etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al mi obeadon mi salvos cin kaj ciajn gefratojn. 
+Mi ne bezonos gxin gxis cian morton: poste la plenumo de unu, eta misio mi liberos cin de la jxuron.
 Cxu tio bonas laux ci?".
  
-La vocxo timigas cin. En cxi tiuj momentoj ci memoras kiel maljunuloj rakontis pri grandaj submaraj monstroj. 
-Monstroj kiu dronigas sxipojn kaj sxipistarojn, kiu povas kalmi kaj malkalmi la maron kaj detruj grandaj urbojn. 
-Ili cxiam estas malbonajn, kaj kiu faras nerompeblajn paktojn kun homoj por atingi iliaj nekompreneblajn celojn.
-
-Neniam bonas rompi paktojn kiel cxi tion, sed se ci ne faros gxin ci preskaux certe mortos kaj ci havas malmultan tempon.
+La vocxo timigas cin. Ci memoras pri rakontoj en kiu grandaj submaraj monstroj, kiu dronigas sxipojn kaj sxipistarojn, kiu povas kalmi kaj malkalmi la maron kaj detruj grandaj urbojn faras paktojn kun hontaj homoj kiu multe gajnas kaj multe cedis. 
+Neniam bonas rompi paktojn kiel cxi tion, sed se ci ne faros gxin ci preskaux certe mortos kaj gxi povus ecx esti utila poste.
 
 Se ci diras "Jes" iru cxe /l<aaal> <aaal>/, 
 alie iru cxe /l<aaam> <aaam>/.
@@ -118,7 +116,8 @@ Cia adventuro finas cxi tie.
 
 #<aaaj> submara pakto/
 
-Ci faris pakton kun terura submara monstro. Nepre plenumi gxin tuj. Kaj kompreneble ne parolu libere pri gxin, ci estus mortota.
+Ci faris jxuris obeadon al terura submara monstro gxis ci plenumas la misio kiun li daris al cin. 
+Nepre plenumi gxin tuj kaj ne parolu pri gxi kun neniu alie ci estus versxaine mortigata. 
 
 #<aaak> nuda sxipistaro/
 
@@ -128,8 +127,10 @@ Vi reparis vian cxefan velon per viajn proprajn vestajxojn. Vi estas nudaj: nepr
 
 Ci provas jxuri kiel la monstro petas, sed la akvon plenas cian busxon sen lasi eliri ciajn parolojn. 
 Ci fermas la okulojn kaj svenas.
-
+Kiel songxe ci auxdas parolojn:
+/c2 "Iru cxe Roko, tie ci prenu la nigran vason. Kunportu la vazon gxis la komenco de la Tratero"/
 Kreu la noton /n<aaaj> submara pakto [<aaaj>]/
+La Tratero estas kanalo en la nordo de la mondo. Ci estis tie kelkajn fojojn kaj ci jam planis reveni tie por vendi la varojn kiu ci acxetos en Roko.
 
 Dauru cxe /l<aaca> <aaca>/.
 
@@ -160,7 +161,7 @@ Sxajnas ke ci ne mortos hodiaux.
     Dankon por legi kaj alveni cxi tie! Se vi volas vi povas reludi por alveni al plia interesa parto de la libron. 
     Gxis!
     
--la skribiston
+-makte0
 
 #<aaao> Grava bezono/
 
@@ -597,7 +598,7 @@ Ci trancxas la mano de la mortulo kaj forkuras el tie.
 
 Kreu la noton /n<aady> teruro de mortkorpoj [<aady>]/ kaj iru cxe /l<aace> <aace>/.
 
-#<aadh> Vivosavanta trancxilo/
+#<aadi> Vivosavanta trancxilo/
 
 Ci trancxas la mano de la mortulo kaj forkuras el tie.
 Bedauxrinde la sxtona trancxilo estis tiom acxa kiom gxi sxajnis kaj rompigxas.
@@ -645,18 +646,6 @@ Cxu ci havas almenaux /c2 unu sorton/?
 Cxu jes iru cxe /l<aaed> <aaed>/,
 Alie ci mortas cxi tie, vivmangxita el la porkino.
 
-#<aael> tro dika hauxto/
-
-Ci rapide prenas cian snurtrancxilon kaj provas mallproksimi la porkino sed la porkina hauxto estas tiel dika ke ci ne povas fari ecx trancxeton.
-
-Revenu al /l<aaeb> <aaeb>/
-
-#<aaem> pika sxtono/
-
-Ci provas piki la prkino per la sxtona trancxilo. Bonsxance ecx se gxi sxajnas acxa gxi estas pinta kaj enas kaj restas sur la porkino. Kriante pro la doloro la porkino kuras ene la arbaro al siaj idoj.
-
-Daux al /l<aacn> <aacn>/
-
 #<aaec> pli rapida ol porkino/
 
 Ci rapidege kuras, baldaux ci ne plu sentas ion malantaux cin. La porkido provas fugxi el ciaj brakoj sed ci forte tenas gxin.
@@ -667,8 +656,8 @@ Dauxru cxe /l<aacn> <aacn>/.
 
 #<aaed> salvanta sinjorino/
 
-Antaux la porkino povas provi mortigi cin granda krio alvenas el malantaux cin.
-El tero ci vidas alta junulino frapi remilon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
+Antaux la porkino povas mortigi cin, granda krio alvenas el malantaux cin.
+El tero ci vidas altan junulinon frapante bastonon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
 Ci dankegas la junulino sed la mordo de la porkino estas terure profunda kaj multego da sango eliras.
 Kreu la noton /n<aadx> mordita kruro [<aadx>]/.
 La junulino rapide formetas sian cxemizo kaj uzas gxin por bandagxi cian kruron. Tamen gxi sxajnas tre malbona vundajxo.
@@ -737,6 +726,18 @@ Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
 
 Ci renkontis Sarino, junulino kiu perdis sian sxipistaro kaj savis cin el patrina porkino kiu preskaux mortigis cin.
 Sxi estas pragmatema kaj multe helpas sed oni povas bone vidi ke la morto de sxia sxipistaro vundegis sxin psike.
+
+#<aael> tro dika hauxto/
+
+Ci rapide prenas cian snurtrancxilon kaj provas mallproksimi la porkino sed la porkina hauxto estas tiel dika ke ci ne povas fari ecx trancxeton.
+
+Revenu al /l<aaeb> <aaeb>/
+
+#<aaem> pika sxtono/
+
+Ci provas piki la prkino per la sxtona trancxilo. Bonsxance ecx se gxi sxajnas acxa gxi estas pinta kaj enas kaj restas sur la porkino. Kriante pro la doloro la porkino kuras ene la arbaro al siaj idoj.
+
+Daux al /l<aacn> <aacn>/
 
 #<aafa> ankaux vela trancxilo!/
 

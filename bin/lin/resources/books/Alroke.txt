@@ -24,7 +24,7 @@ Ci prenas cian snurtrancxilon dum ci decidas kion oni devas fari.
 Kreu la noton /n10 snurtrancxilo [10]/.
 
 Se ci volas reiri sur la ferdeko kaj riski kadi maren por malligi la snuron iru cxe /l7 7/, 
-se ci volas fermi la pordon kaj esperi ke la velo ne rompigxas iru cxe /l70 70/.
+se ci volas fermi la pordon kaj esperi ke la velo ne rompigxas iru cxe /l31 31/.
 
 #2 Aliula velo/
 
@@ -42,24 +42,28 @@ Ci vidas ke la ulo havas granda sakon inter siaj manoj.
 
 Kion vi volas fari?
 Ci povas provi eliri sen veki la strangan homon, sed ci ne povos dauxrigi cia sercxo en la sxipo: /a5 faru gxis kvin streketojn/ kaj iru cxe /l20 20/,
-alie ci povas veki la ulo kaj malkovri kiu estas la situacio: iru cxe /l14 14/.
+alie ci povas veki la ulo kaj malkovri kiu estas la situacio: iru cxe /l19 19/.
 
 #4 atakita/
-La nubo ekkovras la sunon, la senarbejo kaj la mortkorparo estigxas pli malluma kaj teruranta. 
+
+Nubo ekkovras la sunon, la senarbejo kaj la mortkorparo igxas pli malluma kaj teruranta. 
 Ci sentas malvarmegan manon preni cian kruron.
 
-Iru cxe /l63 63/.
+Iru cxe /l26 26/.
 
 #5 sxtona trancxilo/
 
 Ne estas bonega trancxilo sed pli bone ol nenio.
 
 #6 kolera patrino/
+
 Forkurante ci eliras el la arbaro, antaux ol ci povas vidi kie ci trovas, timinda sono alvenas el malantaux cin.
-La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun grandaj dentegoj.
-Ci apenaux vidis sxin kiam sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
+La porka patrino alkuras kontraux cin, sxi estas grandega kaj dika porkino kun pikaj dentegoj.
+Poste ci apenaux vidis sxin, sxi mordas cian kruron. Grandega doloro malpovigas cin dauxrigi kaj faligas cin, la patrino pretigxas alian mordon.
+La porkidoj fugxas el ciaj brakoj sed ci havas pli gravaj problemoj.
+
 Cxu ci havas almenaux /c2 unu sorton/?
-Cxu jes iru cxe /l85 85/,
+Cxu jes iru cxe /l53 53/,
 Alie ci mortas cxi tie, vivmangxita el la porkino.
 
 #7 Ligita snuro/
@@ -69,7 +73,7 @@ Ci malantaux rigardas, ciaj gefratoj estas tro lacegataj, ci devos solvi la afer
 Antaux la sxtormo ecx malbonigxas, ci kuras al la velo kaj provas rapide malligi la snuron.
 Feke gxi estas tro strecxita, ci pasantas tro da tempo provante malligi gxin.
 
-Por dauxri iru cxe /l65 65/.
+Por dauxri iru cxe /l48 48/.
 
 #8 Malorda varejo/
 
@@ -77,9 +81,46 @@ Ci estas en la unua cxambro de la sxipo.
 Cxi tie estas multajn rompitaj vazoj en kiu estis vinon kaj mielon kaj aliaj varojn. La plej parto de la ajxoj estas rompita kaj senutila, sed eble oni estas ion portinda sub la rubajxo.
 
 Ci povas eliri cxe /l20 20/ por iri sur la ferdeko, 
-aux ci povas eniri la dua cxambro de la sxipo cxe /l9 9/.
+aux ci povas eniri la dua cxambro de la sxipo cxe /l15 15/.
 
-#9 malbonodora dormejo/
+#9 Vivosavanta trancxilo/
+
+Ci trancxas la mano de la mortulo kaj forkuras el tie.
+Bedauxrinde la sxtona trancxilo estis tiom acxa kiom gxi sxajnis kaj rompigxas.
+
+Kreu la noton /n46 teruro de mortkorpoj [46]/ kaj iru cxe /l33 33/.
+
+#10 snurtrancxilo/
+
+Eta kupra trancxilo senpinta, gxi bonegas por trancxi snurojn sed gxi povas trancxi ankaux aliajxojn.
+
+#11 pika sxtono/
+
+Ci provas piki la prkino per la sxtona trancxilo. Bonsxance ecx se gxi sxajnas acxa gxi estas pinta kaj enas kaj restas sur la porkino. Kriante pro la doloro la porkino kuras ene la arbaro al siaj idoj.
+
+Daux al /l60 60/
+
+#12 ankaux vela trancxilo!/
+
+Ci prenas cian /c2 snurtrancxilon/ kaj rapide ekas trancxi la velon.
+
+Iru cxe /l21 21/.
+
+
+#13 morto dum dormo/
+
+Per cia trancxilo ci rapide trancxas la gorgxon de la dormanto. Li vekigxas kaj provas krii, sed estas tro malfrue, post momento li mortas.
+
+Ci perdas /s-1 unu sorton/.
+Ci prenas lian sakon: kreu la noton /n45 granda sako [45]/ kaj iru cxe /l15 15/.
+
+#14 Vivosavanta trancxilo/
+
+Ci trancxas la mano de la mortulo kaj forkuras el tie.
+
+Kreu la noton /n46 teruro de mortkorpoj [46]/ kaj iru cxe /l33 33/.
+
+#15 malbonodora dormejo/
 
 Ci estas en la mezo de la sxipo.
 Deko da sxiplitoj kovras la murojn, kaj kompreneble la ekstera odoro estas multe pli bona ol cxi tien. La pavimo estas kovrita el mara akvo kiu pli kaj pli altigxas: estus bone hasti.
@@ -90,49 +131,13 @@ Se ci nun havas kvin aux pli da streketoj la cxambro estas preskaux plena de akv
 Cxu ci havas la noton /c2 Gaetano/ aux /c2 granda sako/? 
 Cxu ne dauxru cxe /l3 3/, 
 alie ci povas iri al la varejo cxe /l8 8/, 
-aux dauxri al la ventro de la sxipo, cxe /l11 11/. 
+aux dauxri al la ventro de la sxipo, cxe /l18 18/. 
 
-#10 snurtrancxilo/
+#16 tro dika hauxto/
 
-Eta kupra trancxilo senpinta, gxi bonegas por trancxi snurojn sed gxi povas trancxi ankaux aliajxojn.
+Ci rapide prenas cian snurtrancxilon kaj provas mallproksimi la porkino sed la porkina hauxto estas tiel dika ke ci ne povas fari ecx trancxeton.
 
-#11 Malplena magazeno/
-
-Cxi tie versxajne estis la mangxajxojn bezonatajn por la sxipistaro sed nun ne estas pli nek akvo nek pano. La akvo tie estas ecx pli alta ol antauxe.
-
-Revenu al /l9 9/.
-
-#12 ankaux vela trancxilo!/
-Ci prenas cian /c2 snurtrancxilon/ kaj rapide ekas trancxi la velon.
-Iru cxe /l15 15/.
-
-
-#13 morto dum dormo/
-
-Per cia trancxilo ci rapide trancxas la gorgxon de la dormanto. Li vekigxas kaj provas krii, sed estas tro malfrue, post momento li mortas.
-
-Ci perdas /s-1 unu sorton/.
-Ci prenas lian sakon: kreu la noton /n25 granda sako [25]/ kaj iru cxe /l9 9/.
-
-#14 Vekigxato/
-
-Ci vekigxas la dormanta ulo.
-Post momento de timo kaj nekompreno, li dankas la dioj de la maro, cxar li kredis ke li tuj mortos de soifo post semajnoj mare.
-Vi rapide kunparolas sed ci ne komprenas multe.
-Laux la ulo, kiu nomigxas Gaetano, la sxipego vojagxis al Roko ekde du semajnoj kiam, unu mateno, li vekigxis kaj trovis la sxipo cxi tiel: sen sxipistoj kaj kovrita el sango.
-Li ne povis ripari la velo de la sxipo sole kaj rapide li finis la magxajxon kaj la akvon esperante vidi aliajn sxipojn trairi.
-Fine li kredis sin mortota gxis cin vekigxis lin.
-
-Kreu la noton /n24 Gaetano [24]/ kaj dauxru via sercxado de la sxipo cxe /l9 9/.
-
-#15 Teksajxo por ripari/
-
-Ci rapide trancxas la plejparton de la granda velo kaj foldas gxin. Ci jxetas gxin al ciajn gefratoj sur la Glenkoro, kiu gxin komencas ripari vian velon.
-Sxirmu la noton /c2 rompita velo/, /b1 Aldonu unu streketon/ kaj reiru cxe /l20 20/.
-
-#16 argenta glaveto/
-
-Belega glaveto farita el argento kun nigraj interplektoj sul la klingo. Gxi bone trancxantas kaj sxajnas multvalorega.
+Revenu al /l6 6/
 
 #17 Sana reeno/
 
@@ -142,321 +147,59 @@ Grandegan ondo frapas la Glenkoron sed ci krampas al la masto kaj ne falas maren
 Subite poste ci estas ankoraux cxe la ferdeko. Ci ekkuras al la pordo kaj rapide eniras.
 Ciaj gefratoj fermas la pordon poste cia eniro kaj ci estas tiom terurita ke ci ekdormas sur la planko kvankam la bruego de la sxtormo ekstere.
 
-Iru cxe /l43 43/.
+Iru cxe /l84 84/.
 
-#18 trancxante/
-Ci prenas la /c2 argentan glaveton/ kaj rapide ekas trancxi la velon.
-Iru cxe /l15 15/.
+#18 Malplena magazeno/
 
-#19 nokta festo/
-Poste la malfacxilajxojn de la tago vi improvizas feston sur la sxipo, vi mangxas kaj drinkas, kantas gxis senvocxe kaj rakontas malnovajn kaj hodiauxajn memorojn.
-Fine vi cxiuj tre lacas, vi profunde dormas la tutan nokton kaj reekveturas al Rokon apenaux levigxas la suno.
-Iru cxe /l86 86/.
+Cxi tie versxajne estis la mangxajxojn bezonatajn por la sxipistaro sed nun ne estas pli nek akvo nek pano. La akvo tie estas ecx pli alta ol antauxe.
+
+Revenu al /l15 15/.
+
+#19 Vekigxato/
+
+Ci vekigxas la dormanta ulo.
+Post momento de timo kaj nekompreno, li dankas la dioj de la maro, cxar li kredis ke li tuj mortos de soifo post semajnoj mare.
+Vi rapide kunparolas sed ci ne komprenas multe.
+Laux la ulo, kiu nomigxas Gaetano, la sxipego vojagxis al Roko ekde du semajnoj kiam, unu mateno, li vekigxis kaj trovis la sxipo cxi tiel: sen sxipistoj kaj kovrita el sango.
+Li ne povis ripari la velo de la sxipo sole kaj rapide li finis la magxajxon kaj la akvon esperante vidi aliajn sxipojn trairi.
+Fine li kredis sin mortota gxis cin vekigxis lin.
+
+Kreu la noton /n42 Gaetano [42]/ kaj dauxru via sercxado de la sxipo cxe /l15 15/.
 
 #20 Sangoplena sxipo/
 
 Ci estas sur la ferdeko de la sxipego, gxi sxajnas submariganti, versxajne estas truoj sube, sed vi havas ankoraux tempon antaux gxi komplete estos submare.
 
 /b1 Aldonu unu streketon/.
-Se vi nun havas dek aux pli vi devas tuj reveni al la Glenkoro, iru cxe /l26 26/.
+Se vi nun havas dek aux pli vi devas tuj reveni al la Glenkoro, iru cxe /l61 61/.
 
 Dum ci estas sur la sanga sxipo ci povas esplori la ejo en kiu vi estas per aldoni /c2 20/ al la numero de la pagxo.
 (Ekz. se ci volas esplori la ferdeko ci devas iri cxe la [20+20]-a pagxo)
 
 El cxi tie vi povas iri al la velo, cxe la pagxo /l2 2/, 
-al cia sxipo, la Glenkoro, cxe la pagxo /l26 26/, 
+al cia sxipo, la Glenkoro, cxe la pagxo /l61 61/, 
 aux subiri enen la sxipego cxe la pagxo /l8 8/, por vidi kio estas tie, eble vendinda varo aux useblaj iloj.
 
-#21 salvinta junulino/
+#21 Teksajxo por ripari/
 
-Ci renkontis Sarino, junulino kiu perdis sian sxipistaro kaj savis cin el patrina porkino kiu preskaux mortigis cin.
+Ci rapide trancxas la plejparton de la granda velo kaj foldas gxin. Ci jxetas gxin al ciajn gefratoj sur la Glenkoro, kiu gxin komencas ripari vian velon.
+Sxirmu la noton /c2 rompita velo/, /b1 Aldonu unu streketon/ kaj reiru cxe /l20 20/.
 
-#22 taglibron/
+#22 argenta glaveto/
 
-Ci trovis cxi tiun taglibro en la dormejo de la sanga sxipo.
-Bedauxrinde ci ne scipovas legi.
+Belega glaveto farita el argento kun nigraj interplektoj sul la klingo. Gxi bone trancxantas kaj sxajnas multvalorega.
 
 #23 Ci ne povas esplori la ejon sen veki la dormanto/
 
 Reiru cxe /l3/.
 
-#24 Gaetano/
+#24 trancxante/
 
-Ci estas kun Gaetano kiun ci renkontis en la sanga sxipo.
-Ecx se ci ne plene fidas je lin, li estas kapablega ulo kiu volonte helpos cin.
+Ci prenas la /c2 argentan glaveton/ kaj rapide ekas trancxi la velon.
 
-#25 granda sako/
+Iru cxe /l21 21/.
 
-Ci sxtelis cxi tiun sakon el la dormantulo kiu ci mortigis.
-Ene ci trovas multajn strangajn kaj interesajn ajxojn. Estas multaj skribiloj kaj boteletoj kun malsamaj inkoj, unu libro kun grandaj desegnoj de nodoj kaj plektoj kaj  argxenta trancxilo kun strangaj plektaj desegnoj sur la klingo.
-
-Kreu la noton /n16 argxenta glaveto [16]/.
-
-#26 Reveno al sxipego/
-
-Ci revenas sur cia sxipo, la Glenkoro, apenaux ci turnas por revidi la sxipego el kiu ci jxus venis gxin komplete submarigas, /a0  visxu cxiujn streketojn/.
-
-Cxu vi havas la noton /c2 Gaetano/?
-Cxu jes antaux dauxrigi iru cxe /l84 84/.
-
-Cxu vi ankoraux havas la noton /c2 rompita velo/?
-Cxu jes iru cxe /l66 66/,
-alie vi fine povas reparti al Roko, iru cxe /l86 86/.
-
-#27 tro granda rompita sxipo/
-Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
-Eke ci vidas etan kaj malproksiman ajxo sur la plagxo.
-Ju plue ci alproksimigxas des pli ci komprenas ke gxi estas sxipo, kaj certe ne eta sxipo.
-Kiam ci alvenas al la sxipo ci vidas ke bedaurinde ne estas sxipistoj sure kaj ke la sxipo estas fiksita sur la plagxo.
-Ne estus facila reporti gxin maren ecx se ci havas deko da helpantoj, sed ci estas nur unu kaj ne povus ecx ne veturi gxin.
-Se ci volas esplori la sxipon kaj sercxi ion ajn utila iru cxe /l60 60/,
-se ci volas dauxri sur la plagxo iru cxe /l49 49/,
-se ci volas reeni en la arbaro iru cxe /l50 50/.
-
-#28 Ci esploras la varejon/
-
-Sub la rubajxoj ci trovas grandan kaj apenauxn malpuran tapisxon. Vi povos vendi gxin kontraux iom da monoj kiam ci alvenos al Roko.
-Kreu la noton /n38 tapisxo [38]/.
-
-Reiru cxe /l8 8/.
-
-#29 Ci esploras la dormejon/
-
-Tra la aferoj de la malaperitaj sxipistoj ci trovas taglibron.
-Kreu la noton /n22 taglibro [22]/.
-
-Ne estas alion utilan.
-Reiru cxe /l9 9/.
-
-#30 rompita velo/
-
-Via cxefa velo rompigxis kaj vi ankoraux ne reparis gxin. Reparu gxin tuj!
-
-#31 Ci trovas nenio utila cxi tie/
-
-Reiru cxe /l11 11/.
-
-#32 submara pakto/
-
-Ci faris pakton kun terura submara monstro. Nepre plenumi gxin tuj. Kaj kompreneble ne parolu libere pri gxin, ci estus mortota.
-
-#33 Grava bezono/
-
-Dum ci rigardas la sxipego cia fratino krias, vi nur nun ekvidas la grandegan sxirmon de la velo.
-Preskaux duono de la vela teksajxo mankas kaj la alia duono estas trancxata en multaj ejoj: vi ne povos reparti sen ripari gxin.
-
-"Ni ne havas sufucxen da teksajo por povi reuzi la velon, kion ni faros?" 
-diras cia fratino.
-
-Vi povus uzi la teksagxon de viaj vestoj, sed vi riskas malsani kaj vi plie lacigos, vi poste devos acxeti aliajn vestajxojn kiam vi alvenos Rokon.
-
-Aux vi povus uzi la vela teksajxon de la sxipego antaux vin, sed gxi sxajnas teruran kaj dangxeran: ne estas normale kiel gxi estas tiom sangoplenan.
-
-Se ci volas uzi viajn vestajxojn iru cxe /l55 55/, 
-alie, se ci volas provi supreniri al la granda sxipo, iru cxe /l20 20/.
-
-#34 Ci esploras la dormejon/
-
-Iru cxe /l29 29/. 
-
-#35 Ci trovas nenion utilan cxi tie/
-
-Reiru cxe /l15 15/.
-
-#36 sovagxa porkido/
-
-Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
-
-#37 pli rapida ol porkino/
-Ci rapidege kuras, baldaux ci ne plu sentas ion malantaux cin. La porkido provas fugxi el ciaj brakoj sed ci forte tenas gxin.
-Ci havas multege da malsato, se ci volas rapide mortigi kaj mangxi la porkidon ci povas visxi la noton /c2 soifa kaj malsata/.
-Alie kreu la noton /n36 sovagxa porkido [36]/.
-Dauxru cxe /l74 74/.
-
-#38 tapisxo/
-
-Tapisxon kiun vi trovis en la sanga sxipo. Gxi malpuregetas sed ci kvankam povas vendi gxin.
-
-#39 Submare/
-
-Ci perdas /s-1 unun sorton/.
-
-Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin.
-Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: 
-"Ci estas for de hejmo etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al min obeadon mi salvos cin kaj ciajn gefratojn. 
-Mi ne estas avara ne bezonos gxin gxis cian morton, poste la plenumo de unu, eta misio mi cin liberos de la jxuron.
-Cxu tio bonas laux ci?".
- 
-La vocxo timigas cin. En cxi tiuj momentoj ci memoras kiel maljunuloj rakontis pri grandaj submaraj monstroj. 
-Monstroj kiu dronigas sxipojn kaj sxipistarojn, kiu povas kalmi kaj malkalmi la maron kaj detruj grandaj urbojn. 
-Ili cxiam estas malbonajn, kaj kiu faras nerompeblajn paktojn kun homoj por atingi iliaj nekompreneblajn celojn.
-
-Neniam bonas rompi paktojn kiel cxi tion, sed se ci ne faros gxin ci preskaux certe mortos kaj ci havas malmultan tempon.
-
-Se ci diras "Jes" iru cxe /l57 57/, 
-alie iru cxe /l76 76/.
-
-#40 Ci trovas nenion utilan cxi tie/
-
-Reiru cxe /l20 20/.
-
-#41 senesperata renkonto/
-"Do vi estis sur la insulo la tutan tempo!?"
-Ci ne povas kredi ciajn okulojn sed antauxe cin estas cxiujn ciajn gefratojn kaj cian sxipo, la "Glenkoro".
-Ci estas felicxega! Ili cxiujn estas sanaj kaj vi povas eliri el cxi tiu nelogxata, sovagxa insulo.
-/a0 Visxu cxiujn streketojn/
-Hodiaux vi restos sur la insulo kaj morgaux matene vi dauxros vian vojagxon al Roko.
-Se ci havas la noto /c2 salvinta junulino/ iru cxe /l53 53/,
-se ci ne havas gxin sed ci havas la noton  /c2 mordita kruro/ iru cxe /l47 47/.
-se ci ne havas ilin sed ci havas la noton  /c2 sovaga porkido/ iru cxe /l42 42/.
-Se ci ne havas nek unun el la notoj dauxru cxe /l19 19/.
-
-#42  porkido sursxipe/
-"Ci kunportis memorajxo el la arbaro?" petas cia frato Toto vidante la porkido, "Gxi estus bongustega, rostite".
-"Mi ankoraux ne decidis cxu mortigi gxin, gxi povus esti utila" ci respondas.
-Daxuru cxe /l19 19/.
-
-#43 Sxipruino/
-
-Cia fratino Pino vekigxa cin kaj la aliajn fratojn. 
-"Vi nepre venu vidi: estas sxipegon strangegan ekstere" 
-sxi diras kaj subite rekuras eksteren. 
-
-Ci lace malfermas la okulojn. 
-La sxtormo cxesis kaj la sxipo malmulte movas, krom Pino ciaj fratoj ankoraux dormas sur la planko. Ili ne sxajnas malsanitaj do vi sekvas cia fratino ekstere.
-
-Antaux vin ci vidas grandega sxipo, longa preskaux dudek metroj, gxi estas klinita antauxe kaj sxajnas havi trouj sube. 
-
-Sed la plej stranga kaj terura afero estas ke gxi estas tute kovrita de sango.
-
-Se ci havas la noton /c2 Rompita velo/ iru subite cxe /l33 33/,
-alie:
-se ci volas veki la aliulojn kaj esplori la stranga sanga sxipo iru cxe /l20 20/, 
-se ci nur volas reparti sendangxere veku ciajn gefratojn kaj dauxru cxe /l86 86/.
-
-#44 Plagxo/
-Ci estas sur la plagxo kie ci vekigxis.
-La suno mallevigxas kaj sian kaldo malrapide foriras sed ci tro soifas kreu la noton /n48 soifa kaj malsata [48]/.
-Ci devas tuj trovi akvon, ci povas sercxi en la densa arbaro sed sxajnas malfacile trairi gxin kaj ci puvus perdigxi cin ene.
-Alie ci povas provi cxirkauxiri la insulo restante sur la plagxo, ci certe irus pli rapide.
-Se ci volas eniri en la arbaro iru cxe /l58 58/, 
-alie, iru cxe /l50 50/.
-
-#45 stranga ajxo el mortejo/
-Ci movas korpon kaj prenas la ajxon. Gxi estas belega kupra sxildo, sur gxin estas desegnataj nodoj per argxenta fadeno.
-Kreu la noton /n72 sxildo kupra [72]/.
-Se ci havas malpli ol kvar streketoj iru cxe /l52 52/,
-alie iru cxe /l4 4/.
-
-#46 porkidsxtelisto/
-Ci prendas la plej dika porkido kaj kuras for.
-Malantaux cin ci auxdas la krion de la patrino, sxi sekvantas cin!
-Cxu ci havas pli ol /c1 kvar streketojn/?
-Cxu jes iru cxe /l6 6/,
-cxu ne iru cxe /l37 37/.
-
-#47 vivdauxra vundo/
-Viajn gefratoj levas la cxemizon kiu kovras cian vundo, Pino rekudras gxin sed gxi estas tro grava. Sxajnas ke ci travivos sed ci ne plu povos normale pasxi, kaj certe ci ne povos kuri.
-Dauxru cxe /l19 19/.
-
-#48 soifa kaj malsata/
-
-Ci ne mangxis kaj trinkis dum preskaux unu tagon. Nun ci ne havas cxion cian forton kaj volas tuj mangxi ion.
-
-#49 bonsxanca surprizo/
-Ci dauxras vojagxi surplagxe gxis ci vidas alian sxipon proksime. Gxi preskaux kredas esti en songxacxo sed ci rekonas ke gxin ne estas ajna sxipo.
-Gxi estas cia sxipo! La Glenkoro kaj sur gxin ci povas vidi ciajn gefratojn.
-Kuru cxe /l41 41/.
-
-#50 reene arbaren/
-Ci reenas arbaren kaj la tempo fluas: /b1 aldonu unu streketon/.
-El cxi tie ci povas iri al /l82 82/, /l71 71/ aux /l62 62/.
-
-#51 Nelogxita insulo/
-
-Ci vekigxas sur plagxo, la suno kalde brilas kaj ci tre soifas. Ci levigxas cin por kompreni kie ci estis forsendita.
-Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. 
-Alieflanke la plagxo tuj finas antaux densa pina arbaro, oni videblas birdojn kaj grandajn porkojn. 
-Cxi tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj, precipe ci ne vidas ciajn gefratojn kaj cian sxipo, espereble ili estas sane alvenita al Roko.
-
-/a0 visxu cxiun streketon/
-
-Iru cxe /l44 44/.
-
-#52  sagxa elekto/
-Poste preni la sxildo ci antauxsentas malagrablan situacion, ci volegas eliri el cxi tiu malgxoja kaj terura ejo.
-Iru cxe /l74 74/.
-
-#53 nova kunulino/
-Sarino jam komencis helpi ciajn gefratojn preti la sxipo, laux sxin sxi vojagxis sxipe ekde sxi estis eta knabinon kaj certe sxi scias kiel marvojagxi.
-En malpli ol duonhoro estas kiel sxi estis kun vin ekde jaroj.
-Se ci havas la noton /c2 mordita kruro/ iru cxe /l47 47/.
-
-#54 mortkorparo/
-Ci proksimigxas al la amaso de mortkorpoj, dum ci esploras la korpoj ci vidas rugxume brilanta ajxo sub unu el la korpojn.
-Se ci volas provi preni gxin iru cxe /l45 45/,
-se ci volas pli bone sercxi la kandomojn iru cxe /l79 79/,
-alie se ci volas rapide foriri el tie iru cxe /l74 74/.
-
-#55 Vestajxvelo/
-
-Ci ne riskos la vivojn de ciaj gefratetoj sennecese. 
-Ci vekigxas cxius kaj vi komencas repari la grandan velon per viaj vestajxoj.
-
-Visxu la noton /c2 rompita velo/ kaj kreu la noton /n68 nuda sxipistaro [68]/.
-
-Por daurxrigi iru cxe /l86 86/.
-
-#56 Sortsalvo/
-
-Ci ne plu vidas ion ajn, cxie nigra akvo cxirkauxas cin.
-
-Cxu ci havas almenaux /c2 unu sorton/? 
-Cxu jes iru cxe /l39 39/,
-alie iru cxe /l59 59/.
-
-#57 Jxuranta/
-
-Ci provas jxuri kiel la monstro petas, sed la akvon plenas cian busxon sen lasi eliri ciajn parolojn. 
-Ci fermas la okulojn kaj svenas.
-
-Kreu la noton /n32 submara pakto [32]/
-
-Dauru cxe /l51 51/.
-
-#58 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketo/.
-El cxi tie ci povas iri al /l78 78/, /l69 69/ aux /l62 62/.
-
-#59 Dronita/
-
-Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis gxin ankaux haltas.
-
-Cia adventuro finas cxi tie.
-
-/l0 Rekomencu cxe 0/.
-
-#60 esploro de la sxipego/
-Dum ci enesploras la sxipego la suno multe mallevigxas, /b1 aldonu unu streketon/.
-Preskaux cxion ci trovas ene estas senutila, la nura ajxo ci volas preni estas /n22 taglibron/.
-Dauxru cxe /l27 27/.
-
-#61 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-El cxi tie ci povas iri al /l78 78/, /l81 81/ aux /l62 62/.
-
-#62 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-El cxi tie ci povas iri al /l78 78/, /l61 61/ aux /l82 82/.
-
-#63 mordo el morto/
-Ci provas uzi ciajn manoj por liberigi cian kruron sed la mortula premo estas tro forta.
-Antaux ci povas forkuri la mortulo mordas cian kruron, farante profunda vundon.
-Fine ci sukcesas forkuri el tie sed ci nun havas /n73 mordita kruro/ kaj /n80 teruro de mortkorpoj/.
-Ci bandagxas la vundo per cian cxemizo, nun ci devas dauxri la esploron de la insulo.
-Iru cxe /l74 74/.
-
-#64 Senaere/
+#25 Senaere/
 
 Ci perdas /s-1 unu sorton/.
 
@@ -474,150 +217,514 @@ Sxajnas ke ci ne mortos hodiaux.
     Dankon por legi kaj alveni cxi tie! Se vi volas vi povas reludi por alveni al plia interesa parto de la libron. 
     Gxis!
     
--la skribiston
+-makte0
 
-#65 volante surmare/
+#26 mordo el morto/
+
+Ci provas uzi ciajn manoj por liberigi cian kruron sed la mortula premo estas tro forta.
+Antaux ci povas forkuri la mortulo mordas cian kruron, farante profunda vundon.
+Fine ci sukcesas forkuri el tie sed ci nun havas /n72 mordita kruro/ kaj /n46 teruro de mortkorpoj/.
+Ci bandagxas la vundo per cian cxemizo, nun ci devas dauxri la esploron de la insulo.
+
+Iru cxe /l33 33/.
+
+#27 senesperata renkonto/
+"Do vi estis sur la insulo la tutan tempo!?"
+Ci ne povas kredi ciajn okulojn sed antauxe cin estas cxiujn ciajn gefratojn kaj la Glenkoro.
+Ci estas felicxega! Ili cxiujn estas sanaj kaj vi povas eliri el cxi tiu nelogxata, sovagxa insulo.
+
+/a0 Visxu cxiujn streketojn/
+
+Hodiaux vi restos sur la insulo kaj morgaux matene vi dauxros vian vojagxon al Roko.
+
+Se ci havas la noto /c2 salvinta junulino/ iru cxe /l80 80/,
+se ci ne havas gxin sed ci havas la noton  /c2 mordita kruro/ iru cxe /l82 82/.
+Se ci ne havas ilin sed ci havas la noton  /c2 sovaga porkido/ iru cxe /l29 29/.
+Se ci ne havas nek unun el la notoj dauxru cxe /l54 54/.
+
+#28 Ci esploras la varejon/
+
+Sub la rubajxoj ci trovas grandan kaj apenauxn malpuran tapisxon. Vi povos vendi gxin kontraux iom da monoj kiam ci alvenos al Roko.
+Kreu la noton /n47 tapisxo [47]/.
+
+Reiru cxe /l8 8/.
+
+#29  porkido sursxipe/
+
+"Ci kunportis memorajxo el la arbaro?" petas cia frato Toto vidante la porkido, "Gxi estus bongustega, rostite".
+"Mi ankoraux ne decidis cxu mortigi gxin, gxi povus esti utila" ci respondas.
+
+Daxuru cxe /l54 54/.
+
+#30 terura vidajxo/
+
+Ci trairadas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci alvenas en granda senarbejo. 
+Estas du kandomoj turnitaj al la centro de la ejo, tie ci vidas terurajxon.
+Preskaux dudek mortaj korpoj, unu aux du preskaux nur ostaroj, estas amasataj en la centro de la ejo.
+Malbonega odoro plenas la aero kaj arego de musxoj bruas super la mortitoj.
+
+Se ci volas rapide foriri kaj malmemori tion malbelegan vidajxon iru cxe /l33 33/,
+se ci volas pli bone sercxi la kandomojn iru cxe /l36 36/,
+alie, se ci volas sercxi la mortkorpojn iru cxe /l43 43/.
+
+#31 Sxtormvocxo/
+
+Ekstere la sxtormo tumultegas la maron kaj fortegaj bruoj alvenas en la sxipventro.
+Vi auxdas terure la sxirigxon de granda teksajxon: la velo rompigxis, kreu la noton /n69 rompita velo [69]/, vi devos repari gxin por reveni teren.
+Poste du horoj ci ne plu povas batali la lacego kaj ekdormas. 
+
+Iru cxe /l84 84/.
+
+#32 Sortsalvo/
+
+Ci ne plu vidas ion ajn, cxie nigra akvo cxirkauxas cin.
+
+Cxu ci havas almenaux /c2 unu sorton/? 
+Cxu jes iru cxe /l49 49/,
+alie iru cxe /l44 44/.
+
+#33 arbaro/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+El cxi tie ci povas iri al /l75 75/, /l71 71/ aux /l57 57/.
+
+#34  sagxa elekto/
+
+Poste preni la sxildo ci antauxsentas malagrablan situacion, ci volegas eliri el cxi tiu malgxoja kaj terura ejo.
+
+Iru cxe /l33 33/.
+
+#35 Ci esploras la dormejon/
+
+Tra la aferoj de la malaperitaj sxipistoj ci trovas taglibron.
+Kreu la noton /n63 taglibro [63]/.
+
+Ne estas alion utilan.
+Reiru cxe /l15 15/.
+
+#36 kandomoj malnovaj/
+
+Ci proksimigxas al la du kandomoj, unu el la du havas la tegmento truita kaj sxajnas falantas, estas neniu utila ene.
+
+La alia estas pli sana kaj ene estas unu ligna nekringo kaj unu sxtona trancxilo, se ci volas preni unu aux ambaux de ilin kreu la notojn /n83 ligna nekringo [83]/ kaj /n5 sxtona trancxilo [5]/.
+Se ci volas sercxi la mortkorpojn iru cxe /l43 43/,
+alie se ci volas rapide foriri el cxi tie iru cxe /l33 33/.
+
+#37 salvinta junulino/
+
+Ci renkontis Sarino, junulino kiu perdis sian sxipistaro kaj savis cin el patrina porkino kiu preskaux mortigis cin.
+Sxi estas pragmatema kaj multe helpas sed oni povas bone vidi ke la morto de sxia sxipistaro vundegis sxin psike.
+
+#38 Ci trovas nenio utila cxi tie/
+
+Reiru cxe /l18 18/.
+
+#39 Ci esploras la dormejon/
+
+Iru cxe /l35 35/. 
+
+#40 Ci trovas nenion utilan cxi tie/
+
+Reiru cxe /l20 20/.
+
+#41 Ci trovas nenion utilan cxi tie/
+
+Reiru cxe /l21 21/.
+
+#42 Gaetano/
+
+Ci estas kun Gaetano kiun ci renkontis en la sanga sxipo.
+Ecx se ci ne plene fidas je lin, li estas kapablega ulo kiu volonte helpos cin.
+
+#43 mortkorparo/
+
+Ci proksimigxas al la amaso de mortkorpoj, dum ci esploras la korpoj ci vidas rugxume brilantan ajxon sub unu el la korpoj.
+
+Se ci volas provi preni gxin iru cxe /l50 50/,
+se ci volas pli bone sercxi la kandomojn iru cxe /l36 36/,
+alie se ci volas rapide foriri el tie iru cxe /l33 33/.
+
+#44 Dronita/
+
+Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin. Nenion auxdeblas krom cian korbaton, gxis gxin ankaux haltas.
+
+Cia adventuro finas cxi tie.
+
+/l0 Rekomencu cxe 0/.
+
+#45 granda sako/
+
+Ci sxtelis cxi tiun sakon el la dormantulo kiu ci mortigis.
+Ene ci trovas multajn strangajn kaj interesajn ajxojn. Estas multaj skribiloj kaj boteletoj kun malsamaj inkoj, unu libro kun grandaj desegnoj de nodoj kaj plektoj kaj  argxenta trancxilo kun strangaj plektaj desegnoj sur la klingo.
+
+Kreu la noton /n22 argxenta glaveto [22]/.
+
+#46 teruro de mortkorpoj/
+
+El tiam ci estis atakita el homoj kiu ci kredis mortaj, la korpo de la mortuloj teroregigas cin.
+
+#47 tapisxo/
+
+Tapisxon kiun vi trovis en la sanga sxipo. Gxi malpuregetas sed ci kvankam povas vendi gxin.
+
+#48 volante surmare/
 
 Ci fine sukcesas malligi la nodon kaj rekuras al la pordo, al la salveco, sed ci tro malfruas.
 Grandega ondo frapas la Glenkoron kiu kvazaux renversigxas, ci estas jxetita ekstere, en la malvarma kaj malvivinta maro.
 
-Dauxru cxe /l56 56/.
+Dauxru cxe /l32 32/.
 
-#66 Malunua eblo/
+#49 Submare/
+
+Ci perdas /s-1 unun sorton/.
+
+Ci ne plu vidas ion ajn, cxie nigra akvon cxirkauxas cin.
+Nenion auxdeblas krom cian korbaton, gxis forta kaj profunda vocxo vokas cin: 
+
+"Ci estas for de hejmo, etulo, kaj certe ci mortos sen mia helpo. Se ci jxuros al mi obeadon mi salvos cin kaj ciajn gefratojn. 
+Mi ne bezonos gxin gxis cian morton: poste la plenumo de unu, eta misio mi liberos cin de la jxuron.
+Cxu tio bonas laux ci?".
+ 
+La vocxo timigas cin. Ci memoras pri rakontoj en kiu grandaj submaraj monstroj, kiu dronigas sxipojn kaj sxipistarojn, kiu povas kalmi kaj malkalmi la maron kaj detruj grandaj urbojn faras paktojn kun hontaj homoj kiu multe gajnas kaj multe cedis. 
+Neniam bonas rompi paktojn kiel cxi tion, sed se ci ne faros gxin ci preskaux certe mortos kaj gxi povus ecx esti utila poste.
+
+Se ci diras "Jes" iru cxe /l65 65/, 
+alie iru cxe /l56 56/.
+
+#50 stranga ajxo el mortejo/
+
+Ci movas korpon kaj prenas la ajxon. Gxi estas belega kupra sxildo, sur gxin estas desegnataj nodoj per argxenta fadeno.
+Kreu la noton /n85 sxildo kupra [85]/.
+
+Se ci havas malpli ol ses streketoj iru cxe /l34 34/,
+alie iru cxe /l4 4/.
+
+#51 tro granda rompita sxipo/
+
+Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
+Eke ci vidas grandan kaj malproksiman ajxo sur la plagxo.
+Ju plue ci alproksimigxas des pli ci komprenas ke gxi estas sxipo.
+Kiam ci alvenas al la sxipo ci vidas ke bedaurinde ne estas sxipistoj supre kaj ke la sxipo estas fiksita sur la plagxo.
+Ne estus facila reporti gxin maren ecx se ci havas deko da helpantoj, kaj ci estas nur unu: ci ne povus ecx veturi gxin.
+
+Se ci volas esplori la sxipon kaj sercxi ion ajn utila iru cxe /l74 74/,
+se ci volas dauxri sur la plagxo iru cxe /l64 64/,
+se ci volas reeni en la arbaro iru cxe /l62 62/.
+
+#52 submara pakto/
+
+Ci faris jxuris obeadon al terura submara monstro gxis ci plenumas la misio kiun li daris al cin. 
+Nepre plenumi gxin tuj kaj ne parolu pri gxi kun neniu alie ci estus versxaine mortigata. 
+
+#53 salvanta sinjorino/
+
+Antaux la porkino povas mortigi cin, granda krio alvenas el malantaux cin.
+El tero ci vidas altan junulinon frapante bastonon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
+Ci dankegas la junulino sed la mordo de la porkino estas terure profunda kaj multego da sango eliras.
+Kreu la noton /n72 mordita kruro [72]/.
+La junulino rapide formetas sian cxemizo kaj uzas gxin por bandagxi cian kruron. Tamen gxi sxajnas tre malbona vundajxo.
+"Ci necesas pli bona sanigo, mi ne povas fari pli tie cxi", la junulino diras, "Mi nomas Sarino, cxu ci scias kie troveblas sxipon?".
+Tamen la junulino parolis rapide kaj agis pragmate ci vidas ke sxiaj manoj tremas kaj sxiaj okuloj rugxas pro plorado.
+
+"Mi sercxis la saman, sed sxajnas ke tiu cxi estas nelogxata insulo, ci ne logxas cxi tie, cxu ne?", ci demandas al la junulino.
+"Ne, mi alvenis cxi tio mateno sxipe, sed mi jaj mia sxipistaro estis atakitaj el la logxantoj, ni mortigis cxiujn el ili sed ili preskaux faris la saman al nin.
+Mi estas la sola supervivintino, kaj mi pensis la sola gehomo sur la insulo, antaux vidi cin, kiel ci alvenis tie cxi?".
+Ci auskultas Sarina rakonto kaj ci povas vidi sxia espero forigi kiam ci rakontas kiel ci alvenis sur la insulo.
+Kreu la noton /n37 salvinta junulino [37]/.
+
+"Do ci ne havas sxipon? Mia rompigxis sur rokoj kiam mi alvenis, kvankam gxi estis tro granda kaj ni bezonus almenaux ok ulojn por veturi gxin. Ni devas trovi alian kielo por eliri el cxi tiu insulo".
+"Ni farigu fajron plagxen, tio alvenigos proksimajn sxipojn", ci proponas, ci ne estas la unua fojon ci perdis cian sxipo kaj restis sur nelogxata insulo, sed ci ne sxatas memori tion.
+Sarino ekkomencas pretigi la fajron, baldaux gxi bruligas kaj kreas multe da fumon.
+Pasas apenaux duonhoron kaj malgraux ne alvenas sxipoj vi auxdas fortan gxojan krion, vi vidas cian frato Toto alkuri skuante siajn brakojn.
+
+Dauxru cxe /l27 27/.
+
+#54 nokta festo/
+
+Poste la malfacxilajxojn de la tago vi improvizas feston sur la sxipo, vi mangxas kaj drinkas, kantas gxis senvocxe kaj rakontas malnovajn kaj hodiauxajn memorojn.
+Fine vi cxiuj tre lacas, vi profunde dormas la tutan nokton kaj reekveturas al Rokon apenaux levigxas la suno.
+
+Iru cxe /l89 89/.
+
+#55 Malunua eblo/
 
 Vi nepre devas reveni al Roko sed via velo estas ankoraux rompita!
 Vi havas nur unu eblo, ecx se gxi estas malkomforta kaj honta vi uzas viajn vestajxojn por ripari la velon.
 
-Visxu la noton /c2 rompita velo/ kaj kreu la noton /n68 nuda sxipistaro [68]/.
-Fine vi havas nerompita velo kaj vi povas reparti, dauxru cxe /l86 86/.
+Visxu la noton /c2 rompita velo/ kaj kreu la noton /n77 nuda sxipistaro [77]/.
+Fine vi havas nerompita velo kaj vi povas reparti, dauxru cxe /l89 89/.
 
-#67 ligna nekringo/
-
-Gxi estas beleta sed simpla nekringo. Gxi ne sxajnas tre utila.
-
-#68 nuda sxipistaro/
-
-Vi reparis vian cxefan velon per viajn proprajn vestajxojn. Vi estas nudaj: nepre trovu aux acxetu aliajn vestajxojn!
-
-#69 fonto/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Poste longa marsxado ci fine trovas fonton! Ci avide trinkas la akvon, visxu la noton /c2 soifa kaj malsata/.
-Nun ci povas provi trovi kielo per kiu eliri el cxi tiu insulo kaj renkontigxi ciajn gefratoj al Roko.
-El cxi tie ci povas iri al /l61 61/ aux al /l71 71/.
-
-#70 Sxtormvocxo/
-
-Ekstere la sxtormo tumultegas la maron kaj fortegaj bruoj alvenas en la sxipventro.
-Vi auxdas terure la sxirigxon de granda teksajxon: la velo rompigxis, kreu la noton /n30 rompita velo [30]/, vi devos repari gxin por reveni teren.
-Poste du horoj ci ne plu povas batali la lacego kaj ekdormas. 
-
-Iru cxe /l43 43/.
-
-#71 porkidoj/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Tra la arboj ci vidas tri porkidoj, ili sxajnas bongustaj kaj ci tre malsatas.
-Se ci volas provi kapti unu porkido aux ci havas la noton /c2 soifa kaj malsata/ iru cxe /l46 46/,
-se ci timas ke la patrino de la porkidoj alvenos kaj ci ne havas la noton /c2 soifa kaj malsata/ iru cxe /l74 74/.
-
-#72 sxildo kupra/
-
-Belega sxildo kun strangaj argxentaj nodaj desegnoj, versxajne ili sorcxigas la sxildon sed ci ne certas.
-
-#73 mordita kruro/
-
-Ci provis sxteli porkido el patrinporko, tio ne finis bone, ci ne plu povas facile pasxi kaj ci bezonas pasxbastonon
-
-#74 eliro el la arbaro/
-Ci rapide foriras kaj dauxras cian sercxo, la suno mallevos en kalkajn horon kaj ci ne povas perdi tempon.
-Rapide la arbaro finas kaj ci alvenas al alia plagxo. La suno malrapide mallevas antauxe cin kaj la ombroj plilongigxas.
-Se ci ne trovintus kiel eliri el la insulo cxi tiu estus grava problemo, sed tio ne estas problemo nun: antauxe cin estas la Glenkoro kaj cxiujn ciajn gefratojn.
-Iru cxe /l41 41/.
-
-#75 rokplagxo/
-Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
-Ci trovas nenion tie, nur tro kaldan sunon, se ci volas daurxi pasxi sur la sablo iru cxe /l27 27/,
-alie se ci volas reeni en la arbaro iru cxe /l50 50/.
-
-#76 Sortsalvo/
+#56 Sortsalvo/
 
 Ci provas krii ke ci neniam servos homdronantan monstracxon kaj ecx pli gravajn insultojn, sed la akvon plenas cian busxon sen lasi eliri ciajn parolojn. 
 Ci fermas la okulojn kaj svenas.
 
 Cxu ci havas almenaux unu /c2 sorton/?
-Cxu jes iru cxe /l64 64/
-alie iru cxe /l59 59/.
+Cxu jes iru cxe /l25 25/
+alie iru cxe /l44 44/.
 
-#77 Vivosavanta trancxilo/
-Ci trancxas la mano de la mortulo kaj forkuras el tie.
-Kreu la noton /n80 teruro de mortkorpoj [80]/ kaj iru cxe /l74 74/.
+#57 eliro/
 
-#78 arbaro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-El cxi tie ci povas iri al /l69 69/, /l71 71/ aux /l83 83/.
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
 
-#79 kandomoj malnovaj/
-Ci proksimigxas al la du kandomoj, unu el la du havas la tegmento truita kaj sxajnas falantas, estas neniu utila ene.
-La alia estas pli sana kaj ene estas unu ligna nekringo, se ci volas preni unu aux ambaux de gxin kreu la notojn /n67 ligna nekringo [67]/ kaj /n5 sxtona trancxilo [5]/.
-Se ci volas sercxi la mortkorpojn iru cxe /l54 54/,
-alie se ci volas rapide foriri el cxi tie iru cxe /l74 74/.
-
-#80 teruro de mortkorpoj/
-
-El tiam ci estis atakita el homoj kiu ci kredis mortaj, la korpo de la mortuloj teroregigas cin.
-
-#81 terura vidajxo/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Ci alvenas en granda senarbejo ene la arbaro. 
-Estas tri kandomoj turnitaj al la centro de la ejo, tie ci vidas teruran vidajxon.
-Preskaux dudek mortaj korpoj, unu aux du preskaux nur ostaroj, estas amasataj en la centro de la ejo.
-Malbonega odoro plenas la aero kaj arego de musxoj bruas super la mortitoj.
-Se ci volas rapide foriri kaj malmemori tion malbelegan vidajxon iru cxe /l74 74/,
-se ci volas pli bone sercxi la kandomojn iru cxe /l79 79/,
-alie, se ci volas sercxi la mortkorpojn iru cxe /l54 54/.
-
-#82 arbara strateto/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
-Eke ci trovas cin super mallargxa kaj malrekta strateto.
-Tio miras cin cxar ci kredis ka le insulo ne estis logxita.
-Espero plenas cin: se estas homoj sur la insulo eble estas sxipoj kaj kieloj por alveni al Roko al ciajn gefratoj!
-Sed iom post iom ci memoras pri rakontoj kiun ci auxdis kiam ci estis knabo. Rakontoj pri sovagxuloj, kiu mangxas homviando en noktaj festoj kaj logxas en nekonataj kaj malproksimaj insuloj.
-Rakontoj pri stultaj marvojagxistoj kiu lasis sin kapti el la hombestoj kaj mortis for de hejme.
-Certe dauxri sur la strateto estas la vojo pli rapida por alveni al Roko, aux al la mortejo.
-Se ci volas sekvi la strateto iru cxe /l81 81/,
-alie, se ci volas dauxri en la arbaro iru cxe /l83 83/.
-
-#83 eliro/
-Ci trairas la arbaro kaj la tempo fluas: /b1 aldonu unu streketon/.
 Poste iom da tempo la arbaro finas. Ci estas antaux la maro, malantauxe cin estas la arbaro.
-Ci ankoraux necesas trovi ejo por dormi kaj eble iom por mangxi kaj trinki,
-se ci volas sercxi tion sekvante la plagxon dauxru cxe /l75 75/,
-se ci vola reeni arbaren iru cxe /l50 50/.
+Ci ankoraux necesas trovi ejo por dormi kaj eble iom por mangxi kaj trinki.
 
-#84 prezentado/
+Se ci volas sercxi tion sekvante la plagxon dauxru cxe /l58 58/,
+se ci vola reeni arbaren iru cxe /l62 62/.
+
+#58 rokplagxo/
+
+Ci sekvas la plagxon kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Ci trovas nenion tie, nur tro kaldan sunon, se ci volas daurxi pasxi sur la sablo iru cxe /l51 51/,
+alie se ci volas reeni en la arbaro iru cxe /l62 62/.
+
+#59 Plagxo/
+
+Ci estas sur la plagxo kie ci vekigxis.
+La suno mallevigxas kaj sian kaldo malrapide foriras. 
+Antaux cin estas densa arbaro sed sxajnas malfacile trairi gxin kaj ci puvus perdigxi cin ene.
+Alie ci povas provi cxirkauxiri la insulo restante sur la plagxo, ci certe irus pli rapide.
+
+Se ci volas eniri en la arbaro iru cxe /l66 66/, 
+alie, iru cxe /l62 62/.
+
+#60 eliro el la arbaro/
+
+Ci rapide foriras kaj dauxras cian sercxo, la suno mallevos en kalkajn horon kaj ci ne povas perdi tempon.
+
+Rapide la arbaro finas kaj ci alvenas al alia plagxo. La suno malrapide mallevas antauxe cin kaj la ombroj plilongigxas.
+Se ci ne trovintus kiel eliri el la insulo cxi tiu estus grava problemo, sed tio ne estas problemo nun: antauxe cin estas la Glenkoro kaj cxiujn ciajn gefratojn.
+
+Iru cxe /l27 27/.
+
+#61 Reveno al sxipego/
+
+Ci revenas sur cia sxipo, la Glenkoro, apenaux ci turnas por revidi la sxipego el kiu ci jxus venis gxin komplete submarigas, /a0  visxu cxiujn streketojn/.
+
+Cxu vi havas la noton /c2 Gaetano/?
+Cxu jes antaux dauxrigi iru cxe /l78 78/.
+
+Cxu vi ankoraux havas la noton /c2 rompita velo/?
+Cxu jes iru cxe /l55 55/,
+alie vi fine povas reparti al Roko, iru cxe /l89 89/.
+
+#62 reene arbaren/
+
+Ci reenas arbaren kaj la tempo fluas: /b1 aldonu unu streketon/.
+El cxi tie ci povas iri al /l79 79/, /l71 71/ aux /l81 81/.
+
+#63 taglibron/
+
+Ci trovis cxi tiun taglibro en la dormejo de la sanga sxipo.
+Bedauxrinde ci ne scipovas legi.
+
+#64 bonsxanca surprizo/
+
+Ci dauxras vojagxi surplagxe gxis ci vidas alian sxipon proksime. Gxi preskaux kredas esti en songxacxo sed ci rekonas ke gxin ne estas ajna sxipo.
+Gxi estas la Glenkoro kaj sur gxin ci povas vidi ciajn gefratojn.
+
+Kuru cxe /l27 27/.
+
+#65 Jxuranta/
+
+Ci provas jxuri kiel la monstro petas, sed la akvon plenas cian busxon sen lasi eliri ciajn parolojn. 
+Ci fermas la okulojn kaj svenas.
+Kiel songxe ci auxdas parolojn:
+/c2 "Iru cxe Roko, tie ci prenu la nigran vason. Kunportu la vazon gxis la komenco de la Tratero"/
+Kreu la noton /n52 submara pakto [52]/
+La Tratero estas kanalo en la nordo de la mondo. Ci estis tie kelkajn fojojn kaj ci jam planis reveni tie por vendi la varojn kiu ci acxetos en Roko.
+
+Dauru cxe /l87 87/.
+
+#66 arbaro/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketo/.
+
+El cxi tie ci povas iri al /l33 33/, /l75 75/ aux /l81 81/.
+
+#67 arbaro/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+El cxi tie ci povas iri al /l33 33/ aux /l81 81/.
+
+#68 porkidsxtelisto/
+
+Ci prendas la plej dika porkido kaj kuras for.
+
+Poste malmunton da tempo cin ci auxdas la krion de la patrino malantaux cin, sxi sekvantas cin!
+
+Cxu ci havas pli ol /c2 ses streketojn/?
+Cxu jes iru cxe /l6 6/,
+cxu ne iru cxe /l88 88/.
+
+#69 rompita velo/
+
+Via cxefa velo rompigxis kaj vi ankoraux ne reparis gxin. Reparu gxin tuj!
+
+#70 Vestajxvelo/
+
+Ci ne riskos la vivojn de ciaj gefratetoj sennecese. 
+Ci vekigxas cxius kaj vi komencas repari la grandan velon per viaj vestajxoj.
+
+Visxu la noton /c2 rompita velo/ kaj kreu la noton /n77 nuda sxipistaro [77]/.
+
+Por daurxrigi iru cxe /l89 89/.
+
+#71 porkidoj/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Tra la arboj ci vidas tri porkidoj, ili sxajnas bongustaj kaj ci tre malsatas.
+
+Se ci havas la noton /c2 mordita kruro/ ci ne povas ecx pensi kasxi porkidon, iru cxe /l60 60/,
+se havas la noton /c2 soifa kaj malsata/ aux ci volas provi kapti unu porkido iru cxe /l68 68/,
+se ci ne havas la noton /c2 soifa kaj malsata/ kaj ne volas perdi tempon iru cxe /l60 60/.
+
+#72 mordita kruro/
+
+Ci provis sxteli porkido el patrinporko, tio ne finis bone, ci ne plu povas facile pasxi kaj ci bezonas pasxbastonon
+
+#73 sovagxa porkido/
+
+Ci sxtelis dika porkido el sia patrino, sed ci ne mangxis gxin, gxis nun.
+
+#74 esploro de la sxipego/
+
+Dum ci enesploras la sxipego la suno multe mallevigxas, /b1 aldonu unu streketon/.
+
+Preskaux cxion ci trovas ene estas senutila, la nura ajxo ci volas preni estas etan taglibron. 
+Kreu la noton /n63 taglibron/.
+
+Dauxru cxe /l51 51/.
+
+#75 fonto/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Poste longa marsxado ci fine trovas fonton! Ci avide trinkas la akvon, visxu la noton /c2 soifa kaj malsata/.
+Nun ci povas provi trovi kielo per kiu eliri el cxi tiu insulo kaj renkontigxi ciajn gefratoj al Roko.
+
+El cxi tie ci povas iri al /l67 67/ aux al /l71 71/.
+
+#76 Grava bezono/
+
+Dum ci rigardas la sxipego cia fratino krias, vi nur nun ekvidas la grandegan sxirmon de la velo.
+Preskaux duono de la vela teksajxo mankas kaj la alia duono estas trancxata en multaj ejoj: vi ne povos reparti sen ripari gxin.
+
+"Ni ne havas sufucxen da teksajo por povi reuzi la velon, kion ni faros?" 
+diras cia fratino.
+
+Vi povus uzi la teksagxon de viaj vestoj, sed vi riskas malsani kaj vi plie lacigos, vi poste devos acxeti aliajn vestajxojn kiam vi alvenos Rokon.
+
+Aux vi povus uzi la vela teksajxon de la sxipego antaux vin, sed gxi sxajnas teruran kaj dangxeran: ne estas normale kiel gxi estas tiom sangoplenan.
+
+Se ci volas uzi viajn vestajxojn iru cxe /l70 70/, 
+alie, se ci volas provi supreniri al la granda sxipo, iru cxe /l20 20/.
+
+#77 nuda sxipistaro/
+
+Vi reparis vian cxefan velon per viajn proprajn vestajxojn. Vi estas nudaj: nepre trovu aux acxetu aliajn vestajxojn!
+
+#78 prezentado/
 
 Ciaj gefratoj unuafoje vidas Gaetano kaj ili estas scivolemegaj. Dum vi pretas por reparti kaj Gaetano trinkas multegon da akvon ili plenigas lin de demandojn al kiu li foje respondas eviteme.
 
-Dauxru cxe /l26 26/.
+Dauxru cxe /l61 61/.
 
-#85 salvanta sinjorino/
-Antaux la porkino povas provi mortigi cin granda krio alvenas el malantaux cin.
-El tero ci vidas alta junulino frapi remilon sur la kapo de la porkino. Sxi krias dolore kaj forkuras en la arbaro kun sia porkido.
-Ci dankegas la junulino sed la mordo de la porkino estas terure profunda kaj multego da sango eliras.
-Kreu la noton /n73 mordita kruro [73]/.
-La junulino rapide formetas sian cxemizo kaj uzas gxin por bandagxi cian kruron. Tamen gxi sxajnas tre malbona vundajxo.
-"Ci necesas pli bona sanigo, mi ne povas fari pli tie cxi", la junulino diras, "Mi nomas Sarino, cxu ci scias kie troveblas sxipon?".
-"Mi sercxis la saman, sed sxajnas ke tiu cxi estas nelogxata insulo, ci ne logxas cxi tie, cxu ne?", ci demandas al la junulino.
-"Ne, mi alvenis cxi tio mateno sxipe, sed mi jaj mia sxipistaro estis atakitaj el la logxantoj, ni mortigis cxiujn el ili sed ili preskaux faris la saman al nin.
-Mi estas la sola supervivintino, kaj mi pensis la sola gehomo sur la insulo, antaux vidi cin, kiel ci alvenis tie cxi?".
-Ci auskultas Sarina rakonto kaj ci povas vidi sxia espero forigi kiam ci diras kiel ci alvenis sur la insulo.
-Kreu la noton /n21 salvinta junulino [21]/.
-"Do ci ne havas sxipon? Mia rompigxis sur rokoj kiam mi alvenis, kvankam gxi estis tro granda kaj ni bezonus almenaux ok ulojn por veturi gxin. Ni devas trovi alian kielo por eliri el cxi tiu insulo".
-"Ni farigu fajron plagxen, tio alvenigos proksimajn sxipojn", ci proponas, ci ne estas la unua fojon ci perdis cian sxipo kaj restis sur nelogxata insulo, sed ci ne sxatas memori tion.
-Sarino ekkomencas pretigi la fajron, baldaux gxi bruligas kaj kreas multe da fumon.
-Pasas apenaux duonhoron kaj malgraux ne alvenas sxipoj vi auxdas fortan gxojan krion, vi vidas cian frato Toto alkuri skuante siajn brakojn.
-Dauxru cxe /l41 41/.
+#79 arbara strateto/
 
-#86 al Roko/
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+Eke ci trovas cin sur mallargxa kaj malrekta strateto.
+
+Se ci havas la noton /c2 mordita kruro/ iru tuj cxe /l<> <>/
+
+La strateto miras cin cxar ci kredis ka le insulo ne estis logxita.
+Espero plenas cin: se estas homoj sur la insulo eble estas sxipoj kaj kieloj por alveni al Roko al ciajn gefratoj!
+Sed iom post iom ci memoras pri rakontoj kiun ci auxdis kiam ci estis knabo. Rakontoj pri sovagxuloj, kiu mangxas homviando en noktaj festoj kaj logxas en nekonataj kaj malproksimaj insuloj. Rakontoj pri stultaj marvojagxistoj kiu lasis sin kapti el la hombestoj kaj mortis for de hejme.
+Certe dauxri sur la strateto estas la vojo pli rapida por alveni al Roko, aux al la mortejo.
+
+Se ci volas sekvi la strateto iru cxe /l30 30/,
+alie, se ci volas dauxri en la arbaro iru cxe /l57 57/.
+
+#80 nova kunulino/
+
+Sarino jam komencis helpi ciajn gefratojn preti la sxipo, laux sxin sxi vojagxis sxipe ekde sxi estis eta knabinon kaj certe sxi scias kiel marvojagxi.
+En malpli ol duonhoro estas kiel sxi estis kun vin ekde jaroj.
+
+Se ci havas la noton /c2 mordita kruro/ iru cxe /l82 82/.
+
+#81 arbaro/
+
+Ci trairadas la arbaron kaj la tempo fluas: /b1 aldonu unu streketon/.
+
+El cxi tie ci povas iri al /l33 33/, /l67 67/ aux /l79 79/.
+
+#82 vivdauxra vundo/
+
+Viajn gefratoj levas la cxemizon kiu kovras cian vundo, Pino rekudras gxin sed gxi estas tro grava. Sxajnas ke ci travivos sed ci ne plu povos normale pasxi, kaj certe ci ne povos kuri.
+
+Dauxru cxe /l54 54/.
+
+#83 ligna nekringo/
+
+Gxi estas beleta sed simpla nekringo. Gxi ne sxajnas tre utila.
+
+#84 Sxipruino/
+
+Cia fratino Pino vekigxa cin kaj la aliajn fratojn. 
+"Vi nepre venu vidi: estas sxipegon strangegan ekstere" 
+sxi diras kaj subite rekuras eksteren. 
+
+Ci lace malfermas la okulojn. 
+La sxtormo cxesis kaj la sxipo malmulte movas, krom Pino ciaj fratoj ankoraux dormas sur la planko. Ili ne sxajnas malsanitaj do vi sekvas cia fratino ekstere.
+
+Antaux vin ci vidas grandega sxipo, longa preskaux dudek metroj, gxi estas klinita antauxe kaj sxajnas havi trouj sube. 
+
+Sed la plej stranga kaj terura afero estas ke gxi estas tute kovrita de sango.
+
+Se ci havas la noton /c2 Rompita velo/ iru subite cxe /l76 76/,
+alie:
+se ci volas veki la aliulojn kaj esplori la stranga sanga sxipo iru cxe /l20 20/, 
+se ci nur volas reparti sendangxere veku ciajn gefratojn kaj dauxru cxe /l89 89/.
+
+#85 sxildo kupra/
+
+Belega sxildo kun strangaj argxentaj nodaj desegnoj, versxajne ili sorcxigas la sxildon sed ci ne certas.
+
+#86 soifa kaj malsata/
+
+Ci ne mangxis kaj trinkis dum preskaux unu tagon. Nun ci ne havas cxion cian forton kaj volas tuj mangxi ion.
+
+#87 Nelogxita insulo/
+
+Ci vekigxas sur plagxo, la suno kalde brilas kaj ci ne trinkas aux mangxas ekde unu tago, kreu la noton /n86 soifa kaj malsata [86]/.
+Ci levigxas cin por kompreni kie ci estis forsendita.
+Antaux cin cxeestas la maro, blua kaj senfina, gxi tre pli kalmas ol hieraux. 
+Alieflanke la plagxo tuj finas antaux densa pina arbaro, oni videblas birdojn kaj grandajn porkojn. 
+Cxi tiu sxajnas malgranda kaj vivplena insulo sed ci ne vidas aliaj homoj, precipe ci ne vidas ciajn gefratojn kaj cian sxipo, espereble ili estas sane alvenita al Roko.
+
+/a0 Visxu cxiun streketon/.
+
+Ci devas tuj trovi akvon kaj posto kie dormi.
+
+Iru cxe /l59 59/.
+
+#88 pli rapida ol porkino/
+
+Ci rapidege kuras, baldaux ci ne plu sentas ion malantaux cin. La porkido provas fugxi el ciaj brakoj sed ci forte tenas gxin.
+Ci havas multege da malsato, se ci volas rapide mortigi kaj mangxi la porkidon ci povas visxi la noton /c2 soifa kaj malsata/.
+Alie kreu la noton /n73 sovagxa porkido [73]/.
+
+Dauxru cxe /l60 60/.
+
+#89 al Roko/
 
 La vento forte blovas el malantauxe, kaj, esperante ne havi plie da okazajxacxojn en cxi tiu maro, vi dauxras vian vojagxon al Roko. 
 

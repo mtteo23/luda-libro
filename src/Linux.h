@@ -3,6 +3,7 @@
 #define pGAMES "resources/games/"
 #define pRULES "resources/rules/"
 #define pLABELS "resources/labels/"
+#define pCREDITS "resources/credits/"
 #define pSETTINGS "resources/settings.txt"
 
 #include <X11/Xlib.h>

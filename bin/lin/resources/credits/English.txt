@@ -1,0 +1,13 @@
+#0 Prova/
+Crediti e ringraziamenti:
+
+Programmazione: Matteo Pascali (https://github.com/mtteo23)
+
+Libro "Alroke": Matteo Pascali
+
+Play-testing:
+
+
+Voglio inoltre ringraziare tutti i volontari che contribuiscono alla libreria SFML senza la quale mi sarebbe stato impossibile creare questo programma.
+
+Grazie anche a chiunque abbia creato e stia mantenendo gli GNU FreeFont e che mi ha salvato da perdere molto più tempo a cercare un font che potessi utilizzare senza paura di problemi legali.

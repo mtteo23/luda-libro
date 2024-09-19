@@ -11,7 +11,7 @@
 
 
 
-enum {IdHome, IdPlay, IdSettings, IdBooks, IdGame, IdRules};
+enum {IdHome, IdPlay, IdSettings, IdBooks, IdGames, IdRules, IdCredits};
 
 
 bool isNum(string s)
@@ -671,7 +671,7 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 
     {///Continua
         static bool pHome=0;
-        Pulsante PHome(scritta[4], (1200-180)/2, (600-60)/2, 3, &pHome);
+        Pulsante PHome(scritta[4], (1200-180)/2, (600-60)/2-60, 3, &pHome);
         if(game.testo=="") 
 			PHome.stato=-1;
 		else 
@@ -685,29 +685,31 @@ int visHome(sf::RenderWindow* window, sf::Texture intreccio)
 			return IdPlay;
 		}
     }
-
     {///Impostazioni
         static bool pHome=0;
-        Pulsante PHome(scritta[5], (1200-180)/2, (600-60)/2+60, 3, &pHome);
+        Pulsante PHome(scritta[5], (1200-180)/2, (600-60)/2, 3, &pHome);
         if(PHome.draw(window)==3) return IdSettings;
     }
-
     {///Nuova partita
         static bool pHome=0;
-        Pulsante PHome(scritta[6], (1200-180)/2, (600-60)/2+120, 3, &pHome);
+        Pulsante PHome(scritta[6], (1200-180)/2, (600-60)/2+60, 3, &pHome);
         if(PHome.draw(window)==3) return IdBooks;
     }
-
     {///Vecchie partite
         static bool pHome=0;
-        Pulsante PHome(scritta[7], (1200-180)/2, (600-60)/2+180, 3, &pHome);
-        if(PHome.draw(window)==3) return IdGame;
+        Pulsante PHome(scritta[7], (1200-180)/2, (600-60)/2+120, 3, &pHome);
+        if(PHome.draw(window)==3) return IdGames;
     }
     {///Rules
         static bool pHome=0;
-        Pulsante PHome(scritta[8], (1200-180)/2, (600-60)/2+240, 3, &pHome);
+        Pulsante PHome(scritta[8], (1200-180)/2, (600-60)/2+180, 3, &pHome);
         if(PHome.draw(window)==3) return IdRules;
     }
+    {///Credits
+		static bool pHome=0;
+        Pulsante PHome(scritta[22], (1200-180)/2, (600-60)/2+240, 3, &pHome);
+        if(PHome.draw(window)==3) return IdCredits;
+	}
     {///Exit
         static bool pHome=0;
         Pulsante PHome(L"X", ScreenSize.x/prop.x-68, 8, 1, &pHome);
@@ -1070,12 +1072,12 @@ int visElencoGiochi(sf::RenderWindow* window, sf::Texture intreccio, Sezione sez
     Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
     if(PHome.draw(window)==3) return IdHome;
 
-    return IdGame;
+    return IdGames;
 }
 
 int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
 {
-	ifstream fin("rules/"+settings.language+".txt");
+	ifstream fin(pRULES+settings.language+".txt");
 	string text="";
 	while(!fin.eof())
 	{
@@ -1146,6 +1148,80 @@ int visRules(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
     return IdRules;
 }
 
+int visCredits(sf::RenderWindow* window, sf::Texture intreccio, int scroll)
+{
+	ifstream fin(pCREDITS+settings.language+".txt");
+	string text="";
+	while(!fin.eof())
+	{
+		string tmp;
+		getline(fin, tmp);
+		text+=tmp+"\n";
+	}
+	
+	Sezione sezione[500];
+	int nSez=disseziona(text, sezione);	
+	
+    float lC[256];
+	initLC(lC);
+	
+    sf::Text testoPagina;
+    testoPagina.setFont(settings.font);
+    testoPagina.setCharacterSize(settings.mainCharSize);
+    testoPagina.setStyle(sf::Text::Regular);
+	
+	for(int i=0; i<nSez; i++)
+    {
+        float c=0;
+        testoPagina.setFillColor(settings.colore[sezione[i].colore]);
+        testoPagina.setStyle(sezione[i].stile);
+        int contX=0;
+        for(unsigned int j=0; j<sezione[i].testo.size(); j++)
+        {
+			if(settings.language=="Esperanto")
+            {
+				if(sezione[i].testo[j]=='x' ){j++; contX++;}
+				testoPagina.setString(X2EO(sezione[i].testo).substr(j-contX, 1));
+			}
+			else
+			{
+				testoPagina.setString(sezione[i].testo.substr(j, 1));
+			}
+            testoPagina.setPosition(sezione[i].posizione+sf::Vector2f(c*settings.mainCharSize, settings.mainCharSize*scroll/4.f));
+            window->draw(testoPagina);
+            c+=lC[(int) sezione[i].testo[j]];
+        }
+    }
+
+    ///------------intreccio Sinistro
+    sf::Sprite barraS;
+    barraS.setTexture(intreccio);
+    barraS.setPosition(0, 0);
+    window->draw(barraS);
+
+
+    ///-----------------Intreccio Destro
+    sf::Sprite barraD;
+    barraD.setTexture(intreccio);
+    barraD.scale(-1.f, 1.f);
+    barraD.setPosition(ScreenSize.x, 0);
+    window->draw(barraD);
+
+    ///-----------------Barra Alta-----------------
+	sf::RectangleShape barraA(sf::Vector2f(ScreenSize.x-2*MarginSize.x*prop.x, MarginSize.y*prop.y));
+    barraA.setFillColor(settings.colore[0]);
+    barraA.setPosition(MarginSize.x*prop.x, 0);
+    window->draw(barraA);
+    {///Home
+        static bool pHome=0;
+        Pulsante PHome(L"H", MarginSize.x, (MarginSize.y-60)/2, 1, &pHome);
+        if(PHome.draw(window)==3) return IdHome;
+    }
+
+    return IdCredits;
+}
+
+
 void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf::Texture intreccio, int &nSez, int scroll)
 {
     switch(schermata)
@@ -1166,13 +1242,17 @@ void visualizza(sf::RenderWindow* window, int &schermata, Sezione sezione[], sf:
             schermata=visElencoLibri(window, intreccio, sezione, nSez);
         break;
 
-        case IdGame:
+        case IdGames:
             schermata=visElencoGiochi(window, intreccio, sezione, nSez);
         break;
         
         case IdRules:
             schermata=visRules(window, intreccio, scroll);
         break;
+        
+        case IdCredits:
+			schermata=visCredits(window, intreccio, scroll);
+		break;
     }
 }
 
@@ -1369,7 +1449,7 @@ int main()
         dimIntrSchermata[IdPlay]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdSettings]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdBooks]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
-        dimIntrSchermata[IdGame]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
+        dimIntrSchermata[IdGames]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
         dimIntrSchermata[IdRules]=sf::Vector2f(MarginSize.x*9/10*prop.x, ScreenSize.y);
 
 		calcolaIntreccio(dimIntrSchermata[IdHome], tile[IdHome]);
@@ -1463,7 +1543,16 @@ int main()
             window.display();
             sf::sleep(sf::milliseconds(40));
         }
-        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {rilascio=1; nSez=disseziona(game.pagina[game.indPagina], sezione); automaticSave();}
+        
+        if(rilascio==0 && !sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+        {
+			rilascio=1;
+			if(schermata!=IdGames)
+			{
+				nSez=disseziona(game.pagina[game.indPagina], sezione); 
+				automaticSave();
+			}
+		}
     }
 
     return 0;
